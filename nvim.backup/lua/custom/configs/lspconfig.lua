@@ -12,16 +12,10 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-local servers = { "svelte", "cssls", "tailwindcss"}
+local servers = {"tsserver", "svelte", "cssls", "tailwindcss"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
-lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {
@@ -35,5 +29,5 @@ lspconfig.tsserver.setup {
       description = "Organize Imports",
     }
   }
-}
-
+  }
+end

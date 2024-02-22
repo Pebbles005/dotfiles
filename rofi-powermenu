@@ -1,6 +1,6 @@
-chosen=$(printf "Power Off\nRestart\nLog Off" | rofi -dmenu -i -theme-str '@import "~/.config/rofi/powermenu.rasi"' -hover-select -me-select-entry '' -me-accept-entry MousePrimary)
+chosen=$(printf "Power Off\nRestart\nLog Off" | rofi -dmenu -i -theme ~/.config/rofi/powermenu.rasi -hover-select -me-select-entry '' -me-accept-entry MousePrimary)
 
-case "$chosen" in 
+case "$chosen" in
 	"Power Off") poweroff ;;
 	"Restart") reboot ;;
 	"Log Off") loginctl terminate-session ${XDG_SESSION_ID-} ;;
