@@ -1,4 +1,3 @@
-@import "config"
 @theme "/dev/null"
 
 
@@ -44,22 +43,17 @@ window {
 mainbox {
     border:  0;
     padding: 0;
-    children: [listview];
-    width: 100%;
-    height: 100%;
-    background-color: @background;
-}
-
-textbox {
-    text-color: @foreground;
+    children:[listview];
 }
 listview {
     fixed-height: 0;
     spacing:      2px ;
+    padding:      2px 0px 0px ;
 }
 element {
     border:  0;
     padding: 1px ;
+    orientation :horizontal;
 }
 element-text {
     background-color: inherit;
@@ -88,21 +82,4 @@ element.alternate.normal {
 element.alternate.urgent {
     background-color: @alternate-urgent-background;
     text-color:       @alternate-urgent-foreground;
-}
-
-button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
-}
-case-indicator {
-    spacing:    0;
-    text-color: @normal-foreground;
-}
-entry {
-    spacing:    0;
-    text-color: @normal-foreground;
-}
-
-inputbar {
-    children:   [ ];
 }
