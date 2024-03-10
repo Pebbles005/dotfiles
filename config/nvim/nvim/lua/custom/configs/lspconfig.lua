@@ -12,7 +12,7 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-local servers = {"tsserver", "svelte", "cssls", "tailwindcss"}
+local servers = {"tsserver", "svelte", "cssls", "tailwindcss","jsonls"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

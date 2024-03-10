@@ -11,6 +11,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 floating_modifier $mod
 
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Mumble"] floating enable
+
+for_window [floating] resize set 600 400, move position center
 bindsym $mod+t exec kitty
 
 bindsym $mod+q kill
@@ -133,9 +137,9 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #272829 #ffffff #CDD6F4   #CDD6F4
+client.focused          #4c7899 #191919 #ffffff #CDD6F4   #CDD6F4
 client.focused_inactive #333333 #5f676a #ffffff #5f676a   #5f676a
-client.unfocused        #333333 #272829 #888888 #61677A   #61677A
+client.unfocused        #333333 #191919 #888888 #61677A   #61677A
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #0c0c0c   #0c0c0c
 
@@ -152,10 +156,9 @@ bindsym $mod+c exec   rofi -show calc -no-show-match -no-sort -no-history -lines
 bindsym Print exec xfce4-screenshooter
 bindsym $mod+b exec kitty ranger
 #autostart commands
-
-exec_always feh --bg-fill Pictures/nightfield.jpg
+exec_always feh --bg-max Pictures/purple-lotus.webp
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always redshift
+exec_always redshift 
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom -b

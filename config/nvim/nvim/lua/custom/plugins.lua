@@ -56,6 +56,7 @@ local plugins = {
         "typescript-language-server",
         "svelte-language-server",
         "css-lsp",
+        "json-lsp",
         "tailwindcss-language-server"
       }
     }
