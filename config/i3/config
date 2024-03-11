@@ -11,10 +11,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 floating_modifier $mod
 
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Mumble"] floating enable
+for_window [class="Pavucontrol"] floating enable,resize 600 400
+for_window [class="Mumble"] floating enable,resize 600 400
+for_window [class="xdg-desktop-portal-gtk"] floating enable,resize 600 400
 
-for_window [floating] resize set 600 400, move position center
 bindsym $mod+t exec kitty
 
 bindsym $mod+q kill
@@ -159,6 +159,6 @@ bindsym $mod+b exec kitty ranger
 exec_always feh --bg-max Pictures/purple-lotus.webp
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always redshift 
+exec_always redshift
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom -b
