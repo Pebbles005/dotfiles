@@ -31,7 +31,6 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 # Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
 
-# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
 
 # Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
@@ -55,6 +54,7 @@ alias pico='edit'
 alias spico='sedit'
 alias snano='sedit'
 alias vim='nvim'
+alias lf='lfrun'
 
 # Replace batcat with cat on Fedora as batcat is not available as a RPM in any form
 if command -v lsb_release > /dev/null; then
@@ -163,7 +163,6 @@ alias lm='ls -alh |more' # pipe through 'more'
 alias lw='ls -xAh' # wide listing format
 alias ll='ls -Fls' # long listing format
 alias labc='ls -lap' #alphabetical sort
-alias lf="ls -l | egrep -v '^d'" # files only
 alias ldir="ls -l | egrep '^d'" # directories only
 
 # alias chmod commands

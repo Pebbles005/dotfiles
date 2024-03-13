@@ -154,7 +154,7 @@ bindsym $mod+Shift+v exec pavucontrol -t 4
 bindsym $mod+F4 exec rofi-powermenu
 bindsym $mod+c exec   rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme ~/.config/rofi/calcmenu.rasi
 bindsym Print exec xfce4-screenshooter
-bindsym $mod+b exec kitty ranger
+bindsym $mod+b exec kitty lfrun
 #autostart commands
 exec_always feh --bg-max Pictures/purple-lotus.webp
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
