@@ -15,11 +15,9 @@ for_window [class="Pavucontrol"] floating enable,resize 600 400
 for_window [class="Mumble"] floating enable,resize 600 400
 for_window [class="xdg-desktop-portal-gtk"] floating enable,resize 600 400
 
-bindsym $mod+t exec kitty
 
 bindsym $mod+q kill
 
-bindsym $mod+s  exec rofi -show drun
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -150,7 +148,9 @@ client.background       #ffffff
 
 bindsym $mod+r mode "resize"
 #custom binds
-bindsym $mod+Shift+v exec pavucontrol
+bindsym $mod+t exec kitty
+bindsym $mod+s  exec rofi -show drun
+bindsym $mod+Shift+v exec pavucontrol -t 4
 bindsym $mod+F4 exec rofi-powermenu
 bindsym $mod+c exec   rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme ~/.config/rofi/calcmenu.rasi
 bindsym Print exec xfce4-screenshooter

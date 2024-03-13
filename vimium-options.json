@@ -1,5 +1,5 @@
 {
-  "keyMappings": "# Insert your preferred key mappings here.\nunmap m \nunmap `\nunmap f\nunmap F\nmap b LinkHints.activateMode\nmap B LinkHints.activateModeToOpenInNewTab",
+  "keyMappings": "# Insert your preferred key mappings here.\nunmap m \nunmap `",
   "searchEngines": "# d: https://duckduckgo.com/?q=%s DuckDuckGo",
   "searchUrl": "https://duckduckgo.com/search?q=",
   "settingsVersion": "2.0.6",
