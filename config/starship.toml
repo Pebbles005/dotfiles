@@ -1,1 +1,32 @@
-/home/pebbles/github/mybash/starship.toml
+
+format = """
+[┌─]()\
+$username\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+\n[└─]()\
+"""
+
+[username]
+show_always = true
+style_user="fg:#fff6e0"
+format = '\[[$user]($style)\]-'
+
+
+[directory]
+format = '\[[$path]($style)\]'
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+format = '-\[[$symbol$branch]($style)\]'
+
+[git_status]
+format = '-([\[$all_status$ahead_behind\]]($style))'
