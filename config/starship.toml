@@ -1,16 +1,12 @@
-
 format = """
 [┌─]()\
 $username\
-$kubernetes\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$docker_context\
-$package\
 \n[└─]()\
 """
 
@@ -21,6 +17,7 @@ format = '\[[$user]($style)\]-'
 
 
 [directory]
+style="fg:#cdd6f4"
 format = '\[[$path]($style)\]'
 truncation_length = 3
 truncation_symbol = "…/"
@@ -29,4 +26,4 @@ truncation_symbol = "…/"
 format = '-\[[$symbol$branch]($style)\]'
 
 [git_status]
-format = '-([\[$all_status$ahead_behind\]]($style))'
+format = '-\[[$all_status$ahead_behind]($style)\]'
