@@ -7,6 +7,7 @@ if [ -n "$DISPLAY" ]; then
   cleanup() {
     exec 3>&-
     rm "$FIFO_UEBERZUG"
+    rm -rf "$HOME/.cache/lf/"
   }
 
   mkfifo "$FIFO_UEBERZUG"

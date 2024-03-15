@@ -148,7 +148,7 @@ alias .....='cd ../../../..'
 alias bd='cd "$OLDPWD"'
 
 # Remove a directory and all files
-alias rmd='/bin/rm  --recursive --force --verbose '
+alias rmd='/bin/rm  --recursive --verbose -i'
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh' # show hidden files

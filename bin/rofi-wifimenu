@@ -8,7 +8,7 @@ connected=$(nmcli -fields WIFI g)
 if [[ "$connected" =~ "enabled" ]]; then
 	toggle="󰖪  Disable Wi-Fi"
 elif [[ "$connected" =~ "disabled" ]]; then
-	toggle="󰖩 Enable Wi-Fi"
+	toggle="󰖩  Enable Wi-Fi"
 fi
 
 # Use rofi to select wifi network
