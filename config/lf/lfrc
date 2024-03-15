@@ -68,6 +68,5 @@ cmd delete ${{
 }}
 
 # use '<delete>' key for either 'trash' or 'delete' command
-map d delete
+map D delete
 map <backspace> set hidden!
-map x cut
