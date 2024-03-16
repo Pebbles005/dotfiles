@@ -8,6 +8,8 @@ if [ -n "$DISPLAY" ]; then
     exec 3>&-
     rm "$FIFO_UEBERZUG"
     rm -rf $HOME/.cache/lf/*
+    rm -rf $HOME/.cache/ueberzugpp/*
+    rm -rf $HOME/.cache/thumbnails/*
   }
 
   mkfifo "$FIFO_UEBERZUG"
