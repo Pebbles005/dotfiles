@@ -14,7 +14,7 @@ treesitter install command :
 - polybar - polybar (https://github.com/polybar/polybar?tab=readme-ov-file#installation), rofi (rofi configs as well)
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
 - i3 - i3 (https://i3wm.org/docs/repositories.html)
-- lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file),cat,mediainfo
+- lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
 - starship.toml - starship
@@ -23,7 +23,7 @@ treesitter install command :
 ## bin prerequisites :
 
 - autotiling - https://pypi.org/project/autotiling/
-- lfrun - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file),cat,mediainfo
+- lfrun - lf (https://github.com/gokcehan/lf) , ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat,mediainfo
 - rofi-powermenu,rofi-wifimenu - rofi
 
 
