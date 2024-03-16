@@ -8,7 +8,7 @@ Config files for mint xfce i3 rofi polybar stack
 - bash,
 - bash-completion,
 - tar,
-- neovim,
+- neovim (new version),
 - bat
 # vimium-options.json
 
@@ -17,5 +17,5 @@ for vimium plugin in browser
 # bin prerequisites :
 
 - autotiling - https://pypi.org/project/autotiling/
-- lfrun - lf(https://github.com/gokcehan/lf),ueberzugpp
+- lfrun - lf (https://github.com/gokcehan/lf),ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file),cat,mediainfo
 - rofi-powermenu,rofi-wifimenu - rofi

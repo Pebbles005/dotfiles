@@ -1,5 +1,5 @@
 set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+set previewer '~/.config/lf/preview'
 # interpreter for shell commands
 set shell sh
 set ignorecase true
