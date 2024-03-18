@@ -1,15 +1,25 @@
 #!/bin/sh
 set -e
 
+dir1="$HOME/.cache/lf/"
+dir2="$HOME/.cache/thumbnails/"
+dir3="$HOME/.cache/ueberzugpp/"
+remove_cache() {
+for dir in "$dir1" "$dir2" "$dir3"; do
+
+    if [ -d "$dir" ] && [ -n "$(ls -A "$dir")" ]; then
+            rm -rf "$dir"/*
+    fi
+done
+}
+
 if [ -n "$DISPLAY" ]; then
   export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
 
   cleanup() {
     exec 3>&-
     rm "$FIFO_UEBERZUG"
-    rm -rf $HOME/.cache/lf/*
-    rm -rf $HOME/.cache/ueberzugpp/*
-    rm -rf $HOME/.cache/thumbnails/*
+    remove_cache
   }
 
   mkfifo "$FIFO_UEBERZUG"
@@ -17,9 +27,7 @@ if [ -n "$DISPLAY" ]; then
   exec 3>"$FIFO_UEBERZUG"
   trap cleanup EXIT
 
-  if ! [ -d "$HOME/.cache/lf" ]; then
-    mkdir -p "$HOME/.cache/lf"
-  fi
+  remove_cache
 
   lf "$@" 3>&-
 else
