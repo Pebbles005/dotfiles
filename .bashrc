@@ -1,9 +1,6 @@
 #!/bin/bash
 iatest=$(expr index "$-" i)
 
-#######################################################
-# SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
-#######################################################
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -17,10 +14,7 @@ elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
-#######################################################
 # EXPORTS
-#######################################################
-
 # Disable the bell
 if [[ $iatest -gt 0 ]]; then bind "set bell-style visible"; fi
 
@@ -50,9 +44,6 @@ if [[ $iatest -gt 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 # Set the default editor
 export EDITOR=nvim
 export VISUAL=nvim
-alias pico='edit'
-alias spico='sedit'
-alias snano='sedit'
 alias vim='nvim'
 alias lf='lfrun'
 
@@ -83,20 +74,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-#######################################################
 # MACHINE SPECIFIC ALIAS'S
-#######################################################
-
-# Alias's for SSH
-# alias SERVERNAME='ssh YOURWEBSITE.com -l USERNAME -p PORTNUMBERHERE'
-
-# Alias's to change the directory
-alias web='cd /var/www/html'
-
-# Alias's to mount ISO files
-# mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
-# umount /home/NAMEOFISO.iso
-# (Both commands done as root only.)
 
 #######################################################
 # GENERAL ALIAS'S
@@ -105,17 +83,7 @@ alias web='cd /var/www/html'
 # EG: the ls command is aliased, but to use the normal ls command you would type \ls
 
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Edit this .bashrc file
-alias ebrc='edit ~/.bashrc'
-
-# Show help for this .bashrc file
-alias hlp='less ~/.bashrc_help'
-
-# alias to show the date
-alias da='date "+%Y-%m-%d %A %T %Z"'
 
 # Alias's to modified commands
 alias cp='cp -i'
@@ -167,14 +135,12 @@ alias ldir="ls -l | egrep '^d'" # directories only
 
 # alias chmod commands
 alias mx='chmod a+x'
+alias ux='chmod -x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
 alias 666='chmod -R 666'
 alias 755='chmod -R 755'
 alias 777='chmod -R 777'
-
-# Search command line history
-alias h="history | grep "
 
 # Search running processes
 alias p="ps aux | grep "
@@ -186,8 +152,6 @@ alias f="find . | grep "
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
-# To see if a command is aliased, a file, or a built-in command
-alias checkcommand="type -t"
 
 # Show open ports
 alias openports='netstat -nape --inet'
@@ -220,42 +184,7 @@ alias sha1='openssl sha1'
 
 alias clickpaste='sleep 3; xdotool type "$(xclip -o -selection clipboard)"'
 
-# KITTY - alias to be able to use kitty features when connecting to remote servers(e.g use tmux on remote server)
-
-alias kssh="kitty +kitten ssh"
-
-#######################################################
 # SPECIAL FUNCTIONS
-#######################################################
-
-# Use the best version of pico installed
-edit ()
-{
-	if [ "$(type -t jpico)" = "file" ]; then
-		# Use JOE text editor http://joe-editor.sourceforge.net/
-		jpico -nonotice -linums -nobackups "$@"
-	elif [ "$(type -t nano)" = "file" ]; then
-		nano -c "$@"
-	elif [ "$(type -t pico)" = "file" ]; then
-		pico "$@"
-	else
-		nvim "$@"
-	fi
-}
-sedit ()
-{
-	if [ "$(type -t jpico)" = "file" ]; then
-		# Use JOE text editor http://joe-editor.sourceforge.net/
-		sudo jpico -nonotice -linums -nobackups "$@"
-	elif [ "$(type -t nano)" = "file" ]; then
-		sudo nano -c "$@"
-	elif [ "$(type -t pico)" = "file" ]; then
-		sudo pico "$@"
-	else
-		sudo nvim "$@"
-	fi
-}
-
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
 	for archive in "$@"; do
@@ -357,16 +286,6 @@ up ()
 	cd $d
 }
 
-#Automatically do an ls after each cd
-# cd ()
-# {
-# 	if [ -n "$1" ]; then
-# 		builtin cd "$@" && ls
-# 	else
-# 		builtin cd ~ && ls
-# 	fi
-# }
-
 # Returns the last 2 fields of the working directory
 pwdtail ()
 {
@@ -447,35 +366,6 @@ ver ()
 	fi
 }
 
-# Automatically install the needed support files for this .bashrc file
-install_bashrc_support ()
-{
-	local dtype
-	dtype=$(distribution)
-
-	if [ $dtype == "redhat" ]; then
-		sudo yum install multitail tree joe
-	elif [ $dtype == "suse" ]; then
-		sudo zypper install multitail
-		sudo zypper install tree
-		sudo zypper install joe
-	elif [ $dtype == "debian" ]; then
-		sudo apt-get install multitail tree joe
-	elif [ $dtype == "gentoo" ]; then
-		sudo emerge multitail
-		sudo emerge tree
-		sudo emerge joe
-	elif [ $dtype == "mandriva" ]; then
-		sudo urpmi multitail
-		sudo urpmi tree
-		sudo urpmi joe
-	elif [ $dtype == "slackware" ]; then
-		echo "No install support for Slackware"
-	else
-		echo "Unknown distribution"
-	fi
-}
-
 # Show current network information
 netinfo ()
 {
@@ -491,8 +381,7 @@ netinfo ()
 }
 
 # IP address lookup
-alias whatismyip="whatsmyip"
-function whatsmyip ()
+function whatismyip ()
 {
 	# Dumps a list of all IP addresses for every device
 	# /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
@@ -662,15 +551,7 @@ case "$PROMPT_COMMAND" in
     *_zoxide_hook*) ;;
     *) PROMPT_COMMAND="_zoxide_hook${PROMPT_COMMAND:+;${PROMPT_COMMAND}}" ;;
 esac
-alias lookingglass="~/looking-glass-B5.0.1/client/build/looking-glass-client -F"
-#######################################################
-# Set the ultimate amazing command prompt
-#######################################################
-
-alias hug="hugo server -F --bind=10.0.0.210 --baseURL=http://10.0.0.210"
 
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
-
-# Install Starship - curl -sS https://starship.rs/install.sh | sh
 
 eval "$(starship init bash)"
