@@ -14,7 +14,7 @@ treesitter install command :
 - polybar - polybar (https://github.com/polybar/polybar?tab=readme-ov-file#installation), rofi (rofi configs as well)
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
 - i3 - i3 (https://i3wm.org/docs/repositories.html)
-- lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo
+- lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo, imagemagick
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
 - starship.toml - starship
@@ -23,7 +23,7 @@ treesitter install command :
 ## bin prerequisites :
 
 - autotiling - https://pypi.org/project/autotiling/
-- lfrun - lf (https://github.com/gokcehan/lf) , ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat,mediainfo
+- lfrun - lf (https://github.com/gokcehan/lf) , ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo, imagemagick
 - rofi-powermenu,rofi-wifimenu - rofi
 
 
@@ -38,7 +38,7 @@ treesitter install command :
 
 ## bloat removal :
 
-    nala remove --purge redshift-gtk seahorse sticky gnome-calculator simple-scan hexchat pix rythmbox webapp-manager xfce4-terminal thunderbird transmission-gtk xserver-xorg-video-intel geoclue-2.0 hypnotix firefox timeshift firefox-locale-en autojump xfce4-notifyd gnome-keyring gnome-keyring-pkcs11 evolution-data-server evolution-data-server-common ibebackend-1.2-10 libebook-1.2-20 libebook-contacts-1.2-3 libecal-2.0-1 libedata-book-1.2-26 libedata-cal-2.0-1 libedataserver-1.2-26 libedataserverui-1.2-3 
+    nala remove --purge redshift-gtk seahorse sticky gnome-calculator simple-scan hexchat pix rythmbox webapp-manager xfce4-terminal thunderbird transmission-gtk xserver-xorg-video-intel geoclue-2.0 hypnotix firefox timeshift firefox-locale-en autojump xfce4-notifyd gnome-keyring gnome-keyring-pkcs11 evolution-data-server evolution-data-server-common ibebackend-1.2-10 libebook-1.2-20 libebook-contacts-1.2-3 libecal-2.0-1 libedata-book-1.2-26 libedata-cal-2.0-1 libedataserver-1.2-26 libedataserverui-1.2-3
 
 
 ## vimium-options.json
