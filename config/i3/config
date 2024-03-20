@@ -21,10 +21,10 @@ bindsym --release $mod+Shift+q exec xkill
 
 
 
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 focus_follows_mouse no
 
 # alternatively, you can use the cursor keys:
@@ -34,22 +34,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -158,7 +152,7 @@ bindsym $mod+c exec   rofi -show calc -no-show-match -no-sort -no-history -lines
 bindsym Print exec xfce4-screenshooter
 bindsym $mod+b exec kitty lfrun
 #autostart commands
-exec_always feh --bg-max Pictures/cat-firewatch-purple.png
+exec_always feh --bg-max Pictures/evening-sky.png
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always redshift
