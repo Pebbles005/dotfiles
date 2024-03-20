@@ -1,15 +1,16 @@
 local M = {
   filetype = {
+    lua = {
+      require("formatter.filetypes.lua").prettier
+    },
     html = {
       require("formatter.filetypes.html").prettier
     },
     css = {
       require("formatter.filetypes.css").prettier
-
     },
     svelte = {
       require("formatter.filetypes.svelte").prettier
-
     },
     javascript = {
       require("formatter.filetypes.javascript").prettier

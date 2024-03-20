@@ -9,8 +9,6 @@ Config files for mint xfce i3 rofi polybar stack
 - dunst - dunst (notification manager)
 - kitty - kitty , nerd font
 - nvim - neovim (https://github.com/neovim/neovim/blob/master/INSTALL.md),
-treesitter install command :
-```TSInstall bash c css javascript json lua markdown markdown_inline python query svelte typescript vim vimdoc```
 - polybar - polybar (https://github.com/polybar/polybar?tab=readme-ov-file#installation), rofi (rofi configs as well)
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
 - i3 - i3 (https://i3wm.org/docs/repositories.html)
