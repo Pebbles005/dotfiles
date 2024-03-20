@@ -1,8 +1,4 @@
 local options = {
-
-
-
-
   ensure_installed = {
      "bash",
      "c",
