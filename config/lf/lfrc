@@ -1,3 +1,4 @@
+# lfrc
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/preview'
 set shell bash
