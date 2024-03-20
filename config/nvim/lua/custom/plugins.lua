@@ -56,7 +56,10 @@ local plugins = {
         "typescript-language-server",
         "svelte-language-server",
         "css-lsp",
-        "tailwindcss-language-server"
+        "json-lsp",
+        "tailwindcss-language-server",
+        "marksman",
+        "html-lsp"
       }
     }
   },

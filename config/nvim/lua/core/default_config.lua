@@ -27,7 +27,7 @@ M.ui = {
     selected_item_bg = "colored", -- colored / simple
   },
 
-  telescope = { style = "borderless" }, -- borderless / bordered
+  telescope = { style = "bordered" }, -- borderless / bordered
 
   ------------------------------- nvchad_ui modules -----------------------------
   statusline = {
@@ -51,17 +51,22 @@ M.ui = {
     load_on_startup = true,
 
     header = {
-      "           ▄ ▄                   ",
-      "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
-      "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
-      "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
-      "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
-      "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
-      "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
-      "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
-      "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
+    "        █            █                       ",
+    "       █ █          █ █                      ",
+    "      █    ████████    █             ████    ",
+    "     █                  █           █    █   ",
+    "    █                    █           █    █  ",
+    "   █                      ██████    █    █   ",
+    "   █    ██    ██    ██          █  █    █    ",
+    "   █        ██  ██               ██    █     ",
+    "   █                                  █      ",
+    "   █                                 █       ",
+    "   █                                █        ",
+    "    █                              █         ",
+    "     █                            █          ",
+    "      █  ████  ██████████  ██████            ",
+    "      ██▓  ▓▓██    ██▓▓  ▓▓██                ",
     },
-
     buttons = {
       { "  Find File", "Spc f f", "Telescope find_files" },
       { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
