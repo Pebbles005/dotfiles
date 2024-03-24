@@ -1,7 +1,6 @@
 #!/bin/bash
 iatest=$(expr index "$-" i)
 
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	 . /etc/bashrc

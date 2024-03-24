@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+
 dir1="$HOME/.cache/lf/"
 dir2="$HOME/.cache/thumbnails/"
 dir3="$HOME/.cache/ueberzugpp/"
