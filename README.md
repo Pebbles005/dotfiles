@@ -24,13 +24,15 @@ Config files for mint xfce i3 rofi polybar stack
 
 ## .bashrc prerequisites :
 
-- zoxide, fzf,
+- zoxide
 - starship,
 - bash,
 - bash-completion,
 - tar,
 - neovim (new version),
 - bat
+- fzf
+- tmux
 
 ## bloat removal :
 
