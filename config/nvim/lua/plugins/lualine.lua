@@ -1,13 +1,10 @@
 return {
+
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
 	config = function()
 		require("lualine").setup({
 			options = {
-				-- theme = {
-				-- 	normal = { c = { bg = "#ffffff00" }, y = { bg = vim.o.background } },
-				-- 	inactive = { c = { bg = "#ffffff00" }, y = { bg = vim.o.background } },
-				-- },
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "", right = "" },
 				always_divide_middle = true,
@@ -19,7 +16,7 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {},
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { "filename" },
 				lualine_x = { "filetype" },

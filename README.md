@@ -2,8 +2,6 @@
 
 Config files for mint xfce i3 rofi polybar stack
 
-
-
 ## config prerequisites :
 
 - dunst - dunst (notification manager)
@@ -16,7 +14,7 @@ Config files for mint xfce i3 rofi polybar stack
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
 - starship.toml - starship
-
+- tmux - tmux , tpp (https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) (run 'prefix I' in tmux to install plugins)
 
 ## bin prerequisites :
 
@@ -24,9 +22,9 @@ Config files for mint xfce i3 rofi polybar stack
 - lfrun - lf (https://github.com/gokcehan/lf) , ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
 - rofi-powermenu,rofi-wifimenu - rofi
 
-
 ## .bashrc prerequisites :
-- zoxide,
+
+- zoxide, fzf,
 - starship,
 - bash,
 - bash-completion,
@@ -71,7 +69,6 @@ Config files for mint xfce i3 rofi polybar stack
     nala remove --purge libreoffice-calc
     nala remove --purge libreoffice-math
     nala remove --purge libreoffice-base
-
 
 ## vimium-options.json
 

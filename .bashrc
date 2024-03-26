@@ -102,6 +102,11 @@ alias freshclam='sudo freshclam'
 alias vi='nvim'
 alias svi='sudo nvim'
 alias vis='nvim "+set si"'
+alias mx='tmux'
+alias mxa='tmux a'
+alias mxd='tmux detach'
+alias mxskillall='tmux kill-session'
+alias mxskill='tmux kill-session -t'
 
 # Change directory aliases
 alias home='cd ~'
@@ -115,7 +120,7 @@ alias .....='cd ../../../..'
 alias bd='cd "$OLDPWD"'
 
 # Remove a directory and all files
-alias rmd='/bin/rm  --recursive --verbose -i'
+alias rmd='/bin/rm  --recursive --verbose'
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh' # show hidden files
@@ -133,8 +138,8 @@ alias labc='ls -lap' #alphabetical sort
 alias ldir="ls -l | egrep '^d'" # directories only
 
 # alias chmod commands
-alias mx='chmod a+x'
-alias ux='chmod -x'
+alias modx='chmod a+x'
+alias unmodx='chmod -x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
 alias 666='chmod -R 666'
@@ -545,7 +550,6 @@ _zoxide_hook() {
         zoxide add "$(pwd -L)"
     fi
 }
-
 case "$PROMPT_COMMAND" in
     *_zoxide_hook*) ;;
     *) PROMPT_COMMAND="_zoxide_hook${PROMPT_COMMAND:+;${PROMPT_COMMAND}}" ;;
