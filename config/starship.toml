@@ -10,12 +10,6 @@ $git_status\
 \n[└─]()\
 """
 
-right_format = """
-
-
-
-"""
-
 [username]
 show_always = true
 style_user = "fg:#fff6e0"
