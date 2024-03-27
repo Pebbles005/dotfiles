@@ -105,7 +105,7 @@ alias vis='nvim "+set si"'
 alias mx='tmux'
 alias mxa='tmux a'
 alias mxd='tmux detach'
-alias mxskillall='tmux kill-session'
+alias mxskillall='tmux kill-server'
 alias mxskill='tmux kill-session -t'
 
 # Change directory aliases

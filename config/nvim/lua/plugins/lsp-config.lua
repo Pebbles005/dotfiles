@@ -9,8 +9,13 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = {
+			"BufReadPre",
+			"BufNewFile",
+		},
 		config = function()
 			require("mason-lspconfig").setup({
+				auto_install = true,
 				ensure_installed = servers,
 			})
 		end,
