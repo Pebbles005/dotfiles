@@ -32,6 +32,7 @@ Config files for mint xfce i3 rofi polybar stack
 - neovim (new version),
 - bat
 - fzf
+- fd-find
 - tmux
 
 ## bloat removal :

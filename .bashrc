@@ -75,16 +75,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # MACHINE SPECIFIC ALIAS'S
 
-#######################################################
 # GENERAL ALIAS'S
-#######################################################
-# To temporarily bypass an alias, we precede the command with a \
-# EG: the ls command is aliased, but to use the normal ls command you would type \ls
-
-# Add an "alert" alias for long running commands.  Use like so:
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias's to modified commands
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -102,13 +94,12 @@ alias freshclam='sudo freshclam'
 alias vi='nvim'
 alias svi='sudo nvim'
 alias vis='nvim "+set si"'
-alias mx='tmux'
-alias mxa='tmux a'
-alias mxd='tmux detach'
-alias mxskillall='tmux kill-server'
-alias mxskill='tmux kill-session -t'
+alias mux='tmux'
+alias muxa='tmux a'
+alias muxd='tmux detach'
+alias muxkillall='tmux kill-server'
+alias muxkill='tmux kill-session -t'
 
-# Change directory aliases
 alias home='cd ~'
 alias cd..='cd ..'
 alias ..='cd ..'
@@ -149,9 +140,6 @@ alias 777='chmod -R 777'
 # Search running processes
 alias p="ps aux | grep "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
-
-# Search files in the current folder
-alias f="find . | grep "
 
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
@@ -492,12 +480,40 @@ trim()
 	var="${var%"${var##*[![:space:]]}"}"  # remove trailing whitespace characters
 	echo -n "$var"
 }
-# GitHub Titus Additions
+
+open() {
+    f="$1"
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) nvim "$f" ;;
+        application/x-executable) "$f" ;;
+        *) xdg-open "$f" ;;
+    esac
+}
+
+fd() {
+     local dir
+     if [ -z "$1" ]; then
+         dir="."
+     else
+         dir="$1"
+     fi
+     dir=$(fdfind . "$dir" --type d -H -E .git -E node_modules| fzf) && cd "$dir"
+}
+ff() {
+     local dir
+     if [ -z "$1" ]; then
+         dir="."
+     else
+         dir="$1"
+     fi
+     dir=$(fdfind . "$dir" --type f -H -E .git -E node_modules| fzf) && open "$dir"
+}
 
 gcom() {
 	git add .
 	git commit -m "$1"
-	}
+}
+
 lazyg() {
 	git add .
 	git commit -m "$1"
