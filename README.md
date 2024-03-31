@@ -9,7 +9,7 @@ Config files for mint xfce i3 rofi polybar stack
 - nvim - neovim (https://github.com/neovim/neovim/blob/master/INSTALL.md),
 - polybar - polybar (https://github.com/polybar/polybar?tab=readme-ov-file#installation), rofi (rofi configs as well)
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
-- i3 - i3 (https://i3wm.org/docs/repositories.html)
+- i3 - i3 (https://github.com/polybar/polybar/wiki/Compiling)
 - lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
@@ -43,7 +43,7 @@ Config files for mint xfce i3 rofi polybar stack
     nala remove --purge gnome-calculator
     nala remove --purge simple-scan
     nala remove --purge hexchat pix
-    nala remove --purge rythmbox
+    nala remove --purge rhythmbox
     nala remove --purge webapp-manager
     nala remove --purge xfce4-terminal
     nala remove --purge thunderbird
@@ -72,7 +72,11 @@ Config files for mint xfce i3 rofi polybar stack
     nala remove --purge libreoffice-calc
     nala remove --purge libreoffice-math
     nala remove --purge libreoffice-base
+    nala remove --purge thunar
+    nala remove --purge mintbackup
 
 ## vimium-options.json
 
 for vimium plugin in browser
+
+
