@@ -23,6 +23,8 @@ if [ -n "$DISPLAY" ]; then
     remove_cache
   }
 
+
+  [ ! -d "$HOME/.cache/lf" ] && mkdir -p "$HOME/.cache/lf"
   mkfifo "$FIFO_UEBERZUG"
   ueberzug layer -s <"$FIFO_UEBERZUG" &
   exec 3>"$FIFO_UEBERZUG"

@@ -6,11 +6,11 @@ Config files for mint xfce i3 rofi polybar stack
 
 - dunst - dunst (notification manager)
 - kitty - kitty , nerd font
-- nvim - neovim (https://github.com/neovim/neovim/blob/master/INSTALL.md),
-- polybar - polybar (https://github.com/polybar/polybar?tab=readme-ov-file#installation), rofi (rofi configs as well)
+- nvim - neovim (https://github.com/neovim/neovim/blob/master/BUILD.md) , node (https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions) , xclip
+- polybar - polybar (https://github.com/polybar/polybar/wiki/Compiling), rofi (rofi configs as well)
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
-- i3 - i3 (https://github.com/polybar/polybar/wiki/Compiling)
-- lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
+- i3 - i3 (https://i3wm.org/docs/repositories.html)
+- lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), bat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
 - starship.toml - starship
@@ -74,9 +74,16 @@ Config files for mint xfce i3 rofi polybar stack
     nala remove --purge libreoffice-base
     nala remove --purge thunar
     nala remove --purge mintbackup
+    nala remove --purge neofetch
+    nala remove --purge nip2
+    nala remove --purge i3lock
+    nala remove --purge xss-lock
+    nala remove --purge catfish
 
 ## vimium-options.json
 
 for vimium plugin in browser
 
+## system setting
 
+base font size is 12
