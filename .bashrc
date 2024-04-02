@@ -129,8 +129,8 @@ alias labc='ls -lap' #alphabetical sort
 alias ldir="ls -l | egrep '^d'" # directories only
 
 # alias chmod commands
-alias modx='chmod a+x'
-alias unmodx='chmod -x'
+alias mod='chmod a+x'
+alias unmod='chmod -x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
 alias 666='chmod -R 666'
