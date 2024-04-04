@@ -30,7 +30,6 @@ truncation_symbol = "…/"
 "Projects" = "󰨸 "
 "Notes" = "󰸕 "
 "Github" = " "
-"Backup" = "󰉙 "
 
 [git_branch]
 format = '-\[[$symbol$branch]($style)\]'
