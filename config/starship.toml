@@ -16,7 +16,6 @@ style_user = "fg:#fff6e0"
 format = '\[[$user]($style)\]-'
 
 [directory]
-style = "fg:#cdd6f4"
 format = '\[[$path]($style)\]'
 truncation_length = 3
 truncation_symbol = "…/"
