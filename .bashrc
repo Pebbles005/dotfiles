@@ -101,7 +101,6 @@ alias muxkillall='tmux kill-server'
 alias muxkill='tmux kill-session -t'
 
 alias home='cd ~'
-alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -111,7 +110,7 @@ alias .....='cd ../../../..'
 alias bd='cd "$OLDPWD"'
 
 # Remove a directory and all files
-alias rmd='/bin/rm  --recursive --verbose'
+alias rmd='/bin/rm  -rf -v'
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh' # show hidden files
