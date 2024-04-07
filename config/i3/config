@@ -139,7 +139,7 @@ bindsym $mod+b exec kitty lfrun
 
 #autostart commands
 exec_always setxkbmap -option "caps:swapescape"
-exec_always feh --bg-max Pictures/evening-sky.png
+exec_always feh --bg-max Pictures/dark-flowers.jpg
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always redshift
