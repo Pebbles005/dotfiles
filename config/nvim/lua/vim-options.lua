@@ -35,6 +35,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move half page and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move half page and center" })
 vim.keymap.set("n", "<C-s>", vim.cmd.write, { desc = "save file" })
 vim.keymap.set("n", "<C-n>", "<cmd> Neotree filesystem reveal toggle <CR>", { desc = "toggle neotree" })
+vim.keymap.set("n", "<Tab>", "<cmd> bnext <CR>", { desc = "go to next opened file" })
 
 -- [[ Basic Autocommands ]]
 
