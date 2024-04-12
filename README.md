@@ -19,7 +19,8 @@ Config files for mint xfce i3 rofi polybar stack
 ## bin prerequisites :
 
 - autotiling - https://pypi.org/project/autotiling/
-- lfrun - lf (https://github.com/gokcehan/lf) , ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), cat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
+- lfrun - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), bat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
+
 - rofi-powermenu,rofi-wifimenu - rofi
 
 ## .bashrc prerequisites :
@@ -72,7 +73,6 @@ Config files for mint xfce i3 rofi polybar stack
     nala remove --purge libreoffice-calc
     nala remove --purge libreoffice-math
     nala remove --purge libreoffice-base
-    nala remove --purge thunar
     nala remove --purge mintbackup
     nala remove --purge neofetch
     nala remove --purge nip2
