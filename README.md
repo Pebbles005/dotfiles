@@ -80,9 +80,20 @@ Config files for mint xfce i3 rofi polybar stack
     nala remove --purge xss-lock
     nala remove --purge catfish
 
+## ly display manager
+
+ly display manager - https://github.com/fairyglade/ly?tab=readme-ov-file#dependencies
+
+ly config file situated in `/etc/ly/config.ini`
+
+if decided to use ly display manager then to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
+and can remove lightdm if needed
+
+    nala remove --purge lightdm
+
 ## vimium-options.json
 
-for vimium plugin in browser
+backup json for vimium plugin in browser
 
 ## system setting
 

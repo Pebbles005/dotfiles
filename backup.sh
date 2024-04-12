@@ -4,6 +4,10 @@ main_dir="dotfiles"
 if [ ! -d "$HOME/${main_dir}/config" ]; then
   mkdir -p "$HOME/${main_dir}/config"
 fi
+# making ly folder if it doesnt exist
+if [ ! -d "$HOME/${main_dir}/ly" ]; then
+  mkdir -p "$HOME/${main_dir}/ly"
+fi
 
 # making font folder if it doesnt exist
 if [ ! -d "$HOME/${main_dir}/.fonts" ]; then
@@ -127,7 +131,7 @@ else
     echo "file does not exist."
 fi
 
-# copying browser startpage config
+# copying startpage config
 if [ -f "$HOME/Documents/startpage.html" ]; then
     cp "$HOME/Documents/startpage.html" "$HOME/${main_dir}/"
 else
@@ -137,6 +141,14 @@ fi
 # copying vimium-options config
 if [ -f "$HOME/Documents/vimium-options.json" ]; then
     cp "$HOME/Documents/vimium-options.json" "$HOME/${main_dir}/"
+else
+    echo "file does not exist."
+fi
+
+
+# copying ly display manager config
+if [ -f "/etc/ly/config.ini" ]; then
+    cp "/etc/ly/config.ini" "$HOME/${main_dir}/ly/"
 else
     echo "file does not exist."
 fi
