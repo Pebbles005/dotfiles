@@ -86,6 +86,18 @@ ly display manager - https://github.com/fairyglade/ly?tab=readme-ov-file#depende
 
 ly config file situated in `/etc/ly/config.ini`
 
+To change the color pallet go to `/lib/systemd/system/ly.service` go and add `ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'
+` in [Service]
+
+    [Service]
+    Type=idle
+    ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'
+    ExecStart=/usr/bin/ly
+    StandardInput=tty
+    TTYPath=/dev/tty2
+    TTYReset=yes
+    TTYVHangup=yes
+
 if decided to use ly display manager then to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
 and can remove lightdm if needed
 
