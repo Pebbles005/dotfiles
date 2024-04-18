@@ -1,23 +1,13 @@
 format = """
-[┌─]()\
-$username\
-$directory\
-$fill\
+[┌─](fg:#61677a)\
+[$directory](fg:#61677a)\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-\n[└─]()\
+\n[└─](fg:#61677a)\
 """
-
-[fill]
-symbol = ' '
-
-[username]
-show_always = true
-style_user = "fg:#fff6e0"
-format = '\[[$user]($style)\]-'
 
 [directory]
 format = '\[[$path]($style)\]'
@@ -38,4 +28,4 @@ truncation_symbol = "…/"
 format = '[ $symbol$branch ]($style)'
 
 [git_status]
-format = '[$all_status$ahead_behind ]($style)'
+format = '[$all_status$ahead_behind]($style)'
