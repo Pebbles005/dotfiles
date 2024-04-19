@@ -10,7 +10,7 @@ return {
 			require("telescope").setup({
 				defaults = {
 					layout_config = {
-						preview_cutoff = 10,
+						preview_cutoff = 80,
 					},
 				},
 				extensions = {
