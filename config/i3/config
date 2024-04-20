@@ -110,6 +110,12 @@ mode "resize" {
         bindsym k resize shrink height 5 px or 5 ppt
         bindsym l resize grow width 5 px or 5 ppt
 
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -140,7 +146,7 @@ bindsym $mod+b exec kitty lfrun
 #autostart commands
 exec_always --no-startup-id nm-applet
 exec_always setxkbmap -option "caps:swapescape"
-exec_always feh --bg-max Pictures/ina-bad-ending.png
+exec_always feh --bg-max Pictures/dark-flowers.jpg
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always redshift
