@@ -23,7 +23,7 @@ Config files for mint xfce i3 rofi polybar stack
 
 - rofi-powermenu,rofi-wifimenu - rofi
 
-## .bashrc prerequisites :
+## .bashrc, .inputrc prerequisites :
 
 - zoxide
 - starship,

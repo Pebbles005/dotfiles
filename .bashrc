@@ -40,6 +40,7 @@ if [[ $iatest -gt 0 ]]; then bind "set completion-ignore-case on"; fi
 # Show auto-completion list automatically, without double tab
 if [[ $iatest -gt 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
+
 # Set the default editor
 export EDITOR=nvim
 export VISUAL=nvim
