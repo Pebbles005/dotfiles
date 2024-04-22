@@ -110,13 +110,6 @@ else
     echo "file does not exist."
 fi
 
-# copying .inputrc config
-if [ -f "$HOME/.inputrc" ]; then
-    cp "$HOME/.inputrc" "$HOME/${main_dir}/"
-else
-    echo "file does not exist."
-fi
-
 # copying lfrun bin excecutable
 if [ -f "/usr/bin/lfrun" ]; then
     cp "/usr/bin/lfrun" "$HOME/${main_dir}/bin/"

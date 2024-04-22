@@ -40,6 +40,8 @@ if [[ $iatest -gt 0 ]]; then bind "set completion-ignore-case on"; fi
 # Show auto-completion list automatically, without double tab
 if [[ $iatest -gt 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
+# set ctrl-backspace to delete one word
+bind '"\C-h": backward-kill-word'
 
 # Set the default editor
 export EDITOR=nvim
