@@ -2,8 +2,9 @@
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/preview'
 set shell bash
-set ignorecase true
-set icons true
+set ignorecase 
+set icons 
+set relativenumber
 
 # set '-eu' options for shell commands
 set shellopts '-eu'
