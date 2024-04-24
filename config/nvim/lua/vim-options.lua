@@ -36,9 +36,15 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move half page and center" })
 vim.keymap.set("n", "<C-s>", vim.cmd.write, { desc = "save file" })
 vim.keymap.set("n", "<C-n>", "<cmd> Neotree filesystem reveal toggle <CR>", { desc = "toggle neotree" })
 vim.keymap.set("n", "<Tab>", "<cmd> bnext <CR>", { desc = "go to next opened file" })
+vim.keymap.set("n", "<C-e>", function()
+	if vim.bo.filetype == "netrw" then
+		vim.cmd("Rexplore")
+	else
+		vim.cmd("Explore")
+	end
+end, { silent = true })
 
 -- [[ Basic Autocommands ]]
-
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
