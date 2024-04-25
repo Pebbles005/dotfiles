@@ -1,5 +1,6 @@
 return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	event = {
 		"BufReadPre",
 		"BufNewFile",
