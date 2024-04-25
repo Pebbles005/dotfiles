@@ -36,9 +36,14 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move half page and center" })
 vim.keymap.set("n", "<C-s>", vim.cmd.write, { desc = "save file" })
 vim.keymap.set("n", "<Tab>", "<cmd> bnext <CR>", { desc = "go to next opened file" })
 vim.keymap.set("n", "<C-e>", function()
-	if vim.bo.filetype == "netrw" then
+	local buf_list = vim.api.nvim_list_bufs()
+	local num_buffers = #buf_list
+	if num_buffers <= 1 and vim.bo.filetype == "netrw" then
+		vim.cmd("bwipeout!")
+	elseif vim.bo.filetype == "netrw" then
 		vim.cmd("Rexplore")
 	else
+		local layout = vim.fn.winsaveview()
 		vim.cmd("Explore")
 	end
 end, { silent = true })
