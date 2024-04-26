@@ -21,16 +21,17 @@ if [ -n "$DISPLAY" ]; then
     exec 3>&-
     rm "$FIFO_UEBERZUG"
     remove_cache
+    killall lf
   }
 
 
   [ ! -d "$HOME/.cache/lf" ] && mkdir -p "$HOME/.cache/lf"
+  remove_cache
   mkfifo "$FIFO_UEBERZUG"
   ueberzug layer -s <"$FIFO_UEBERZUG" &
   exec 3>"$FIFO_UEBERZUG"
   trap cleanup EXIT
 
-  remove_cache
 
   lf "$@" 3>&-
 else
