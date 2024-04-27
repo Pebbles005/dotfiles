@@ -103,6 +103,10 @@ and can remove lightdm if needed
 
     nala remove --purge lightdm
 
+for better grub experience go to `/etc/default/grub` and replace with this
+
+    GRUB_CMDLINE_LINUX_DEFAULT=
+
 ## vimium-options.json
 
 backup json for vimium plugin in browser
