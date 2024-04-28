@@ -7,7 +7,7 @@ return {
 			disable = {
 				background = true,
 				float_background = true, -- Disable setting the background color for floating windows
-				cursorline = false, -- Disable the cursorline
+				cursorline = true, -- Disable the cursorline
 				eob_lines = true, -- Hide the end-of-buffer lines
 			},
 		})
