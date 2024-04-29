@@ -10,6 +10,7 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu"
 vim.g.netrw_fastbrowse = 0
 vim.g.NetrwIsOpen = 0
+vim.g.netrw_buffer = 0
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -17,6 +18,7 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
@@ -67,7 +69,11 @@ vim.keymap.set("n", "<C-e>", function()
 	-- else
 	-- 	vim.cmd("Explore")
 	-- end
-	vim.cmd("Lexplore")
+	if vim.bo.filetype == "netrw" then
+		vim.cmd("bwipeout! ")
+	else
+		vim.cmd("Explore")
+	end
 end, { noremap = true, silent = true })
 
 -- [[ Basic Autocommands ]]
