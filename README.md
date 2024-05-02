@@ -7,13 +7,13 @@ Config files for mint xfce i3 rofi polybar stack
 - dunst - dunst (notification manager)
 - kitty - kitty , nerd font
 - nvim - neovim (https://github.com/neovim/neovim/blob/master/BUILD.md) , node (https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions) , xclip
-- polybar - polybar (https://github.com/polybar/polybar/wiki/Compiling), rofi (rofi configs as well)
+- polybar - polybar (https://github.com/polybar/polybar/wiki/Compiling), rofi (rofi configs as well) i.e. all mentioned dependencies are nedded to build
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
-- i3 - i3 (https://i3wm.org/docs/repositories.html)
+- i3 - i3 (https://i3wm.org/docs/repositories.html) , feh
 - lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), bat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
-- starship.toml - starship
+- starship.toml - starship (https://starship.rs/guide/#%F0%9F%9A%80-installation)
 - tmux - tmux , tpp (https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) (run 'prefix I' in tmux to install plugins)
 
 ## bin prerequisites :
@@ -79,6 +79,7 @@ Config files for mint xfce i3 rofi polybar stack
     nala remove --purge i3lock
     nala remove --purge xss-lock
     nala remove --purge catfish
+    nala remove --purge onboard
 
 ## ly display manager
 
@@ -99,6 +100,10 @@ To change the color pallet go to `/lib/systemd/system/ly.service` go and add `Ex
     TTYVHangup=yes
 
 if decided to use ly display manager then to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
+then run
+
+    sudo update-grub
+
 and can remove lightdm if needed
 
     nala remove --purge lightdm
@@ -106,6 +111,10 @@ and can remove lightdm if needed
 for better grub experience go to `/etc/default/grub` and replace with this
 
     GRUB_CMDLINE_LINUX_DEFAULT=
+
+then run
+
+    sudo update-grub
 
 ## vimium-options.json
 
