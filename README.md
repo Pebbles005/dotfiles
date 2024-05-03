@@ -10,7 +10,7 @@ Config files for mint xfce i3 rofi polybar stack
 - polybar - polybar (https://github.com/polybar/polybar/wiki/Compiling), rofi (rofi configs as well) i.e. all mentioned dependencies are nedded to build
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
 - i3 - i3 (https://i3wm.org/docs/repositories.html) , feh
-- lf - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), bat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
+- lf - lf (https://github.com/gokcehan/lf) (requires kitty to preview images) , bat, mediainfo , catdoc, docx2txt, odt2txt.
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
 - starship.toml - starship (https://starship.rs/guide/#%F0%9F%9A%80-installation)
@@ -19,8 +19,6 @@ Config files for mint xfce i3 rofi polybar stack
 ## bin prerequisites :
 
 - autotiling - https://pypi.org/project/autotiling/
-- lfrun - lf (https://github.com/gokcehan/lf), ueberzugpp (https://github.com/jstkdng/ueberzugpp?tab=readme-ov-file), bat, mediainfo, imagemagick, catdoc, docx2txt, odt2txt.
-
 - rofi-powermenu,rofi-wifimenu - rofi
 
 ## .bashrc prerequisites :

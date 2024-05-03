@@ -4,7 +4,9 @@ set previewer '~/.config/lf/preview'
 set shell bash
 set ignorecase 
 set icons 
+set number
 set relativenumber
+set mouse
 
 # set '-eu' options for shell commands
 set shellopts '-eu'

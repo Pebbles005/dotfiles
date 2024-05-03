@@ -47,7 +47,6 @@ bind '"\C-h": backward-kill-word'
 export EDITOR=nvim
 export VISUAL=nvim
 alias vim='nvim'
-alias lf='lfrun'
 
 # Replace batcat with cat on Fedora as batcat is not available as a RPM in any form
 if command -v lsb_release > /dev/null; then
