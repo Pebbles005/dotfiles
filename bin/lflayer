@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# making thumbnails folder if it doesnt exist
+if [ ! -d "$HOME/.cache/thumbnails" ]; then
+    mkdir -p "$HOME/.cache/thumbnails"
+  else
+    rm -rf "$HOME/.cache/thumbnails"/*
+fi
+
+# Run lf
+lf
+
+# Execute commands after lf exits
+if [ -d   "$HOME/.cache/thumbnails"] && [ -n "$(ls -A  "$HOME/.cache/thumbnails")" ]; then
+    rm -rf  "$HOME/.cache/thumbnails"/*
+fi

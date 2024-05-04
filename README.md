@@ -20,6 +20,7 @@ Config files for mint xfce i3 rofi polybar stack
 
 - autotiling - https://pypi.org/project/autotiling/
 - rofi-powermenu,rofi-wifimenu - rofi
+- lflayer - lf
 
 ## .bashrc prerequisites :
 

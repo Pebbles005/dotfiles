@@ -5,15 +5,8 @@ h=$3
 x=$4
 y=$5
 
-# making thumbnails folder if it doesnt exist
-if [ ! -d "$HOME/.cache/thumbnails" ]; then
-    mkdir -p "$HOME/.cache/thumbnails"
-  else
-    rm -rf "$HOME/.cache/thumbnails"/*
-fi
 
 TEMPDIR=~/.cache/thumbnails
-
 preview() {
     kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$1" < /dev/null > /dev/tty
     exit 1

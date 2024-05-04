@@ -89,7 +89,6 @@ alias less='less -R'
 alias cls='clear'
 alias apt-get='sudo apt-get'
 alias nala='sudo nala'
-
 alias docker='sudo docker'
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
@@ -101,6 +100,8 @@ alias mxa='tmux -u a'
 alias mxd='tmux -u detach'
 alias mxkillall='tmux kill-server'
 alias mxkill='tmux kill-session -t'
+alias lf='lflayer'
+
 
 alias home='cd ~'
 alias ..='cd ..'

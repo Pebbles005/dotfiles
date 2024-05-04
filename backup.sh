@@ -110,9 +110,9 @@ else
     echo "file does not exist."
 fi
 
-# copying lfrun bin excecutable
-if [ -f "/usr/bin/lfrun" ]; then
-    cp "/usr/bin/lfrun" "$HOME/${main_dir}/bin/"
+# copying lflayer bin excecutable
+if [ -f "/usr/bin/lflayer" ]; then
+    cp "/usr/bin/lflayer" "$HOME/${main_dir}/bin/"
 else
     echo "file does not exist."
 fi

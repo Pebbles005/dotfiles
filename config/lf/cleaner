@@ -2,7 +2,3 @@
 
 kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
 
-TEMPDIR =  "$HOME/.cache/thumbnails"
-if [ -d "$TEMPDIR" ] && [ -n "$(ls -A "$TEMPDIR")" ]; then
-    rm -rf "$TEMPDIR"/*
-fi

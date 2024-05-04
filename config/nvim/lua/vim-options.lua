@@ -60,21 +60,7 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-vim.keymap.set("n", "<C-e>", function()
-	-- local buf_list = vim.fn.bufnr("$")
-	-- if buf_list >= 1 and vim.bo.filetype == "netrw" then
-	-- 	vim.cmd("Rexplore")
-	-- elseif vim.bo.filetype == "netrw" then
-	-- 	vim.cmd("bwipeout!")
-	-- else
-	-- 	vim.cmd("Explore")
-	-- end
-	if vim.bo.filetype == "netrw" then
-		vim.cmd("bwipeout! ")
-	else
-		vim.cmd("Explore")
-	end
-end, { noremap = true, silent = true })
+vim.keymap.set("n", "<C-e>", "<cmd> Neotree filesystem reveal toggle <CR>", { desc = "toggle neotree" })
 
 -- [[ Basic Autocommands ]]
 vim.api.nvim_create_autocmd("TextYankPost", {
