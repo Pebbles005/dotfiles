@@ -46,11 +46,6 @@ bindsym $mod+Shift+Right move right
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
- # bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -148,7 +143,7 @@ bindsym $mod+Shift+v exec pavucontrol -t 4
 bindsym $mod+F4 exec rofi-powermenu
 bindsym $mod+c exec   rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme ~/.config/rofi/calcmenu.rasi
 bindsym Print exec xfce4-screenshooter
-bindsym $mod+b exec kitty lflayer
+bindsym $mod+e exec kitty lflayer
 
 #autostart commands
 exec_always --no-startup-id nm-applet

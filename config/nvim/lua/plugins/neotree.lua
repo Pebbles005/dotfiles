@@ -10,7 +10,14 @@ return {
 	config = function()
 		require("neo-tree").setup({
 			window = {
+				position = "current",
 				width = 30,
+			},
+			show_hidden = true,
+			filesystem = {
+				filtered_items = {
+					visible = true,
+				},
 			},
 		})
 	end,
