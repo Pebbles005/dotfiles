@@ -9,6 +9,10 @@ return {
 		config = function()
 			require("telescope").setup({
 				defaults = {
+					file_ignore_patterns = {
+						"node_modules",
+						"%.git",
+					},
 					layout_config = {
 						preview_cutoff = 80,
 					},
