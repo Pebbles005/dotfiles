@@ -1,3 +1,12 @@
+local no_preview = function()
+	return require("telescope.themes").get_dropdown({
+		borderchars = {
+			prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+			results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+		},
+		previewer = false,
+	})
+end
 return {
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
@@ -9,17 +18,24 @@ return {
 		config = function()
 			require("telescope").setup({
 				defaults = {
+					previewer = false,
 					file_ignore_patterns = {
 						"node_modules",
 						"%.git",
 					},
-					layout_config = {
-						preview_cutoff = 80,
+					borderchars = {
+						prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+						results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 					},
 				},
 				extensions = {
 					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
+						require("telescope.themes").get_dropdown({
+							borderchars = {
+								prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+								results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+							},
+						}),
 					},
 				},
 			})
@@ -32,9 +48,7 @@ return {
 			vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "git commits" })
 			vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "git status" })
 			vim.keymap.set("n", "<leader>/", function()
-				builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					previewer = false,
-				}))
+				builtin.current_buffer_fuzzy_find(no_preview())
 			end, { desc = "[/] Fuzzily search in current buffer" })
 			vim.keymap.set("n", "<leader>f/", function()
 				builtin.live_grep({
@@ -46,12 +60,11 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
-
 		config = function()
 			require("telescope").setup({
 				extensions = {
 					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
+						no_preview(),
 					},
 				},
 			})
