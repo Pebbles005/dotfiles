@@ -6,7 +6,7 @@ Config files for mint xfce i3 rofi polybar stack
 
 - dunst - dunst (notification manager)
 - kitty - kitty , nerd font
-- nvim - neovim (https://github.com/neovim/neovim/blob/master/BUILD.md) , node (https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions) , xclip
+- nvim - neovim (https://github.com/neovim/neovim/blob/master/BUILD.md) , node (https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions) , xclip , ripgrep
 - polybar - polybar (https://github.com/polybar/polybar/wiki/Compiling), rofi (rofi configs as well) i.e. all mentioned dependencies are nedded to build
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
 - i3 - i3 (https://i3wm.org/docs/repositories.html) , feh
