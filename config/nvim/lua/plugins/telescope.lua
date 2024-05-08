@@ -31,20 +31,6 @@ return {
 						results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 					},
 				},
-				pickers = {
-					find_files = {
-						previewer = false,
-					},
-					buffers = {
-						previewer = false,
-					},
-					lsp_definitions = {
-						previewer = false,
-					},
-					lsp_references = {
-						previewer = false,
-					},
-				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
@@ -52,12 +38,20 @@ return {
 				},
 			})
 			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+			vim.keymap.set("n", "<leader>ff", function()
+				builtin.find_files(no_preview())
+			end, { desc = "[S]earch [F]iles" })
+			vim.keymap.set("n", "<leader><leader>", function()
+				builtin.buffers(no_preview())
+			end, { desc = "[ ] Find existing buffers" })
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 			vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "git commits" })
 			vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "git status" })
-			vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+			vim.keymap.set({ "n", "v" }, "<leader>fw", function()
+				builtin.grep_string({
+					word_match = "-w",
+				})
+			end, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 			vim.keymap.set("n", "<leader>/", function()
 				builtin.current_buffer_fuzzy_find(no_preview())
