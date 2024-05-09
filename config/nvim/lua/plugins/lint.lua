@@ -9,9 +9,11 @@ return {
 					"eslint_d",
 					"stylua",
 					"taplo",
+					"beautysh",
+					"shellcheck",
 				},
 				run_on_start = true,
-				start_delay = 3000, -- 3 second delay
+				start_delay = 2000, -- 3 second delay
 				debounce_hours = 5, -- at least 5 hours between attempts to install/update
 			})
 		end,
@@ -31,6 +33,7 @@ return {
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
 				svelte = { "eslint_d" },
+				bash = { "shellcheck" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
