@@ -31,7 +31,7 @@ Config files for mint xfce i3 rofi polybar stack
 - tar,
 - neovim (new version),
 - bat
-- fzf
+- fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
 - fd-find
 - tmux
 

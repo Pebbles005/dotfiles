@@ -377,16 +377,6 @@ netinfo ()
 # IP address lookup
 function whatismyip ()
 {
-	# Dumps a list of all IP addresses for every device
-	# /sbin/ifconfig |grep -B1 "inet addr" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }';
-
-	### Old commands
-	# Internal IP Lookup
-	#echo -n "Internal IP: " ; /sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'
-#
-#	# External IP Lookup
-	#echo -n "External IP: " ; wget http://smart-ip.net/myip -O - -q
-
 	# Internal IP Lookup.
 	if [ -e /sbin/ip ];
 	then
@@ -550,15 +540,12 @@ zi() {
 
 
 alias za='zoxide add'
-
 alias zq='zoxide query'
 alias zqi='zoxide query -i'
-
 alias zr='zoxide remove'
 zri() {
     _zoxide_result="$(zoxide query -i -- "$@")" && zoxide remove "$_zoxide_result"
 }
-
 
 _zoxide_hook() {
     if [ -z "${_ZO_PWD}" ]; then
@@ -574,6 +561,6 @@ case "$PROMPT_COMMAND" in
 esac
 
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
-
 eval "$(starship init bash)"
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -14,3 +14,4 @@ lf
 if [ -d   "$HOME/.cache/thumbnails"] && [ -n "$(ls -A  "$HOME/.cache/thumbnails")" ]; then
     rm -rf  "$HOME/.cache/thumbnails"/*
 fi
+killall lf
