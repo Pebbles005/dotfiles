@@ -8,9 +8,6 @@ return {
 					"prettierd",
 					"eslint_d",
 					"stylua",
-					"taplo",
-					"beautysh",
-					"shellcheck",
 				},
 				run_on_start = true,
 				start_delay = 2000, -- 3 second delay
@@ -33,7 +30,6 @@ return {
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
 				svelte = { "eslint_d" },
-				bash = { "shellcheck" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
