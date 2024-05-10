@@ -1,6 +1,5 @@
 set $mod Mod1
 
-
 exec --no-startup-id dex --autostart --environment i3
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -11,11 +10,13 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 floating_modifier $mod
 
+floating_minimum_size 600 x 400
+floating_maximum_size 800 x 600
+for_window [floating] move position center
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mumble"] floating enable
-for_window [class="Xviewer"] floating enable
-for_window [class="Io.github.celluloid_player.Celluloid"] floating enable, resize set 400 400, move position right
-for_window [floating] resize set 600 400, move position center
+for_window [class="Xviewer"] floating enable, resize set 800 600
+for_window [class="Io.github.celluloid_player.Celluloid"] floating enable, resize set 400 400 
 
 bindsym $mod+q kill
 bindsym --release $mod+Shift+q exec xkill
