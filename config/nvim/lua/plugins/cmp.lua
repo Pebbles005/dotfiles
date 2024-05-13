@@ -1,4 +1,3 @@
-local window_border = { border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" } }
 return {
 	{
 		"hrsh7th/nvim-cmp",
@@ -41,8 +40,8 @@ return {
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered(window_border),
-					documentation = cmp.config.window.bordered(window_border),
+					completion = cmp.config.window.bordered({ border = "single" }),
+					documentation = cmp.config.window.bordered({ border = "single" }),
 				},
 				mapping = {
 					["<C-p>"] = cmp.mapping.select_prev_item(),

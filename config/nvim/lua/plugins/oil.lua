@@ -11,6 +11,9 @@ return {
 			},
 			keymaps = {
 				["<C-e>"] = "actions.close",
+				["<C-h>"] = "actions.toggle_hidden",
+				["<C-o>"] = "actions.select",
+				["<C-s>"] = "",
 			},
 			keymaps_help = {
 				border = "single",
