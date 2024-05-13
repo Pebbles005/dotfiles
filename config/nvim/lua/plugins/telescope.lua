@@ -2,6 +2,7 @@ local no_preview = function()
 	return require("telescope.themes").get_dropdown({
 		borderchars = {
 			prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+			results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
 		},
 		previewer = false,
 	})

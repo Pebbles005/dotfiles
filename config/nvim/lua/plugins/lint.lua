@@ -8,6 +8,7 @@ return {
 					"prettierd",
 					"eslint_d",
 					"stylua",
+					"shfmt",
 				},
 				run_on_start = true,
 				start_delay = 2000, -- 3 second delay
@@ -74,7 +75,7 @@ return {
 					markdown = { { "prettierd", "prettier" } },
 					erb = { "htmlbeautifier" },
 					html = { "htmlbeautifier" },
-					bash = { "beautysh" },
+					bash = { "shfmt" },
 					proto = { "buf" },
 					rust = { "rustfmt" },
 					yaml = { "yamlfix" },
