@@ -2,21 +2,21 @@
 main_dir="dotfiles"
 # making config folder if it doesnt exist
 if [ ! -d "$HOME/${main_dir}/config" ]; then
-  mkdir -p "$HOME/${main_dir}/config"
+    mkdir -p "$HOME/${main_dir}/config"
 fi
 # making ly folder if it doesnt exist
 if [ ! -d "$HOME/${main_dir}/ly" ]; then
-  mkdir -p "$HOME/${main_dir}/ly"
+    mkdir -p "$HOME/${main_dir}/ly"
 fi
 
 # making font folder if it doesnt exist
 if [ ! -d "$HOME/${main_dir}/.fonts" ]; then
-  mkdir -p "$HOME/${main_dir}/.fonts"
+    mkdir -p "$HOME/${main_dir}/.fonts"
 fi
 
 # making bin folder if it doesnt exist
 if [ ! -d "$HOME/${main_dir}/bin" ]; then
-  mkdir -p "$HOME/${main_dir}/bin"
+    mkdir -p "$HOME/${main_dir}/bin"
 fi
 
 # copying tmux config
@@ -144,7 +144,6 @@ if [ -f "$HOME/Documents/vimium-options.json" ]; then
 else
     echo "file does not exist."
 fi
-
 
 # copying ly display manager config
 if [ -f "/etc/ly/config.ini" ]; then
