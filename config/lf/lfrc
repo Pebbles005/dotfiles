@@ -14,6 +14,7 @@ set scrolloff 5
 set cursorpreviewfmt "\033[7;2m"
 set dircounts 
 set incsearch
+set ratios "2:3"
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
