@@ -13,7 +13,7 @@ return {
 				["<C-e>"] = "actions.close",
 				["<C-h>"] = "actions.toggle_hidden",
 				["<C-o>"] = "actions.select",
-				["<C-s>"] = "",
+				["<C-s>"] = false,
 			},
 			keymaps_help = {
 				border = "single",
