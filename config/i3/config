@@ -11,7 +11,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 floating_minimum_size 600 x 400
-floating_maximum_size 800 x 600
+floating_maximum_size 700 x 500
 for_window [floating] move position center
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Mumble"] floating enable
