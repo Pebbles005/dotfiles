@@ -5,50 +5,51 @@ h=$3
 x=$4
 y=$5
 
-
 TEMPDIR=~/.cache/thumbnails
 preview() {
-    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$1" < /dev/null > /dev/tty
+    kitty +kitten icat --silent --stdin no --transfer-mode file --place "${w}x${h}@${x}x${y}" "$1" </dev/null >/dev/tty
     exit 1
 }
 
-file="$1"; shift
+file="$1"
+shift
 case "$(basename "$file" | tr '[A-Z]' '[a-z]')" in
-    *.tgz | *.tar.gz) tar tzf "$file" ;;
-    *.tar.bz2 | *.tbz2) tar tjf "$file" ;;
-    *.tar.txz | *.txz) xz --list "$file" ;;
-    *.tar) tar tf "$file" ;;
-    *.zip | *.jar | *.war | *.ear | *.oxt) unzip -l "$file" ;;
-    *.rar) unrar l "$file" ;;
-    *.7z) 7z l "$file" ;;
-    *.[1-8]) man "$file" | col -b ;;
-    *.o) nm "$file" ;;
-    *.odt | *.ods | *.odp | *.sxw) odt2txt "$file" ;;
-    *.doc) catdoc "$file" ;;
-    *.docx) docx2txt "$file" - ;;
-    *.xls | *.xlsx)
-         ssconvert --export-type=Gnumeric_stf:stf_csv "$file" "fd://1" | cat --language=csv
-         ;;
-    *.wav | *.mp3 | *.flac | *.m4a | *.wma | *.ape | *.ac3 | *.og[agx] | *.spx | *.opus | *.as[fx] | *.mka)
-         mediainfo "$file"
-         ;;
-    *.avi | *.mp4 | *.wmv | *.dat | *.3gp | *.ogv | *.mkv | *.mpg | *.mpeg | *.vob | *.fl[icv] | *.m2v | *.mov | *.webm | *.ts | *.mts | *.m4v | *.r[am] | *.qt | *.divx)
+*.tgz | *.tar.gz) tar tzf "$file" ;;
+*.tar.bz2 | *.tbz2) tar tjf "$file" ;;
+*.tar.txz | *.txz) xz --list "$file" ;;
+*.tar) tar tf "$file" ;;
+*.zip | *.jar | *.war | *.ear | *.oxt) unzip -l "$file" ;;
+*.rar) unrar l "$file" ;;
+*.7z) 7z l "$file" ;;
+*.[1-8]) man "$file" | col -b ;;
+*.o) nm "$file" ;;
+*.odt | *.ods | *.odp | *.sxw) odt2txt "$file" ;;
+*.doc) catdoc "$file" ;;
+*.docx) docx2txt "$file" - ;;
+*.xls | *.xlsx)
+    ssconvert --export-type=Gnumeric_stf:stf_csv "$file" "fd://1" | batcat --paging=never --terminal-width="$w" --color=always --theme=Nord --language=csv
+    ;;
+*.wav | *.mp3 | *.flac | *.m4a | *.wma | *.ape | *.ac3 | *.og[agx] | *.spx | *.opus | *.as[fx] | *.mka)
+    mediainfo "$file"
+    ;;
+*.avi | *.mp4 | *.wmv | *.dat | *.3gp | *.ogv | *.mkv | *.mpg | *.mpeg | *.vob | *.fl[icv] | *.m2v | *.mov | *.webm | *.ts | *.mts | *.m4v | *.r[am] | *.qt | *.divx)
     thumbnail="$TEMPDIR/thumbnail.jpg"
-    ffmpegthumbnailer -i "$file" -o  "$thumbnail" -s 0 -q 5
+    ffmpegthumbnailer -i "$file" -o "$thumbnail" -s 0 -q 5
     preview "$thumbnail"
-	;;
-    *.pdf)
+    ;;
+*.pdf)
     thumbnail="$TEMPDIR/thumbnail.jpg"
-	gs -o "$thumbnail" -sDEVICE=pngalpha -dLastPage=1 "$file" >/dev/null
-	preview "$thumbnail"
-	;;
-    *.bmp | *.jpg | *.jpeg | *.png | *.xpm | *.webp | *.gif | *.jfif)
+    gs -o "$thumbnail" -sDEVICE=pngalpha -dLastPage=1 "$file" >/dev/null
+    preview "$thumbnail"
+    ;;
+*.bmp | *.jpg | *.jpeg | *.png | *.xpm | *.webp | *.gif | *.jfif)
     preview "$file"
     ;;
-    *.svg)
-	preview "$file"
-	;;
-    *) 
-    cat "$file" ;;
+*.svg)
+    preview "$file"
+    ;;
+*)
+    batcat --paging=never --terminal-width="$w" --color=always --theme=Nord "$file"
+    ;;
 esac
 return 127 # nonzero retcode required for lf previews to reload
