@@ -151,3 +151,10 @@ if [ -f "/etc/ly/config.ini" ]; then
 else
     echo "file does not exist."
 fi
+
+# copying fastfetch config
+if [ -d "$HOME/.config/fastfetch/" ]; then
+    rsync -av --delete-before "$HOME/.config/fastfetch/" "$HOME/${main_dir}/config/fastfetch/"
+else
+    echo "directory does not exist."
+fi

@@ -51,7 +51,8 @@ return {
 					)
 					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-					map("K", vim.lsp.buf.hover, "Hover Documentation")
+					map("<Esc>", vim.cmd.fclose, "[C]ode [A]ction")
+
 					vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 						border = "single",
 					})

@@ -55,7 +55,7 @@ if command -v lsb_release >/dev/null; then
     if [ "$DISTRIBUTION" = "Fedora" ]; then
         alias cat='bat'
     else
-        alias cat='batcat'
+        alias cat='batcat --theme=Nord'
     fi
 fi
 

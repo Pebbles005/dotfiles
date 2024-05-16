@@ -15,6 +15,7 @@ Config files for mint xfce i3 rofi polybar stack
 - redshift.conf - redshift
 - starship.toml - starship (https://starship.rs/guide/#%F0%9F%9A%80-installation)
 - tmux - tmux , tpp (https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) (run 'prefix I' in tmux to install plugins)
+- fastfetch - fastfetch (https://github.com/fastfetch-cli/fastfetch?tab=readme-ov-file#linux)
 
 ## bin prerequisites :
 
