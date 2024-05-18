@@ -149,7 +149,7 @@ bindsym $mod+e exec kitty lflayer
 #autostart commands
 exec_always --no-startup-id nm-applet
 exec_always setxkbmap -option "caps:swapescape"
-exec_always feh --bg-max Pictures/dark-flowers.jpg
+exec_always feh --bg-max Pictures/purple-lotus.webp
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always redshift

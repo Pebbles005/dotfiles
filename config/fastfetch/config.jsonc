@@ -8,59 +8,59 @@
     },
     "modules": [
         {
-            "key": "     user         ",
+            "key": "  user         ",
             "keyColor": "cyan",
             "type": "users"
         },
         {
-            "key": "     OS           ",
-            "keyColor": "default",
+            "key": "  OS           ",
+            "keyColor": "cyan",
             "type": "os"
         },
         {
-            "key": "    󰌢 Machine      ",
-            "keyColor": "green",
+            "key": "  Machine      ",
+            "keyColor": "cyan",
             "type": "host"
         },
         {
-            "key": "     Kernel       ",
-            "keyColor": "magenta",
+            "key": "  Kernel       ",
+            "keyColor": "cyan",
             "type": "kernel"
         },
         {
-            "key": "    󰅐 Uptime       ",
-            "keyColor": "red",
+            "key": "  Uptime       ",
+            "keyColor": "cyan",
             "type": "uptime"
         },
         {
-            "key": "    󰍹 Resolution   ",
-            "keyColor": "yellow",
+            "key": "  Resolution   ",
+            "keyColor": "cyan",
             "type": "display",
             "compactType": "original-with-refresh-rate"
         },
         {
-            "key": "     WM           ",
-            "keyColor": "blue",
+            "key": "  WM           ",
+            "keyColor": "cyan",
             "type": "wm"
         },
         {
-            "key": "     DE           ",
-            "keyColor": "green",
+            "key": "  DE           ",
+            "keyColor": "cyan",
             "type": "de"
         },
         {
-            "key": "    󰻠 CPU          ",
-            "keyColor": "yellow",
+            "key": "  CPU          ",
+            "keyColor": "cyan",
             "type": "cpu"
         },
         {
-            "key": "    󰍛 GPU          ",
-            "keyColor": "blue",
+            "key": "  GPU          ",
+            "keyColor": "cyan",
             "type": "gpu"
         },
         {
-            "key": "    󰑭 Memory       ",
-            "keyColor": "magenta",
+            "key": "  Memory       ",
+            "keyColor": "cyan",
             "type": "memory"
         }
     ]

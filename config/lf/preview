@@ -18,7 +18,7 @@ case "$(basename "$file" | tr '[A-Z]' '[a-z]')" in
 *.tar.bz2 | *.tbz2) tar tjf "$file" ;;
 *.tar.txz | *.txz) xz --list "$file" ;;
 *.tar) tar tf "$file" ;;
-*.zip | *.jar | *.war | *.ear | *.oxt) unzip -l "$file" ;;
+*.zip | *.jar | *.war | *.ear | *.oxt) unzip -Z1 "$file" ;;
 *.rar) unrar l "$file" ;;
 *.7z) 7z l "$file" ;;
 *.[1-8]) man "$file" | col -b ;;
