@@ -7,12 +7,12 @@
     transparency = 20
     notification_height = 0
     separator_height = 0
-    padding = 8
-    horizontal_padding = 8
+    padding = 14
+    horizontal_padding = 14
     frame_width = 1
     frame_color = "#cdd6f4"
     brackground = "#191919"
-    font = "CaskaydiaCove Nerd Font Regular 8"
+    font = "CaskaydiaCove Nerd Font Regular 10"
     separator_color = transparent
     sort = yes
     idle_threshold = 120
