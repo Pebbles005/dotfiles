@@ -1,4 +1,4 @@
-chosen=$(printf "Power Off\nRestart\nLog Off" | rofi -dmenu -i -theme ~/.config/rofi/powermenu.rasi -hover-select -me-select-entry '' -me-accept-entry MousePrimary)
+chosen=$(printf "Power Off\nRestart\nLog Off" | rofi -dmenu -i -cycle -theme-str 'mainbox{children:[listview];}window{height:20%;}' -hover-select -me-select-entry '' -me-accept-entry MousePrimary)
 
 case "$chosen" in
 	"Power Off") poweroff ;;

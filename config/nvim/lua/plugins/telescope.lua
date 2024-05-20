@@ -11,9 +11,22 @@ return {
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
-		branch = "0.1.x",
+		tag = "0.1.6",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-ui-select.nvim",
+				config = function()
+					require("telescope").setup({
+						extensions = {
+							["ui-select"] = {
+								no_preview(),
+							},
+						},
+					})
+					require("telescope").load_extension("ui-select")
+				end,
+			},
 		},
 		config = function()
 			require("telescope").setup({
@@ -59,7 +72,7 @@ return {
 			end, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 			vim.keymap.set("n", "<leader>/", function()
-				builtin.current_buffer_fuzzy_find(no_preview())
+				builtin.current_buffer_fuzzy_find()
 			end, { desc = "[/] Fuzzily search in current buffer" })
 			vim.keymap.set("n", "<leader>f/", function()
 				builtin.live_grep({
@@ -67,19 +80,6 @@ return {
 					prompt_title = "Live Grep in Open Files",
 				})
 			end, { desc = "[S]earch [/] in Open Files" })
-		end,
-	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						no_preview(),
-					},
-				},
-			})
-			require("telescope").load_extension("ui-select")
 		end,
 	},
 }

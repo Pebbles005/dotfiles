@@ -64,7 +64,7 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-export FZF_DEFAULT_OPTS="-i --cycle --keep-right --filepath-word --height=50% --layout=reverse --info=right --border=sharp --no-scrollbar --marker='+' --header-first --color='dark,fg:white,fg+:cyan,bg+:-1,hl:red,hl+:red,info:black,separator:black,border:black,label:black,prompt:cyan,pointer:cyan,marker:cyan,spinner:black'"
+export FZF_DEFAULT_OPTS="-i --keep-right --filepath-word --height=50% --layout=reverse --info=right --border=sharp --no-scrollbar --marker='+' --header-first --color='dark,fg:white,fg+:cyan,bg+:-1,hl:red,hl+:red,info:black,separator:black,border:black,label:black,prompt:yellow,pointer:cyan,marker:cyan,spinner:black'"
 
 # GENERAL ALIAS'S
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

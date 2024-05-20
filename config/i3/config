@@ -57,10 +57,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # i3 gaps
-gaps inner 10
-
-# focus the child container
-#bindsym $mod+d focus child
+gaps inner 5
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1"
@@ -134,15 +131,13 @@ client.placeholder      #000000 #0c0c0c #ffffff #0c0c0c   #0c0c0c
 default_border pixel 1
 default_floating_border pixel 1
 
-client.background       #ffffff
-
 bindsym $mod+r mode "resize"
 #custom binds
 bindsym $mod+t exec kitty
 bindsym $mod+s  exec rofi -show drun
 bindsym $mod+Shift+v exec pavucontrol -t 4
 bindsym $mod+F4 exec rofi-powermenu
-bindsym $mod+c exec   rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme ~/.config/rofi/calcmenu.rasi
+bindsym $mod+c exec "rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme-str 'mainbox{children:[inputbar,message,listview];}element.selected.normal{background-color:transparent;}'"
 bindsym Print exec xfce4-screenshooter
 bindsym $mod+e exec kitty lflayer
 
