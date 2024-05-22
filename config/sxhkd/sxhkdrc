@@ -1,0 +1,25 @@
+alt + t
+    kitty
+
+alt + s 
+    rofi -show drun
+
+alt + shift + v 
+    pavucontrol -t 4
+
+alt + F4
+    rofi-powermenu
+
+alt + c
+    rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme-str "element.selected.normal \{ background-color:#00000000; \} entry \{ placeholder : \"Type to Calculate\"; \}"
+
+@Print
+    maim -s -c 255,246,224,0.1 -u -l -B "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
+
+alt + @Print 
+    maim -u "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
+
+alt + e
+    kitty lflayer
+
+

@@ -290,6 +290,10 @@ lazyg() {
     git push
 }
 
+cpp() {
+    g++ "$1" -o cpptmp && ./cpptmp
+}
+
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

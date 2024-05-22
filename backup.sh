@@ -96,6 +96,13 @@ else
     echo "directory does not exist."
 fi
 
+# copying sxhkd config
+if [ -d "$HOME/.config/sxhkd/" ]; then
+    rsync -av --delete-before "$HOME/.config/sxhkd/" "$HOME/${main_dir}/config/sxhkd/"
+else
+    echo "directory does not exist."
+fi
+
 # copying fonts config
 if [ -d "$HOME/.fonts/" ]; then
     rsync -av --delete-before "$HOME/.fonts/" "$HOME/${main_dir}/.fonts/"

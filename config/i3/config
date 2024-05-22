@@ -10,7 +10,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 floating_modifier $mod
 
-floating_minimum_size 600 x 400
 floating_maximum_size 700 x 500
 for_window [floating] move position center
 for_window [class="Pavucontrol"] floating enable
@@ -52,9 +51,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
 
 # i3 gaps
 gaps inner 5
@@ -132,19 +128,12 @@ default_border pixel 1
 default_floating_border pixel 1
 
 bindsym $mod+r mode "resize"
-#custom binds
-bindsym $mod+t exec kitty
-bindsym $mod+s  exec rofi -show drun
-bindsym $mod+Shift+v exec pavucontrol -t 4
-bindsym $mod+F4 exec rofi-powermenu
-bindsym $mod+c exec "rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme-str 'mainbox{children:[inputbar,message,listview];}element.selected.normal{background-color:transparent;}'"
-bindsym Print exec xfce4-screenshooter
-bindsym $mod+e exec kitty lflayer
 
 #autostart commands
+exec_always --no-startup-id sxhkd
 exec_always --no-startup-id nm-applet
 exec_always setxkbmap -option "caps:swapescape"
-exec_always feh --bg-max Pictures/purple-lotus.webp
+exec_always feh --no-fehbg --bg-max '/home/pebbles/Pictures/purple-lotus.webp' 
 exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always redshift

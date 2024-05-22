@@ -9,6 +9,8 @@ return {
 					"eslint_d",
 					"stylua",
 					"shfmt",
+					"cpplint",
+					"clang-format",
 				},
 				run_on_start = true,
 				start_delay = 2000, -- 3 second delay
@@ -31,6 +33,7 @@ return {
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
 				svelte = { "eslint_d" },
+				cpp = { "cpplint" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -79,9 +82,9 @@ return {
 					proto = { "buf" },
 					rust = { "rustfmt" },
 					yaml = { "yamlfix" },
-					toml = { "taplo" },
 					css = { { "prettierd", "prettier" } },
 					scss = { { "prettierd", "prettier" } },
+					cpp = { { "clang-format", "prettierd" } },
 				},
 			})
 		end,

@@ -127,4 +127,5 @@ map o open
 map O $mimeopen --ask $f
 map v :toggle; down
 map V invert
+map <enter> shell
 map <esc> unselect

@@ -1,4 +1,5 @@
-local servers = { "bashls", "lua_ls", "tsserver", "svelte", "cssls", "tailwindcss", "jsonls", "marksman", "html" }
+local servers =
+	{ "bashls", "lua_ls", "tsserver", "svelte", "cssls", "tailwindcss", "jsonls", "marksman", "html", "clangd" }
 return {
 	{
 		"williamboman/mason.nvim",
