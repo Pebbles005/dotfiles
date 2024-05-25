@@ -132,10 +132,10 @@ bindsym $mod+r mode "resize"
 #autostart commands
 exec_always --no-startup-id sxhkd
 exec_always --no-startup-id nm-applet
-exec_always setxkbmap -option "caps:swapescape"
-exec_always feh --no-fehbg --bg-max '/home/pebbles/Pictures/purple-lotus.webp' 
-exec_always xrandr --output eDP-1-1 --scale 0.75x0.75
+exec_always --no-startup-id setxkbmap -option "caps:swapescape"
+exec_always --no-startup-id feh --no-fehbg --bg-max '/home/pebbles/Pictures/purple-lotus.webp' 
+exec_always --no-startup-id xrandr --output eDP-1-1 --scale 0.75x0.75
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always redshift
+exec_always --no-startup-id redshift
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom -b

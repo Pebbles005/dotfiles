@@ -41,7 +41,7 @@ cmd paste &{{
     rm ~/.local/share/lf/files
     lf -remote "send clear"
 }}
-# extract the current file with the right command
+
 cmd extract ${{
     set -f
     case $f in
@@ -55,7 +55,7 @@ cmd extract ${{
 }}
 
 cmd create %{{
-    name="$1"
+  name="$1"
     # Check if the input contains a directory and a file
     if [[ -d "$name" ]]; then
         echo "Directory '$name' already exists."
@@ -65,24 +65,22 @@ cmd create %{{
         # Extract directory path and file name
         directory="${name%/*}"
         file="${name##*/}"
-        
         # Create directory if it doesn't exist
         if [[ ! -d "$directory" ]]; then
             mkdir -p "$directory"
-            shell "echo 'Directory created: $directory'"
+            echo "Directory created: $directory"
         fi
-        
         # Create file
         touch "$directory/$file"
         echo "File created: $directory/$file"
     else
-        # Check if the input is a directory
+        # Check if the input ends with a slash indicating a directory
         if [[ "$name" == */ ]]; then
             name="${name%/}"
             mkdir -p "$name"
             echo "Directory created: $name"
         else
-            # Check if the input is a file
+            # Create file
             touch "$name"
             echo "File created: $name"
         fi
@@ -128,4 +126,4 @@ map O $mimeopen --ask $f
 map v :toggle; down
 map V invert
 map <enter> shell
-map <esc> unselect
+map <esc> :unselect; clear; echo "Selection Cleared"

@@ -10,6 +10,40 @@ return {
 					"saadparwaiz1/cmp_luasnip",
 					"rafamadriz/friendly-snippets",
 				},
+				config = function()
+					local ls = require("luasnip")
+					local s = ls.snippet
+					local t = ls.text_node
+					local i = ls.insert_node
+
+					ls.add_snippets("cpp", {
+						s("cin", {
+							t("cin >> "),
+							i(1),
+							t(";"),
+						}),
+						s("cout", {
+							t("cout << "),
+							i(1),
+							t(" << endl;"),
+						}),
+						s("cppboil", {
+							t({
+								"#include <iostream>",
+								"using namespace std;",
+								"",
+								"int main() {",
+								"    ",
+							}),
+							i(0),
+							t({
+								"",
+								"    return 0;",
+								"}",
+							}),
+						}),
+					})
+				end,
 			},
 			{
 				"windwp/nvim-autopairs",
@@ -70,7 +104,7 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
-				}, {
+					{ name = "path" },
 					{ name = "buffer" },
 				}),
 			})
