@@ -249,7 +249,7 @@ ver() {
 open() {
     f="$1"
     case $(file --mime-type "$f" -bL) in
-    text/* | application/json) nvim "$f" ;;
+    text/* | application/json | inode/x-empty) nvim "$f" ;;
     application/x-executable) "$f" ;;
     *) xdg-open "$f" ;;
     esac

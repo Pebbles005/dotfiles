@@ -89,6 +89,13 @@ else
     echo "directory does not exist."
 fi
 
+# copying i3 config
+if [ -d "$HOME/.config/bspwm/" ]; then
+    rsync -av --delete-before "$HOME/.config/bspwm/" "$HOME/${main_dir}/config/bspwm/"
+else
+    echo "directory does not exist."
+fi
+
 # copying picom config
 if [ -d "$HOME/.config/picom/" ]; then
     rsync -av --delete-before "$HOME/.config/picom/" "$HOME/${main_dir}/config/picom/"

@@ -4,7 +4,7 @@ alt + t
 alt + s 
     rofi -show drun
 
-alt + shift + v 
+alt + v 
     pavucontrol -t 4
 
 alt + F4
@@ -22,4 +22,54 @@ alt + @Print
 alt + e
     kitty lflayer
 
+# quit/restart bspwm
+alt + shift + r
+    bspc wm -r 
 
+# close or kill
+alt + {x,q}
+	{$HOME/.config/bspwm/scripts/custom_node_remove,bspc node -c }
+
+# set the window state
+alt + shift + f
+    bspc query -N -n focused.floating.local && bspc node -t tiled || bspc node -t floating
+
+# Toggle fullscreen state of the focused window
+alt + f
+    bspc node -t ~fullscreen
+
+# focus the node in the given direction
+alt + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# move the node in the given direction
+alt + shift + {h,j,k,l}
+	bspc node -s {west,south,north,east}
+
+# focus the next/previous window in the current desktop
+alt + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the last node/desktop
+alt + Tab
+    bspc desktop -f last.occupied
+
+# focus or send to the given desktop
+alt + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# move/resize
+
+# expand a window by moving one of its side outward
+alt + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+alt + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+alt + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+bspc config pointer_action1 move

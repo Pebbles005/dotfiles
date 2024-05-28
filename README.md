@@ -119,6 +119,18 @@ then run
 
     sudo update-grub
 
+## to try to fix tearing
+
+Add this file to `/etc/X11`
+
+    Section "Device"
+
+        Identifier "Intel Graphics"
+        Driver "intel"
+        Option "Tearfree" "true"
+
+    EndSection
+
 ## vimium-options.json
 
 backup json for vimium plugin in browser

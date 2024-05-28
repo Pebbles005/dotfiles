@@ -18,9 +18,9 @@ set ratios "2:3"
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
-        text/*|application/json) nvim "$f";;
-        application/x-executable) "$f";;
-        *) xdg-open "$f" ;;
+    text/* | application/json | inode/x-empty) nvim "$f" ;;
+    application/x-executable) "$f" ;;
+    *) xdg-open "$f" ;;
     esac
 }}
 
