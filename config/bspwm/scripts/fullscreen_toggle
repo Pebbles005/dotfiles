@@ -27,8 +27,9 @@ ShowNodes() {
     done
 }
 
+PrimaryMonitor=$(bspc query -M -m)
+
 bspc subscribe node_state | while read -r Event Monitor Desktop Node State Active; do
-    PrimaryMonitor=$(bspc query -M -m)
     # Hide bar and nodes when node becomes fullscreen, otherwise show
     if [ "$State" = "fullscreen" ] && [ "$Active" = "on" ]; then
         # Only consider nodes on primary monitor
@@ -45,8 +46,6 @@ bspc subscribe node_state | while read -r Event Monitor Desktop Node State Activ
 done &
 
 bspc subscribe node_remove | while read -r Event Monitor Desktop Node; do
-    PrimaryMonitor="$(bspc query -M -m)"
-
     # Show bar if no nodes are fullscreen on current desktop
     if [ "$Monitor" = "$PrimaryMonitor" ] &&
         [ -z "$(bspc query -N -n .fullscreen -d "$Desktop")" ]; then
@@ -61,8 +60,6 @@ if [ ! -f /tmp/custom_bspwm_events ]; then
 fi
 
 tail -f /tmp/custom_bspwm_events | while read -r Event Monitor Desktop Node; do
-    PrimaryMonitor="$(bspc query -M -m)"
-
     # Show bar if no nodes are fullscreen on current desktop
     if [ "$Monitor" = "$PrimaryMonitor" ] &&
         [ -z "$(bspc query -N -n .fullscreen -d "$Desktop")" ]; then
@@ -71,33 +68,27 @@ tail -f /tmp/custom_bspwm_events | while read -r Event Monitor Desktop Node; do
     ShowNodes "$Desktop"
 done &
 
-bspc subscribe node_transfer | while read -r Event SrcMonitor SrcDesktop SrcNode DestMonitor Dest Desktop DestNode; do
+bspc subscribe node_transfer | while read -r Event SrcMonitor SrcDesktop SrcNode DestMonitor DestDesktop DestNode; do
     # Show nodes on src desktop and hide nodes on dest desktop
-    # If src node is in full screen mode
     if [ -n "$(bspc query -N -n "$SrcNode".fullscreen)" ]; then
         ShowNodes "$SrcDesktop"
-        HideTiled "$DestDesktop"
         ShowBar
+        bspc node "$SrcNode" -t ~fullscreen
     fi
 
-    # Hide any fullscreen nodes on destination desktop
-    FullscreenDest=$(bspc query -N -n .fullscreen -d "$DestDesktop" |
-        sed "/$SrcNode/d")
+    FullscreenDest=$(bspc query -N -n .fullscreen -d "$DestDesktop")
     if [ -n "$FullscreenDest" ]; then
-        HideNodes "$FullscreenDest"
+        bspc node "$SrcNode" -g hidden=on
     fi
 done &
 
 bspc subscribe desktop_focus | while read -r Event Monitor Desktop; do
-    PrimaryMonitor="$(bspc query -M -m)"
     FullscreenNode="$(bspc query -N -n .fullscreen -d "$Desktop")"
 
     # Only consider nodes on primary monitor
     if [ "$PrimaryMonitor" = "$Monitor" ]; then
-        # Hide bar if desktop contains fullscreen node
         if [ -n "$FullscreenNode" ]; then
             HideBar
-        # Otherwise show the bar
         else
             ShowBar
         fi

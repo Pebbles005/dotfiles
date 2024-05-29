@@ -34,8 +34,18 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Function to check for floating windows and perform actions accordingly
+local function handle_esc()
+	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+		if vim.api.nvim_win_get_config(winid).relative ~= "" then
+			vim.cmd.fclose()
+			return
+		end
+	end
+	vim.cmd.nohlsearch()
+end
 -- Custom keybinds
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", handle_esc)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move half page and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move half page and center" })
 vim.keymap.set("n", "<C-s>", vim.cmd.write, { desc = "save file" })
