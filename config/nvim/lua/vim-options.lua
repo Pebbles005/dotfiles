@@ -48,7 +48,6 @@ end
 vim.keymap.set("n", "<Esc>", handle_esc)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move half page and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move half page and center" })
-vim.keymap.set("n", "<C-s>", vim.cmd.write, { desc = "save file" })
 vim.keymap.set("n", "<Tab>", "<cmd> bnext <CR>", { desc = "go to next opened file" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

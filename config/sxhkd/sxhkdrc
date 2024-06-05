@@ -8,13 +8,13 @@ alt + v
     pavucontrol -t 4
 
 alt + F4
-    rofi-powermenu
+    $HOME/.config/rofi/scripts/rofi-powermenu
 
 alt + c
     rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme-str "element.selected.normal \{ background-color:#00000000; \} entry \{ placeholder : \"Type to Calculate\"; \}"
 
 @Print
-    maim -s -c 255,246,224,0.1 -u -l -B "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
+    maim -s -c 255,246,224,0.3 -u -l -B "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
 
 alt + @Print 
     maim -u "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
@@ -28,27 +28,24 @@ alt + shift + r
 
 # close or kill
 alt + {x,q}
-	{$HOME/.config/bspwm/scripts/custom_node_remove,bspc node -c }
-
-# set the window state
-alt + shift + f
-    bspc query -N -n focused.floating.local && bspc node -t tiled || bspc node -t floating
-
-# Toggle fullscreen state of the focused window
-alt + f
-    bspc node -t ~fullscreen
+	{$HOME/.config/bspwm/scripts/custom_node_remove_event,bspc node -c }
 
 # focus the node in the given direction
 alt + {h,j,k,l}
-    bspc node -f {west,south,north,east}
+    $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
+
+alt + {Left,Down,Up,Right}
+    $HOME/.config/bspwm/scripts/window_edit {west,south,north,east}
+
+alt + space
+    $HOME/.config/bspwm/scripts/window_edit --focus-state
 
 # move the node in the given direction
 alt + shift + {h,j,k,l}
-	bspc node -s {west,south,north,east}
+    $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
 
-# focus the next/previous window in the current desktop
-alt + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
+alt + shift + {Left,Down,Up,Right}
+    $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
 
 # focus the last node/desktop
 alt + Tab
@@ -56,20 +53,21 @@ alt + Tab
 
 # focus or send to the given desktop
 alt + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
-# move/resize
+# set the window state
+alt + shift + space
+    bspc query -N -n focused.floating.local && bspc node -t tiled || bspc node -t floating
+
+# Toggle fullscreen state of the focused window
+alt + shift + f
+    bspc node -t ~fullscreen
 
 # expand a window by moving one of its side outward
-alt + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+alt + r 
+    $HOME/.config/bspwm/scripts/window_resize_state --toggle
 
-# contract a window by moving one of its side inward
-alt + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-alt + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+Caps_Lock
+    $HOME/.config/bspwm/scripts/window_resize_state --reset
 
 bspc config pointer_action1 move

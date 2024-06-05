@@ -50,16 +50,16 @@
 [urgency_low]
     background = "#191919"
     foreground = "#cdd6f4"
-    timeout = 2
+    timeout = 3
 
 [urgency_normal]
     background = "#191919"
     foreground = "#cdd6f4"
-    timeout = 2
+    timeout = 3
 
 [urgency_critical]
     background = "#900000"
     foreground = "#ffffff"
     frame_color = "#ff0000"
-    timeout = 2
+    timeout = 3
 

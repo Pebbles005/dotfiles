@@ -58,7 +58,6 @@ done &
 if [ ! -f /tmp/custom_bspwm_events ]; then
     touch /tmp/custom_bspwm_events
 fi
-
 tail -f /tmp/custom_bspwm_events | while read -r Event Monitor Desktop Node; do
     # Show bar if no nodes are fullscreen on current desktop
     if [ "$Monitor" = "$PrimaryMonitor" ] &&
