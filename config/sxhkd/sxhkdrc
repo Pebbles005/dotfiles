@@ -32,10 +32,10 @@ alt + {x,q}
 
 # focus the node in the given direction
 alt + {h,j,k,l}
-    $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
+    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" = "resize" ] && $HOME/.config/bspwm/scripts/window_edit --resize {west,south,north,east} || $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
 
 alt + {Left,Down,Up,Right}
-    $HOME/.config/bspwm/scripts/window_edit {west,south,north,east}
+    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" = "resize" ] && $HOME/.config/bspwm/scripts/window_edit --resize {west,south,north,east} || $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
 
 alt + space
     $HOME/.config/bspwm/scripts/window_edit --focus-state
@@ -55,6 +55,13 @@ alt + Tab
 alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
+# resizing windows
+alt + r
+    $HOME/.config/bspwm/scripts/window_resize_state --toggle
+
+alt + Escape
+    $HOME/.config/bspwm/scripts/window_resize_state --reset
+
 # set the window state
 alt + shift + space
     bspc query -N -n focused.floating.local && bspc node -t tiled || bspc node -t floating
@@ -62,12 +69,5 @@ alt + shift + space
 # Toggle fullscreen state of the focused window
 alt + shift + f
     bspc node -t ~fullscreen
-
-# expand a window by moving one of its side outward
-alt + r 
-    $HOME/.config/bspwm/scripts/window_resize_state --toggle
-
-Caps_Lock
-    $HOME/.config/bspwm/scripts/window_resize_state --reset
 
 bspc config pointer_action1 move

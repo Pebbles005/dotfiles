@@ -22,7 +22,7 @@ if [ "$node_state" = "tiled" ]; then
 
     next=$(bspc query -N -n "$direction")
 
-    if [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" = "resize" ]; then
+    if [ "$action" = "--resize" ]; then
         if [ "$direction" = "west" ]; then
             bspc node -z left -80 0 || bspc node -z right -80 0
         elif [ "$direction" = "east" ]; then
@@ -44,11 +44,21 @@ if [ "$node_state" = "tiled" ]; then
         else
             bspc node -s "$opposite"
         fi
-    elif [ "$action" = "--focus-state" ]; then
+    else
         bspc node 'last.local.!focused.!hidden.floating' -f
     fi
 elif [ "$node_state" = "floating" ]; then
-    if [ "$action" = "--focus" ]; then
+    if [ "$action" = "--resize" ]; then
+        if [ "$direction" = "west" ]; then
+            bspc node -z right -80 0
+        elif [ "$direction" = "east" ]; then
+            bspc node -z right 80 0
+        elif [ "$direction" = "north" ]; then
+            bspc node -z bottom 0 -80
+        elif [ "$direction" = "south" ]; then
+            bspc node -z bottom 0 80
+        fi
+    elif [ "$action" = "--focus" ]; then
         [[ "$direction" == "west" || "$direction" == "south" ]] && bspc node 'prev.local.!focused.!hidden.floating' -f || bspc node 'next.local.!focused.!hidden.floating' -f
     elif [ "$action" = "--move" ]; then
         if [ "$direction" = "west" ]; then
@@ -60,7 +70,7 @@ elif [ "$node_state" = "floating" ]; then
         elif [ "$direction" = "south" ]; then
             bspc node -v 0 80
         fi
-    elif [ "$action" = "--focus-state" ]; then
+    else
         bspc node 'last.local.!focused.!hidden.!floating.!fullscreen.window' -f
     fi
 else

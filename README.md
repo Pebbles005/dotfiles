@@ -18,6 +18,8 @@ Config files for mint xfce i3 rofi polybar stack
 - fastfetch - fastfetch (https://github.com/fastfetch-cli/fastfetch?tab=readme-ov-file#linux)
 - sxhkd - sxhkd , maim
 
+Note : To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard`
+
 ## bin prerequisites :
 
 - autotiling - https://pypi.org/project/autotiling/
@@ -90,7 +92,7 @@ ly display manager - https://github.com/fairyglade/ly?tab=readme-ov-file#depende
 
 ly config file situated in `/etc/ly/config.ini`
 
-To change the color pallet go to `/lib/systemd/system/ly.service` go and add `ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'
+To change the color pallet go to `/lib/systemd/system/ly.service` and add `ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'
 ` in [Service]
 
     [Service]
