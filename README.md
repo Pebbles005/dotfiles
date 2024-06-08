@@ -19,7 +19,8 @@ Config files for mint xfce i3 rofi polybar stack
 - fastfetch - fastfetch (https://github.com/fastfetch-cli/fastfetch?tab=readme-ov-file#linux)
 - sxhkd - sxhkd , maim , brightnessctl, rofi
 
-Note : To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard`
+Note :
+To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard` <br>
 to make brightnessctl work run this command and logout login.
 
     usermod -a -G video ${USER}
