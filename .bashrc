@@ -125,8 +125,6 @@ alias rebootforce='sudo shutdown -r -n now'
 alias diskspace="du -S | sort -n -r |more"
 alias folders='du -h --max-depth=1'
 alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
-alias tree='tree -CAhF --dirsfirst'
-alias treed='tree -CAFd'
 alias mountedinfo='df -hT'
 alias mktar='tar -cvf'
 alias mkbz2='tar -cvjf'

@@ -1,3 +1,18 @@
+super + Up
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+super + Down
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+super + m
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+super + Right
+    brightnessctl set +10% 
+
+super + Left
+    brightnessctl set 10%-
+
 alt + t
     kitty
 
@@ -32,10 +47,10 @@ alt + {x,q}
 
 # focus the node in the given direction
 alt + {h,j,k,l}
-    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" = "resize" ] && $HOME/.config/bspwm/scripts/window_edit --resize {west,south,north,east} || $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
+    $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
 
 alt + {Left,Down,Up,Right}
-    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" = "resize" ] && $HOME/.config/bspwm/scripts/window_edit --resize {west,south,north,east} || $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
+    $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
 
 alt + space
     $HOME/.config/bspwm/scripts/window_edit --focus-state
@@ -57,7 +72,7 @@ alt + {_,shift + }{1-9,0}
 
 # resizing windows
 alt + r
-    $HOME/.config/bspwm/scripts/window_resize_state --toggle
+    bspc query -N -n .window.local > /dev/null && $HOME/.config/bspwm/scripts/window_resize_state --toggle
 
 alt + Escape
     $HOME/.config/bspwm/scripts/window_resize_state --reset

@@ -10,15 +10,19 @@ Config files for mint xfce i3 rofi polybar stack
 - polybar - polybar (https://github.com/polybar/polybar/wiki/Compiling), rofi (rofi configs as well) i.e. all mentioned dependencies are nedded to build
 - rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
 - i3 - i3 (https://i3wm.org/docs/repositories.html) , feh
+- bspwm - bspwm , sxhkd
 - lf - lf (https://github.com/gokcehan/lf) (requires kitty to preview images) , bat, mediainfo , catdoc, docx2txt, odt2txt, ffmpegthumbnailer, imagemagick
 - picom - picom (https://github.com/yshui/picom)
 - redshift.conf - redshift
 - starship.toml - starship (https://starship.rs/guide/#%F0%9F%9A%80-installation)
 - tmux - tmux , tpp (https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) (run 'prefix I' in tmux to install plugins)
 - fastfetch - fastfetch (https://github.com/fastfetch-cli/fastfetch?tab=readme-ov-file#linux)
-- sxhkd - sxhkd , maim
+- sxhkd - sxhkd , maim , brightnessctl, rofi
 
 Note : To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard`
+to make brightnessctl work run this command and logout login.
+
+    usermod -a -G video ${USER}
 
 ## bin prerequisites :
 
