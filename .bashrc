@@ -246,32 +246,36 @@ ver() {
 
 open() {
     f="$1"
+    needs_sudo=false
+
+    if [ ! -w "$f" ]; then
+        needs_sudo=true
+    fi
+
+    run_cmd() {
+        if [ "$needs_sudo" = true ]; then
+            sudo "$@"
+        else
+            "$@"
+        fi
+    }
+
     case $(file --mime-type "$f" -bL) in
-    text/* | application/json | inode/x-empty) nvim "$f" ;;
-    application/x-executable) "$f" ;;
-    *) xdg-open "$f" ;;
+    text/* | application/json | inode/x-empty) run_cmd nvim "$f" ;;
+    application/x-executable) run_cmd "$f" ;;
+    *) run_cmd xdg-open "$f" ;;
     esac
 }
 
 fd() {
-    local dir
-    if [ -z "$1" ]; then
-        dir="."
-    else
-        dir="$1"
-    fi
+    local dir="${1:-.}"
     dir=$(
         fdfind . "$dir" --type d -H -E .git -E node_modules | fzf --border-label="find directory"
     ) && cd "$dir"
 }
 
 ff() {
-    local dir
-    if [ -z "$1" ]; then
-        dir="."
-    else
-        dir="$1"
-    fi
+    local dir="${1:-.}"
     dir=$(
         fdfind . "$dir" --type f -H -E .git -E node_modules | fzf --border-label="find files"
     ) && open "$dir"

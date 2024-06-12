@@ -5,13 +5,13 @@ super + Down
     pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 super + m
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+    pactl set-sink-mute @DEFAULT_SINK@ toggle; pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "Volume and mic is muted"
 
 super + Right
-    brightnessctl set +10% 
+    brightnessctl set +10% && notify-send --hint=string:x-dunst-stack-tag:brightness-notification "Brightness is at $(($(brightnessctl g) * 100 / $(brightnessctl m)))%"
 
 super + Left
-    brightnessctl set 10%-
+    brightnessctl set 10%- && notify-send --hint=string:x-dunst-stack-tag:brightness-notification "Brightness is at $(($(brightnessctl g) * 100 / $(brightnessctl m)))%"
 
 alt + t
     kitty
@@ -53,14 +53,14 @@ alt + {Left,Down,Up,Right}
     $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
 
 alt + space
-    $HOME/.config/bspwm/scripts/window_edit --focus-state
+    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && $HOME/.config/bspwm/scripts/window_edit --focus-state
 
 # move the node in the given direction
 alt + shift + {h,j,k,l}
-    $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
+    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
 
 alt + shift + {Left,Down,Up,Right}
-    $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
+    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
 
 # focus the last node/desktop
 alt + Tab
@@ -79,10 +79,10 @@ alt + Escape
 
 # set the window state
 alt + shift + space
-    bspc query -N -n focused.floating.local && bspc node -t tiled || bspc node -t floating
+    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && bspc query -N -n focused.floating.local && bspc node -t tiled || bspc node -t floating
 
 # Toggle fullscreen state of the focused window
 alt + shift + f
-    bspc node -t ~fullscreen
+    [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && bspc node -t ~fullscreen
 
 bspc config pointer_action1 move

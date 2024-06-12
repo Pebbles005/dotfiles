@@ -17,10 +17,24 @@ set incsearch
 set ratios "2:3"
 
 cmd open ${{
+    needs_sudo=false
+
+    if [ ! -w "$f" ]; then
+        needs_sudo=true
+    fi
+
+    run_cmd() {
+        if [ "$needs_sudo" = true ]; then
+            sudo "$@"
+        else
+            "$@"
+        fi
+    }
+
     case $(file --mime-type "$f" -bL) in
-    text/* | application/json | inode/x-empty) nvim "$f" ;;
-    application/x-executable) "$f" ;;
-    *) xdg-open "$f" ;;
+    text/* | application/json | inode/x-empty) run_cmd nvim "$f" ;;
+    application/x-executable) run_cmd "$f" ;;
+    *) run_cmd xdg-open "$f" ;;
     esac
 }}
 
