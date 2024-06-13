@@ -293,7 +293,7 @@ lazyg() {
 }
 
 cpp() {
-    g++ "$1" -o cpptmp && ./cpptmp
+    g++ "$1" -o /tmp/cpp_tmp && /tmp/cpp_tmp
 }
 
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
