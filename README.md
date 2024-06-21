@@ -1,47 +1,84 @@
-## .dotfiles
+## prerequisites
 
-Config files for mint xfce i3 rofi polybar stack
-
-## config prerequisites :
-
-- dunst - dunst (notification manager)
-- kitty - kitty , nerd font
-- nvim - neovim (https://github.com/neovim/neovim/blob/master/BUILD.md) , node (https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions , check for any kind errors in lazy or mason) , xclip , ripgrep
-- polybar - polybar (https://github.com/polybar/polybar/wiki/Compiling), rofi (rofi configs as well) i.e. all mentioned dependencies are nedded to build
-- rofi - rofi , rofi-calc (https://github.com/svenstaro/rofi-calc)
-- i3 - i3 (https://i3wm.org/docs/repositories.html) , autotiling - (https://pypi.org/project/autotiling/) , feh
-- bspwm - bspwm , sxhkd
-- lf - lf (https://github.com/gokcehan/lf) (requires kitty to preview images) , bat, mediainfo , catdoc, docx2txt, odt2txt, ffmpegthumbnailer, imagemagick
-- picom - picom (https://github.com/yshui/picom)
-- redshift.conf - redshift
-- starship.toml - starship (https://starship.rs/guide/#%F0%9F%9A%80-installation)
-- tmux - tmux , tpp (https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) (run 'prefix I' in tmux to install plugins)
-- fastfetch - fastfetch (https://github.com/fastfetch-cli/fastfetch?tab=readme-ov-file#linux)
-- sxhkd - sxhkd , maim , brightnessctl, rofi
-
-Note :
-To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard` <br>
-to make brightnessctl work run this command and logout login.
-
-    usermod -a -G video ${USER}
-
-## bin prerequisites :
-
-- rofi-powermenu,rofi-wifimenu - rofi
-- lflayer - lf
-
-## .bashrc prerequisites :
-
-- zoxide
-- starship,
-- bash,
-- bash-completion,
-- tar,
-- neovim (new version),
+- dunst
+- kitty
+- ripgrep
+- [node](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions)
+- xclip
+- [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) , check for any kind errors in lazy or mason
+- [polybar](https://github.com/polybar/polybar/wiki/Compiling) , i.e. all mentioned dependencies in instructions are needed to build
+- rofi
+- [rofi-calc](https://github.com/svenstaro/rofi-calc)
+- bspwm
+- sxhkd
+- feh
+- [lf](https://github.com/gokcehan/lf) , i.e. requires kitty to preview images
 - bat
-- fzf (https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
+- mediainfo
+- catdoc
+- docx2txt
+- odt2txt
+- ffmpegthumbnailer
+- imagemagick
+- [picom](https://github.com/yshui/picom)
+- redshift
+- [starship](https://starship.rs/guide/#%F0%9F%9A%80-installation)
+- tmux , [tpp](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) , i.e. run 'prefix I' in tmux to install plugins
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch?tab=readme-ov-file#linux)
+- maim
+- brightnessctl
+- zoxide
+- bat
 - fd-find
-- tmux
+- [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
+
+## Note
+
+- Base font size for system is 12
+- To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard` <br>
+- to make brightnessctl work run this command and logout login.
+
+        usermod -a -G video ${USER}
+
+- to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
+  and to remove splash screen go to `/etc/default/grub` and replace with this
+
+          GRUB_CMDLINE_LINUX_DEFAULT=
+
+then run
+
+        sudo update-grub
+
+- to try to fix tearing add this file to `/etc/X11`
+
+        Section "Device"
+
+            Identifier "Intel Graphics"
+            Driver "intel"
+            Option "Tearfree" "true"
+
+        EndSection
+
+## optional prerequisites
+
+- [i3](https://i3wm.org/docs/repositories.html)
+- [autotiling](https://pypi.org/project/autotiling/)
+- [ly display manager](https://github.com/fairyglade/ly?tab=readme-ov-file#dependencies)
+  ly config file situated in `/etc/ly/config.ini`
+  To change the color pallet go to `/lib/systemd/system/ly.service` and add `ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'` in [Service]
+
+          [Service]
+          Type=idle
+          ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'
+          ExecStart=/usr/bin/ly
+          StandardInput=tty
+          TTYPath=/dev/tty2
+          TTYReset=yes
+          TTYVHangup=yes
+
+  and can remove lightdm if needed
+
+      nala remove --purge lightdm
 
 ## bloat removal :
 
@@ -89,58 +126,3 @@ to make brightnessctl work run this command and logout login.
     nala remove --purge onboard
     nala remove --purge thunar
     nala remove --purge xfce4-screenshooter
-
-## ly display manager
-
-ly display manager - https://github.com/fairyglade/ly?tab=readme-ov-file#dependencies
-
-ly config file situated in `/etc/ly/config.ini`
-
-To change the color pallet go to `/lib/systemd/system/ly.service` and add `ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'
-` in [Service]
-
-    [Service]
-    Type=idle
-    ExecStartPre=/usr/bin/printf '%%b' '\e]P0191919\e]P7CDD6F4\ec'
-    ExecStart=/usr/bin/ly
-    StandardInput=tty
-    TTYPath=/dev/tty2
-    TTYReset=yes
-    TTYVHangup=yes
-
-if decided to use ly display manager then to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
-then run
-
-    sudo update-grub
-
-and can remove lightdm if needed
-
-    nala remove --purge lightdm
-
-for better grub experience go to `/etc/default/grub` and replace with this
-
-    GRUB_CMDLINE_LINUX_DEFAULT=
-
-then run
-
-    sudo update-grub
-
-## to try to fix tearing
-
-Add this file to `/etc/X11`
-
-    Section "Device"
-
-        Identifier "Intel Graphics"
-        Driver "intel"
-        Option "Tearfree" "true"
-
-    EndSection
-
-## vimium-options.json
-
-backup json for vimium plugin in browser
-
-## system setting
-
-base font size is 12

@@ -1,11 +1,11 @@
 super + Up
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
+    pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 super + Down
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
+    pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 super + m
-    pactl set-sink-mute @DEFAULT_SINK@ toggle; pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "Volume and mic is muted"
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle; [ $(pactl get-source-mute @DEFAULT_SOURCE@ | grep -oE "(yes|no)") = "yes" ] && (pactl set-sink-mute @DEFAULT_SINK@ true; notify-send --hint=string:x-dunst-stack-tag:volume-mic-mute-status "Volume and mic is muted") || (pactl set-sink-mute @DEFAULT_SINK@ false; notify-send --hint=string:x-dunst-stack-tag:volume-mic-mute-status "Volume and mic is unmuted")
 
 super + Right
     brightnessctl set +10% && notify-send --hint=string:x-dunst-stack-tag:brightness-notification "Brightness is at $(($(brightnessctl g) * 100 / $(brightnessctl m)))%"
@@ -29,12 +29,12 @@ alt + c
     rofi -show calc -no-show-match -no-sort -no-history -lines 0 -theme-str "element.selected.normal \{ background-color:#00000000; \} entry \{ placeholder : \"Type to Calculate\"; \}"
 
 @Print
-    maim -s -c 255,246,224,0.3 -u -l -B "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
+    maim -b 2 -s -c 136,88,189,0.3 -u -l -B "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
 
 alt + @Print 
     maim -u "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
 
-alt + e
+alt + f
     kitty lflayer
 
 # quit/restart bspwm

@@ -15,6 +15,8 @@ return {
 				["<C-e>"] = "actions.close",
 				["<C-h>"] = "actions.toggle_hidden",
 				["<C-o>"] = "actions.select",
+				["<C-r>"] = "actions.refresh",
+				["<C-l>"] = false,
 				["<C-s>"] = false,
 			},
 			keymaps_help = {
