@@ -24,9 +24,9 @@ window {
     background-color: @background;
     border:           1;
     border-color: @foreground;
-    padding:          8px;
-    width:            35%;
-    height:           40%;
+    padding:          8px 8px 0;
+    width:            40%;
+    height:           50%;
 }
 textbox {
     text-color: @foreground;

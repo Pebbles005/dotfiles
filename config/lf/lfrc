@@ -3,7 +3,6 @@ set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/preview'
 set shell bash
 set ignorecase 
-set icons 
 set number
 set relativenumber
 set mouse
@@ -16,7 +15,7 @@ set dircounts
 set incsearch
 set ratios "2:3"
 
-cmd open ${{
+cmd open &{{
     needs_sudo=false
 
     if [ ! -w "$f" ]; then
@@ -136,8 +135,8 @@ map x $$f
 map X !$f
 # dedicated keys for file opener actions
 map o open
+map <enter> open
 map O $mimeopen --ask $f
 map v :toggle; down
 map V invert
-map <enter> shell
 map <esc> :unselect; clear; echo "Selection Cleared"

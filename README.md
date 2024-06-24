@@ -5,14 +5,14 @@
 - ripgrep
 - [node](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions)
 - xclip
-- [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) , check for any kind errors in lazy or mason
-- [polybar](https://github.com/polybar/polybar/wiki/Compiling) , i.e. all mentioned dependencies in instructions are needed to build
+- [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (check for any kind errors in lazy or mason)
+- [polybar](https://github.com/polybar/polybar/wiki/Compiling) (i.e. all mentioned dependencies in instructions are needed to build)
 - rofi
 - [rofi-calc](https://github.com/svenstaro/rofi-calc)
 - bspwm
 - sxhkd
 - feh
-- [lf](https://github.com/gokcehan/lf) , i.e. requires kitty to preview images
+- [lf](https://github.com/gokcehan/lf) (i.e. requires kitty to preview images)
 - bat
 - mediainfo
 - catdoc
@@ -23,7 +23,7 @@
 - [picom](https://github.com/yshui/picom)
 - redshift
 - [starship](https://starship.rs/guide/#%F0%9F%9A%80-installation)
-- tmux , [tpp](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) , i.e. run 'prefix I' in tmux to install plugins
+- tmux , [tpp](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation) (i.e. run 'prefix I' in tmux to install plugins)
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch?tab=readme-ov-file#linux)
 - maim
 - brightnessctl
@@ -31,10 +31,13 @@
 - bat
 - fd-find
 - [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
+- lxappearance
+- xcursor-themes
 
 ## Note
 
 - Base font size for system is 12
+- move xorg.conf.d directory files to `/etc/X11/xorg.conf.d` directory
 - To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard` <br>
 - to make brightnessctl work run this command and logout login.
 
@@ -48,16 +51,6 @@
 then run
 
         sudo update-grub
-
-- to try to fix tearing add this file to `/etc/X11`
-
-        Section "Device"
-
-            Identifier "Intel Graphics"
-            Driver "intel"
-            Option "Tearfree" "true"
-
-        EndSection
 
 ## optional prerequisites
 

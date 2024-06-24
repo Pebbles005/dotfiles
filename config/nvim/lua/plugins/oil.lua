@@ -6,6 +6,7 @@ return {
 	config = function()
 		require("oil").setup({
 			default_file_explorer = true,
+			columns = {},
 			prompt_save_on_select_new_entry = true,
 			cleanup_delay_ms = 1000,
 			view_options = {
