@@ -1,8 +1,29 @@
-chosen=$(printf "Power Off\nRestart\nLog Off" | rofi -dmenu -i -cycle -theme-str 'mainbox{children:[listview];}window{height:20%;}' -hover-select -me-select-entry '' -me-accept-entry MousePrimary)
+#!/usr/bin/env bash
+
+chosen=$(printf "⏻\n\n󰗽" | rofi -dmenu -i -cycle -hover-select -me-select-entry '' -me-accept-entry MousePrimary -theme-str '
+mainbox {
+    children: ["listview"];
+}
+window {
+    width: 20%;                     
+}
+listview{
+    lines: 3;
+}
+element {
+    padding: 30px;
+    cursor: pointer;
+}
+element-text {
+    font: "nerd 40";
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+')
 
 case "$chosen" in
-	"Power Off") poweroff ;;
-	"Restart") reboot ;;
-	"Log Off") pkill x ;;
-	*) exit 1 ;;
+"⏻") poweroff ;;
+"") reboot ;;
+"󰗽") pkill x ;;
+*) exit 1 ;;
 esac

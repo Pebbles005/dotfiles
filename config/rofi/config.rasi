@@ -1,7 +1,6 @@
 configuration{
     modi: "drun,calc";
     font: "CaskaydiaCove Nerd Font 16";
-    terminal: "kitty";
     drun-display-format: "{name}";
     location: 0;
     disable-history: false;
@@ -14,53 +13,58 @@ configuration{
 @theme "/dev/null"
 
 * {
-    foreground:                  #cdd6f4;
-    background:                  #191919CC;
-    border-color:                @foreground;
-    separatorcolor:              #61677a;
-    background-color:            transparent;
+    foreground: #cdd6f4;
+    background: #191919CC;
+    border-color: @foreground;
+    separatorcolor: #61677a;
+    background-color: transparent;
 }
 window {
     background-color: @background;
-    border:           1;
+    border: 1;
     border-color: @foreground;
-    padding:          8px 8px 0;
-    width:            40%;
-    height:           50%;
+    padding: 15;
+    width: 40%;
+    fullscreen: false;
+    x-offset: 0px;
+    y-offset: 0px;
 }
 textbox {
     text-color: @foreground;
-    padding:8px;
+    padding: 8px;
+}
+listview {
+    lines: 6;
 }
 element {
-    padding:      8px;
-    text-color:       @foreground;
+    padding: 15;
+    text-color: @foreground;
 }
 element-text {
-    text-color:       inherit;
+    text-color: inherit;
 }
 element.selected.normal {
     background-color: @foreground;
-    text-color:       @background;
+    text-color: @background;
 }
 inputbar {
     text-color: @foreground;
-    border:       0px 0px 1px ;
+    border: 0px 0px 1px ;
     border-color: @separatorcolor;
-    padding:      4px 8px 16px;
-    children:   [prompt,textbox-prompt-colon,entry];
+    padding: 4px 8px 16px;
+    children: [prompt,textbox-prompt-colon,entry];
 }
 entry {
     text-color: @foreground;
-    placeholder:"Type to Find";
-    placeholder-color:@separatorcolor;
+    placeholder: "Type to Find";
+    placeholder-color: @separatorcolor;
 }
 prompt {
     text-color: @foreground;
 }
 textbox-prompt-colon {
-    expand:     false;
-    str:        ":";
+    expand: false;
+    str: ":";
     text-color: @foreground;
-    margin:     0px 0.3em 0em 0em ;
+    margin: 0px 0.3em 0em 0em ;
 }
