@@ -1,6 +1,6 @@
 # lfrc
-set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/preview'
+set cleaner '~/.config/lf/scripts/cleaner'
+set previewer '~/.config/lf/scripts/preview'
 set shell bash
 set ignorecase 
 set number

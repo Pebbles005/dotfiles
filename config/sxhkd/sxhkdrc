@@ -45,7 +45,7 @@ alt + @Print
     maim -u "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
 
 alt + f
-    kitty lflayer
+    kitty ~/.config/lf/scripts/lflayer
 
 # quit/restart bspwm
 alt + shift + r

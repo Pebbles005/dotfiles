@@ -124,13 +124,6 @@ else
     echo "file does not exist."
 fi
 
-# copying lflayer bin excecutable
-if [ -f "/usr/bin/lflayer" ]; then
-    cp "/usr/bin/lflayer" "$HOME/${main_dir}/bin/"
-else
-    echo "file does not exist."
-fi
-
 # copying rofi-powermenu bin excecutable
 if [ -f "/usr/bin/rofi-powermenu" ]; then
     cp "/usr/bin/rofi-powermenu" "$HOME/${main_dir}/bin/"
