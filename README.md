@@ -37,7 +37,7 @@
 ## Note
 
 - Base font size for system is 12
-- move xorg.conf.d directory files to `/etc/X11/xorg.conf.d` directory
+- move xorg.conf file to `/etc/X11/` directory
 - To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard` <br>
 - to make brightnessctl work run this command and logout login.
 
@@ -89,9 +89,7 @@ then run
     nala remove --purge xserver-xorg-video-intel
     nala remove --purge geoclue-2.0
     nala remove --purge hypnotix
-    nala remove --purge firefox
     nala remove --purge timeshift
-    nala remove --purge firefox-locale-en
     nala remove --purge autojump
     nala remove --purge xfce4-notifyd
     nala remove --purge gnome-keyring
@@ -119,3 +117,4 @@ then run
     nala remove --purge onboard
     nala remove --purge thunar
     nala remove --purge xfce4-screenshooter
+    nala remove --purge baobab
