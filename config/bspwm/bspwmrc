@@ -9,6 +9,7 @@ $HOME/.config/polybar/launch.sh &
 feh --no-fehbg --bg-max '/home/pebbles/Pictures/gravity.webp' &
 picom -b &
 $HOME/.config/bspwm/scripts/fullscreen_toggle &
+xset m 0 0 &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -22,6 +23,5 @@ bspc config focused_border_color "#cdd6f4"
 
 bspc rule -a "*:Toolkit:Picture-in-Picture" state=floating sticky=on focus=on rectangle=400x200+1015+60
 bspc rule -a Pavucontrol state=floating
-bspc rule -a Mumble state=floating
-bspc rule -a Xviewer state=floating rectangle=800x600+0+0 center=true
-bspc rule -a Io.github.celluloid_player.Celluloid state=floating rectangle=400x400+1015+60
+bspc rule -a Sxiv state=floating rectangle=800x500+0+0 center=true
+bspc rule -a mpv state=floating rectangle=400x400+1015+60

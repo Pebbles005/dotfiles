@@ -20,6 +20,10 @@
 - odt2txt
 - ffmpegthumbnailer
 - imagemagick
+- mpv
+- sxiv
+- evince
+- file-roller
 - [picom](https://github.com/yshui/picom)
 - redshift
 - [starship](https://starship.rs/guide/#%F0%9F%9A%80-installation)
@@ -46,7 +50,7 @@
 - to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
   and to remove splash screen go to `/etc/default/grub` and replace with this
 
-          GRUB_CMDLINE_LINUX_DEFAULT=
+        GRUB_CMDLINE_LINUX_DEFAULT=
 
 then run
 

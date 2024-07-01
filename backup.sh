@@ -14,11 +14,6 @@ if [ ! -d "$HOME/${main_dir}/.fonts" ]; then
     mkdir -p "$HOME/${main_dir}/.fonts"
 fi
 
-# making bin folder if it doesnt exist
-if [ ! -d "$HOME/${main_dir}/bin" ]; then
-    mkdir -p "$HOME/${main_dir}/bin"
-fi
-
 # copying tmux config
 if [ -f "$HOME/.config/tmux/tmux.conf" ]; then
     rsync -av --delete-before "$HOME/.config/tmux/tmux.conf" "$HOME/${main_dir}/config/tmux/"
@@ -75,6 +70,13 @@ else
     echo "directory does not exist."
 fi
 
+# copying mpv config
+if [ -d "$HOME/.config/mpv/" ]; then
+    rsync -av --delete-before "$HOME/.config/mpv/" "$HOME/${main_dir}/config/mpv/"
+else
+    echo "directory does not exist."
+fi
+
 # copying rofi config
 if [ -d "$HOME/.config/rofi/" ]; then
     rsync -av --delete-before "$HOME/.config/rofi/" "$HOME/${main_dir}/config/rofi/"
@@ -120,20 +122,6 @@ fi
 # copying .bashrc config
 if [ -f "$HOME/.bashrc" ]; then
     cp "$HOME/.bashrc" "$HOME/${main_dir}/"
-else
-    echo "file does not exist."
-fi
-
-# copying rofi-powermenu bin excecutable
-if [ -f "/usr/bin/rofi-powermenu" ]; then
-    cp "/usr/bin/rofi-powermenu" "$HOME/${main_dir}/bin/"
-else
-    echo "file does not exist."
-fi
-
-# copying rofi-powermenu bin excecutable
-if [ -f "/usr/bin/rofi-wifimenu" ]; then
-    cp "/usr/bin/rofi-wifimenu" "$HOME/${main_dir}/bin/"
 else
     echo "file does not exist."
 fi

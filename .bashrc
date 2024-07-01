@@ -141,17 +141,17 @@ extract() {
     for archive in "$@"; do
         if [ -f "$archive" ]; then
             case $archive in
+            *.zip) unzip $archive ;;
+            *.tar) tar xvf $archive ;;
+            *.rar) rar x $archive ;;
+            *.7z) 7z x $archive ;;
+            *.gz) gunzip $archive ;;
+            *.bz2) bunzip2 $archive ;;
             *.tar.bz2) tar xvjf $archive ;;
             *.tar.gz) tar xvzf $archive ;;
-            *.bz2) bunzip2 $archive ;;
-            *.rar) rar x $archive ;;
-            *.gz) gunzip $archive ;;
-            *.tar) tar xvf $archive ;;
             *.tbz2) tar xvjf $archive ;;
             *.tgz) tar xvzf $archive ;;
-            *.zip) unzip $archive ;;
             *.Z) uncompress $archive ;;
-            *.7z) 7z x $archive ;;
             *) echo "don't know how to extract '$archive'..." ;;
             esac
         else
@@ -261,9 +261,36 @@ open() {
     }
 
     case $(file --mime-type "$f" -bL) in
-    text/* | application/json | inode/x-empty) run_cmd nvim "$f" ;;
-    application/x-executable) run_cmd "$f" ;;
-    *) run_cmd xdg-open "$f" ;;
+    text/* | application/json* | application/x-empty | application/x-executable | application/x-shellscript | application/x-desktop | inode/x-empty)
+        run_cmd nvim "$f"
+        ;;
+    image/*)
+        run_cmd sxiv "$f"
+        ;;
+    video/* | audio/*)
+        run_cmd mpv "$f"
+        ;;
+    application/pdf)
+        run_cmd evince "$f"
+        ;;
+    application/zip | application/x-tar | application/x-rar | application/x-7z-compressed | application/gzip | application/x-bzip2 | application/x-compress)
+        run_cmd file-roller "$f"
+        ;;
+    application/msword | application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+        run_cmd libreoffice --writer "$f"
+        ;;
+    application/vnd.ms-excel | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+        run_cmd libreoffice --calc "$f"
+        ;;
+    application/vnd.ms-powerpoint | application/vnd.openxmlformats-officedocument.presentationml.presentation)
+        run_cmd libreoffice --impress "$f"
+        ;;
+    application/octet-stream)
+        run_cmd xdg-open "$f"
+        ;;
+    *)
+        run_cmd xdg-open "$f"
+        ;;
     esac
 }
 

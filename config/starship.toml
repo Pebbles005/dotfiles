@@ -14,15 +14,6 @@ format = '\[[$path]($style)\]'
 truncation_length = 3
 truncation_symbol = "…/"
 
-[directory.substitutions]
-"Documents" = "󱔗 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-"Videos" = " "
-"Notes" = "󰸕 "
-"Github" = " "
-
 [git_branch]
 format = '[ $symbol$branch ]($style)'
 

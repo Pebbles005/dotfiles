@@ -47,15 +47,12 @@ alt + @Print
 alt + f
     kitty ~/.config/lf/scripts/lflayer
 
-# quit/restart bspwm
 alt + shift + r
     bspc wm -r 
 
-# close or kill
 alt + {x,q}
 	{$HOME/.config/bspwm/scripts/custom_node_remove_event,bspc node -c }
 
-# focus the node in the given direction
 alt + {h,j,k,l}
     $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
 
@@ -65,33 +62,27 @@ alt + {Left,Down,Up,Right}
 alt + space
     [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && $HOME/.config/bspwm/scripts/window_edit --focus-state
 
-# move the node in the given direction
 alt + shift + {h,j,k,l}
     [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
 
 alt + shift + {Left,Down,Up,Right}
     [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && $HOME/.config/bspwm/scripts/window_edit --move {west,south,north,east} 
 
-# focus the last node/desktop
 alt + Tab
     bspc desktop -f last.occupied
 
-# focus or send to the given desktop
 alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
-# resizing windows
 alt + r
     bspc query -N -n .window.local > /dev/null && $HOME/.config/bspwm/scripts/window_resize_state --toggle
 
 alt + Escape
     $HOME/.config/bspwm/scripts/window_resize_state --reset
 
-# set the window state
 alt + shift + space
     [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && bspc query -N -n focused.floating.local && bspc node -t tiled || bspc node -t floating
 
-# Toggle fullscreen state of the focused window
 alt + shift + f
     [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && bspc node -t ~fullscreen
 
