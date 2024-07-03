@@ -8,7 +8,7 @@ local no_preview = function()
 	})
 end
 return {
-	{ -- Fuzzy Finder (files, lsp, etc)
+	{
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
 		tag = "0.1.6",
