@@ -11,6 +11,7 @@ $git_status\
 
 [directory]
 format = '\[[$path]($style)\]'
+style = 'fg:cyan bold'
 truncation_length = 3
 truncation_symbol = "…/"
 

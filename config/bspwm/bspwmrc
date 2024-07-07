@@ -18,8 +18,8 @@ bspc config window_gap 5
 bspc config split_ratio 0.5
 bspc config pointer_modifier mod1
 bspc config normal_border_color "#61677a"
-bspc config active_border_color "#cdd6f4"
-bspc config focused_border_color "#cdd6f4"
+bspc config active_border_color "#96C9F4"
+bspc config focused_border_color "#96C9F4"
 
 bspc rule -a "*:Toolkit:Picture-in-Picture" state=floating sticky=on focus=on rectangle=400x200+1015+60
 bspc rule -a Pavucontrol state=floating

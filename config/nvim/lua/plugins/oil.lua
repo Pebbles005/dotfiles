@@ -15,7 +15,6 @@ return {
 			keymaps = {
 				["<C-e>"] = "actions.close",
 				["<C-h>"] = "actions.toggle_hidden",
-				["<C-o>"] = "actions.select",
 				["<C-r>"] = "actions.refresh",
 				["<C-l>"] = false,
 				["<C-s>"] = false,
@@ -24,6 +23,9 @@ return {
 				border = "single",
 			},
 			float = {
+				border = "single",
+			},
+			preview = {
 				border = "single",
 			},
 			ssh = {

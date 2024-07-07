@@ -1,6 +1,6 @@
 configuration{
     modi: "drun,calc";
-    font: "CaskaydiaCove Nerd Font 16";
+    font: "CaskaydiaCove Nerd Font Bold 16";
     drun-display-format: "{name}";
     location: 0;
     disable-history: false;
@@ -13,16 +13,18 @@ configuration{
 @theme "/dev/null"
 
 * {
-    foreground: #cdd6f4;
+    foreground: #E5E9F0;
     background: #191919CC;
     border-color: @foreground;
-    separatorcolor: #61677a;
+    grey: #61677a;
+    magenta: #B988B0;
+    blue: #96C9F4;
     background-color: transparent;
 }
 window {
     background-color: @background;
     border: 1;
-    border-color: @foreground;
+    border-color: @blue;
     padding: 15;
     width: 40%;
     fullscreen: false;
@@ -44,27 +46,27 @@ element-text {
     text-color: inherit;
 }
 element.selected.normal {
-    background-color: @foreground;
     text-color: @background;
+    background-color: @blue;
 }
 inputbar {
     text-color: @foreground;
     border: 0px 0px 1px ;
-    border-color: @separatorcolor;
-    padding: 4px 8px 16px;
+    border-color: @grey;
+    padding: 0 15 15;
     children: [prompt,textbox-prompt-colon,entry];
 }
 entry {
     text-color: @foreground;
     placeholder: "Type to Find";
-    placeholder-color: @separatorcolor;
+    placeholder-color: @grey;
 }
 prompt {
-    text-color: @foreground;
+    text-color: @magenta;
 }
 textbox-prompt-colon {
     expand: false;
     str: ":";
-    text-color: @foreground;
+    text-color: @magenta;
     margin: 0px 0.3em 0em 0em ;
 }

@@ -50,6 +50,9 @@ alt + f
 alt + shift + r
     bspc wm -r 
 
+alt + shift + q
+    bspc quit
+    
 alt + {x,q}
 	{$HOME/.config/bspwm/scripts/custom_node_remove_event,bspc node -c }
 
