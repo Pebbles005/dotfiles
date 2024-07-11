@@ -1,4 +1,4 @@
-## prerequisites
+# prerequisites
 
 - dunst
 - kitty
@@ -38,7 +38,7 @@
 - lxappearance
 - xcursor-themes
 
-## Note
+# Note
 
 - Base font size for system is 12
 - move xorg.conf file to `/etc/X11/` directory

@@ -8,58 +8,58 @@
     },
     "modules": [
         {
-            "key": "  user         ",
+            "key": "user         ",
             "keyColor": "cyan",
             "type": "users"
         },
         {
-            "key": "  OS           ",
+            "key": "OS           ",
             "keyColor": "cyan",
             "type": "os"
         },
         {
-            "key": "  Machine      ",
+            "key": "Machine      ",
             "keyColor": "cyan",
             "type": "host"
         },
         {
-            "key": "  Kernel       ",
+            "key": "Kernel       ",
             "keyColor": "cyan",
             "type": "kernel"
         },
         {
-            "key": "  Uptime       ",
+            "key": "Uptime       ",
             "keyColor": "cyan",
             "type": "uptime"
         },
         {
-            "key": "  Resolution   ",
+            "key": "Resolution   ",
             "keyColor": "cyan",
             "type": "display",
             "compactType": "original-with-refresh-rate"
         },
         {
-            "key": "  WM           ",
+            "key": "WM           ",
             "keyColor": "cyan",
             "type": "wm"
         },
         {
-            "key": "  DE           ",
+            "key": "DE           ",
             "keyColor": "cyan",
             "type": "de"
         },
         {
-            "key": "  CPU          ",
+            "key": "CPU          ",
             "keyColor": "cyan",
             "type": "cpu"
         },
         {
-            "key": "  GPU          ",
+            "key": "GPU          ",
             "keyColor": "cyan",
             "type": "gpu"
         },
         {
-            "key": "  Memory       ",
+            "key": "Memory       ",
             "keyColor": "cyan",
             "type": "memory"
         }
