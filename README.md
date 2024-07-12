@@ -122,3 +122,4 @@ then run
     nala remove --purge thunar
     nala remove --purge xfce4-screenshooter
     nala remove --purge baobab
+    nala remove --purge mintupdate

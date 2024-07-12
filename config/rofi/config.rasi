@@ -18,13 +18,13 @@ configuration{
     border-color: @foreground;
     grey: #61677a;
     magenta: #B988B0;
-    blue: #96C9F4;
+    cyan: #88C0D0;
     background-color: transparent;
 }
 window {
     background-color: @background;
     border: 1;
-    border-color: @blue;
+    border-color: @cyan;
     padding: 15;
     width: 40%;
     fullscreen: false;
@@ -47,7 +47,7 @@ element-text {
 }
 element.selected.normal {
     text-color: @background;
-    background-color: @blue;
+    background-color: @cyan;
 }
 inputbar {
     text-color: @foreground;

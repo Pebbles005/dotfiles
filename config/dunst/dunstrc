@@ -10,7 +10,7 @@
     padding = 14
     horizontal_padding = 14
     frame_width = 1
-    frame_color = "#96C9F4"
+    frame_color = "#88C0D0"
     brackground = "#191919"
     font = "CaskaydiaCove Nerd Font Bold 13"
     separator_color = transparent
