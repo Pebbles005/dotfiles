@@ -12,7 +12,7 @@
     frame_width = 1
     frame_color = "#88C0D0"
     brackground = "#191919"
-    font = "CaskaydiaCove Nerd Font Bold 13"
+    font = "CaskaydiaMono Nerd Font Bold 13"
     separator_color = transparent
     sort = yes
     idle_threshold = 120

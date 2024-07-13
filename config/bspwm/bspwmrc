@@ -6,7 +6,7 @@ redshift &
 pgrep -x sxhkd >/dev/null || sxhkd &
 nm-applet &
 $HOME/.config/polybar/launch.sh &
-feh --no-fehbg --bg-max '/home/pebbles/Pictures/gravity.webp' &
+feh --no-fehbg --bg-max '/home/pebbles/Pictures/blue-sky.jpg' &
 picom -b &
 $HOME/.config/bspwm/scripts/fullscreen_toggle &
 xset m 0 0 &

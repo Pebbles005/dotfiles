@@ -5,7 +5,12 @@ return {
 		"williamboman/mason.nvim",
 
 		config = function()
-			require("mason").setup({})
+			require("mason").setup({
+				ui = {
+					border = "single",
+					width = 1,
+				},
+			})
 		end,
 	},
 	{
@@ -16,7 +21,7 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				auto_install = true,
+				automatic_installation = true,
 				ensure_installed = servers,
 			})
 		end,

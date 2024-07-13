@@ -1,6 +1,6 @@
 configuration{
     modi: "drun,calc";
-    font: "CaskaydiaCove Nerd Font Bold 16";
+    font: "CaskaydiaMono Nerd Font Bold 16";
     drun-display-format: "{name}";
     location: 0;
     disable-history: false;

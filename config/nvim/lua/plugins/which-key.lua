@@ -1,14 +1,41 @@
-
-  return { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
-      }   end,
+return {
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	opts = {
+		plugins = {
+			presets = {
+				operators = false,
+                motions = false,
+				text_objects = false,
+				windows = false,
+				nav = false,
+				z = false,
+				g = false,
+			},
+		},
+		win = {
+			border = "single",
+		},
+		icons = {
+			colors = false,
+		},
+		show_help = false,
+		show_keys = false,
+	},
+local wk = require("which-key")
+wk.add({
+  { "<leader>f", group = "file" }, -- group
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
+  { "<leader>fb", function() print("hello") end, desc = "Foobar" },
+  { "<leader>fn", desc = "New File" },
+  { "<leader>f1", hidden = true }, -- hide this keymap
+  {
+    -- Nested mappings are allowed and can be added in any order
+    -- Most attributes can be inherited or overridden on any level
+    -- There's no limit to the depth of nesting
+    mode = { "n", "v" }, -- NORMAL and VISUAL mode
+    { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
+    { "<leader>w", "<cmd>w<cr>", desc = "Write" },
   }
+})
+}
