@@ -1,5 +1,17 @@
-local servers =
-	{ "bashls", "lua_ls", "tsserver", "svelte", "cssls", "tailwindcss", "jsonls", "marksman", "html", "clangd" }
+local servers = {
+	"bashls",
+	"lua_ls",
+	"tsserver",
+	"svelte",
+	"cssls",
+	"tailwindcss",
+	"jsonls",
+	"marksman",
+	"html",
+	"clangd",
+	"eslint",
+}
+
 return {
 	{
 		"williamboman/mason.nvim",

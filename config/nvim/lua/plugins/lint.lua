@@ -9,7 +9,6 @@ return {
 					"shfmt",
 					"cpplint",
 					"clang-format",
-					"eslint",
 				},
 				run_on_start = true,
 				start_delay = 2000, -- 3 second delay
@@ -55,13 +54,7 @@ return {
 			local conform = require("conform")
 
 			conform.setup({
-				format_on_save = function(bufnr)
-					local disable_filetypes = { c = true, cpp = true }
-					return {
-						timeout_ms = 500,
-						lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-					}
-				end,
+				format_on_save = { lsp_format = "fallback" },
 				formatters_by_ft = {
 					lua = { "stylua" },
 					svelte = { "prettier" },
@@ -83,7 +76,7 @@ return {
 					yaml = { "yamlfix" },
 					css = { "prettier" },
 					scss = { "prettier" },
-					cpp = { { "clang-format", "prettierd" } },
+					cpp = { "clang-format" },
 				},
 			})
 		end,

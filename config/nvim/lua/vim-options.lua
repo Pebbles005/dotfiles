@@ -19,7 +19,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
-vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.inccommand = "split"
@@ -27,6 +26,7 @@ vim.opt.scrolloff = 5
 vim.opt.hlsearch = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
+vim.opt.timeoutlen = 10000
 
 -- Keybinds to make split navigation easier.
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
