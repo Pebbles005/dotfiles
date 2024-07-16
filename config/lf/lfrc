@@ -39,7 +39,7 @@ cmd open ${{
         run_cmd --normal nvim "$f"
         ;;
     image/*)
-        run_cmd sxiv "$f"
+        run_cmd sxiv -r -q "$f" *.*
         ;;
     video/* | audio/*)
         run_cmd mpv "$f"

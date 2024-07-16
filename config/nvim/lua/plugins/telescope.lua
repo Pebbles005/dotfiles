@@ -49,20 +49,6 @@ return {
 						"└",
 					},
 				},
-				pickers = {
-					find_files = {
-						disable_devicons = true,
-					},
-					buffers = {
-						disable_devicons = true,
-					},
-					live_grep = {
-						disable_devicons = true,
-					},
-					grep_string = {
-						disable_devicons = true,
-					},
-				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
