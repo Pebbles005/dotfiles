@@ -2,6 +2,8 @@ return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
 	config = function()
+		local normal_fg = vim.fn.synIDattr(vim.fn.hlID("NormalMode"), "fg")
+
 		require("lualine").setup({
 
 			options = {
@@ -18,7 +20,7 @@ return {
 			},
 			sections = {
 				lualine_a = {},
-				lualine_b = { "branch" },
+				lualine_b = { { "branch", color = { fg = normal_fg } } },
 				lualine_c = {
 					"diff",
 					"diagnostics",
@@ -27,12 +29,8 @@ return {
 						path = 1,
 					},
 				},
-				lualine_x = {
-					{
-						"%y",
-					},
-				},
-				lualine_y = { "progress" },
+				lualine_x = { "%y" },
+				lualine_y = { { "progress", color = { fg = normal_fg } } },
 				lualine_z = {},
 			},
 		})
