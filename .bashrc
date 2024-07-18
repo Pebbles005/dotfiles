@@ -299,14 +299,14 @@ fd() {
     local dir="${1:-.}"
     dir=$(
         fdfind . "$dir" --type d -H -E .git -E node_modules | fzf --border-label="find directory"
-    ) && cd "$dir"
+    ) && cd "${dir#./}"
 }
 
 ff() {
-    local dir="${1:-.}"
-    dir=$(
-        fdfind . "$dir" --type f -H -E .git -E node_modules | fzf --border-label="find files"
-    ) && open "$dir"
+    local file="${1:-.}"
+    file=$(
+        fdfind . "$file" --type f -H -E .git -E node_modules | fzf --border-label="find files"
+    ) && open "${file#./}"
 }
 
 gcom() {

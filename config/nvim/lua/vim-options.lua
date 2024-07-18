@@ -27,6 +27,7 @@ vim.opt.hlsearch = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 10000
+vim.o.statusline = '%!v:lua.require("Custom.statusline").custom_statusline()'
 
 -- Keybinds to make split navigation easier.
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
