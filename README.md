@@ -3,12 +3,16 @@
 - dunst
 - kitty
 - ripgrep
-- [node](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions)
+- [node](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions-deb)
 - xclip
 - [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (check for any kind errors in lazy or mason)
+  run this for clang-format and cpplint
+
+          apt install python3.10-venv
+
 - [polybar](https://github.com/polybar/polybar/wiki/Compiling) (i.e. all mentioned dependencies in instructions are needed to build)
 - rofi
-- [rofi-calc](https://github.com/svenstaro/rofi-calc)
+- [rofi-calc](https://github.com/svenstaro/rofi-calc) (use all build commands with sudo)
 - bspwm
 - sxhkd
 - feh
@@ -37,6 +41,7 @@
 - [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
 - lxappearance
 - xcursor-themes
+- htop
 
 # Note
 
@@ -123,3 +128,4 @@ then run
     nala remove --purge xfce4-screenshooter
     nala remove --purge baobab
     nala remove --purge mintupdate
+    nala remove --purge xviewer

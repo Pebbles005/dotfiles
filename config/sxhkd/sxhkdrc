@@ -13,11 +13,11 @@ super + m
     pactl set-source-mute @DEFAULT_SOURCE@ toggle; [ $(pactl get-source-mute @DEFAULT_SOURCE@ | grep -oE "(yes|no)") = "yes" ] && (pactl set-sink-mute @DEFAULT_SINK@ true; notify-send --hint=string:x-dunst-stack-tag:volume-mic-mute-status "Volume and mic is muted") || (pactl set-sink-mute @DEFAULT_SINK@ false; notify-send --hint=string:x-dunst-stack-tag:volume-mic-mute-status "Volume and mic is unmuted")
 
 super + Right
-    brightnessctl set +10%; \
+    brightnessctl set +5%; \
     notify-send --hint=string:x-dunst-stack-tag:brightness-notification "Brightness is at $(($(brightnessctl g) * 100 / $(brightnessctl m)))%"
 
 super + Left
-    brightnessctl set 10%-; \
+    brightnessctl set 5%-; \
     notify-send --hint=string:x-dunst-stack-tag:brightness-notification "Brightness is at $(($(brightnessctl g) * 100 / $(brightnessctl m)))%"
 
 alt + t

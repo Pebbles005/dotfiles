@@ -3,9 +3,7 @@ return {
 	event = "VeryLazy",
 	config = function()
 		local normal_fg = vim.fn.synIDattr(vim.fn.hlID("NormalMode"), "fg")
-
 		require("lualine").setup({
-
 			options = {
 				icons_enabled = false,
 				component_separators = "",

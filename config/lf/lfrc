@@ -42,7 +42,7 @@ cmd open ${{
         run_cmd sxiv -r -q "$f" *.*
         ;;
     video/* | audio/*)
-        run_cmd mpv "$f"
+        run_cmd ~/.config/mpv/scripts/mpv-single-instance "$f"
         ;;
     application/pdf)
         run_cmd evince "$f"

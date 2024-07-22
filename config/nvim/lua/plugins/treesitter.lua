@@ -1,6 +1,5 @@
-return { -- Highlight, edit, and navigate code
+return {
 	"nvim-treesitter/nvim-treesitter",
-	-- dependencies = { "nvim-tree/nvim-web-devicons" },
 	event = {
 		"BufReadPre",
 		"BufNewFile",
@@ -23,6 +22,7 @@ return { -- Highlight, edit, and navigate code
 			"svelte",
 			"typescript",
 			"vim",
+			"vimdoc",
 		},
 		highlight = {
 			enable = true,

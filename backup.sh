@@ -112,6 +112,13 @@ else
     echo "directory does not exist."
 fi
 
+# copying htop config
+if [ -d "$HOME/.config/htop/" ]; then
+    rsync -av --delete-before "$HOME/.config/htop/" "$HOME/${main_dir}/config/htop/"
+else
+    echo "directory does not exist."
+fi
+
 # copying fonts config
 if [ -d "$HOME/.fonts/" ]; then
     rsync -av --delete-before "$HOME/.fonts/" "$HOME/${main_dir}/.fonts/"
@@ -128,14 +135,14 @@ fi
 
 # copying startpage config
 if [ -f "$HOME/Documents/startpage.html" ]; then
-    cp "$HOME/Documents/startpage.html" "$HOME/${main_dir}/"
+    cp "$HOME/Documents/startpage.html" "$HOME/${main_dir}/extra/"
 else
     echo "file does not exist."
 fi
 
 # copying vimium-options config
 if [ -f "$HOME/Documents/vimium-options.json" ]; then
-    cp "$HOME/Documents/vimium-options.json" "$HOME/${main_dir}/"
+    cp "$HOME/Documents/vimium-options.json" "$HOME/${main_dir}/extra/"
 else
     echo "file does not exist."
 fi

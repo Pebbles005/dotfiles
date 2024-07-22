@@ -56,19 +56,21 @@ return {
 					local map = function(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
+					local telescope_builtin = require("telescope.builtin")
 
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-					map(
-						"<leader>ws",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
-					)
+					map("gd", telescope_builtin.lsp_definitions, "[G]oto [D]efinition")
+					map("gr", telescope_builtin.lsp_references, "[G]oto [R]eferences")
 					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+					vim.keymap.set(
+						"n",
+						"<leader>fd",
+						telescope_builtin.diagnostics,
+						{ desc = "[S]earch [D]iagnostics" }
+					)
+					vim.keymap.set("n", "<leader>d", function()
+						vim.diagnostic.open_float()
+					end, { desc = "show diagnostics" })
 
 					vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 						border = "single",
