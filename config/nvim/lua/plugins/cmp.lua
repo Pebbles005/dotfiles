@@ -53,7 +53,6 @@ return {
 				config = function(_, opts)
 					require("nvim-autopairs").setup(opts)
 
-					-- setup cmp for autopairs
 					local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 					require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
 				end,
@@ -63,7 +62,6 @@ return {
 			},
 		},
 		config = function()
-			-- Set up nvim-cmp.
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
@@ -102,7 +100,7 @@ return {
 				},
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "luasnip" },
 					{ name = "path" },
 					{ name = "buffer" },
 				}),

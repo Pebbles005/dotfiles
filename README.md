@@ -47,7 +47,6 @@
 
 - Base font size for system is 12
 - move xorg.conf file to `/etc/X11/` directory
-- To swap between caps lock and esc add `XKBOPTIONS="caps:swapescape"` to `/etc/default/keyboard` <br>
 - to make brightnessctl work run this command and logout login.
 
         usermod -a -G video ${USER}

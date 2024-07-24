@@ -80,7 +80,7 @@ alt + {_,shift + }{1-9,0}
 alt + r
     bspc query -N -n .window.local > /dev/null && $HOME/.config/bspwm/scripts/window_resize_state --toggle
 
-alt + Escape
+alt + Caps_Lock
     $HOME/.config/bspwm/scripts/window_resize_state --reset
 
 alt + shift + space

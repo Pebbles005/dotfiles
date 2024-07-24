@@ -7,34 +7,41 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 		},
-		config = function()
-			require("telescope").setup({
-				defaults = {
-					preview = false,
-					layout_config = {
-						preview_cutoff = 80,
-						preview_width = 0.5,
-					},
-					file_ignore_patterns = {
-						"node_modules",
-						"%.git",
-					},
-					borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		opts = {
+			defaults = {
+				preview = false,
+				layout_config = {
+					preview_cutoff = 80,
+					preview_width = 0.5,
+					height = 0.8,
 				},
-				pickers = {
-					git_commits = {
-						preview = true,
-					},
-					git_status = {
-						preview = true,
-					},
+				file_ignore_patterns = {
+					"node_modules",
+					"%.git",
 				},
-				extensions = {
-					["ui-select"] = {},
+				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+			},
+			pickers = {
+				find_files = {
+					hidden = true,
 				},
-			})
-			require("telescope").load_extension("ui-select")
+				git_commits = {
+					preview = true,
+				},
+				git_status = {
+					preview = true,
+				},
+			},
+			extensions = {
+				["ui-select"] = {},
+			},
+		},
+		config = function(_, opts)
+			local telescope = require("telescope")
 			local builtin = require("telescope.builtin")
+			telescope.setup(opts)
+			telescope.load_extension("ui-select")
+
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles" })
 			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 			vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "git commits" })
