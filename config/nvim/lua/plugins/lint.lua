@@ -9,7 +9,6 @@ return {
 					"shfmt",
 					"cpplint",
 					"clang-format",
-					"eslint_d",
 				},
 				run_on_start = true,
 				start_delay = 2000,
@@ -27,11 +26,11 @@ return {
 			local lint = require("lint")
 
 			lint.linters_by_ft = {
-				javascript = { "eslint_d" },
-				typescript = { "eslint_d" },
-				javascriptreact = { "eslint_d" },
-				typescriptreact = { "eslint_d" },
-				svelte = { "eslint_d" },
+				javascript = { "eslint" },
+				typescript = { "eslint" },
+				javascriptreact = { "eslint" },
+				typescriptreact = { "eslint" },
+				svelte = { "eslint" },
 				cpp = { "cpplint" },
 			}
 
