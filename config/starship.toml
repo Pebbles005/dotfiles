@@ -11,7 +11,6 @@ $git_status\
 
 [directory]
 format = '\[[$path]($style)\](fg:black) '
-read_only = " ro"
 
 [git_commit]
 tag_symbol = " tag "
