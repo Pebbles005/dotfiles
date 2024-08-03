@@ -21,4 +21,19 @@ require("lazy").setup({
 		size = { width = 1, height = 0.9 },
 		border = "single",
 	},
+	performance = {
+		cache = {
+			enabled = true,
+		},
+		rtp = {
+			disabled_plugins = {
+				"netrwPlugin",
+				"gzip",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
 })

@@ -15,15 +15,12 @@ local servers = {
 return {
 	{
 		"williamboman/mason.nvim",
-
-		config = function()
-			require("mason").setup({
-				ui = {
-					border = "single",
-					width = 1,
-				},
-			})
-		end,
+		opts = {
+			ui = {
+				border = "single",
+				width = 1,
+			},
+		},
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -31,14 +28,11 @@ return {
 			"BufReadPre",
 			"BufNewFile",
 		},
-		config = function()
-			require("mason-lspconfig").setup({
-				automatic_installation = true,
-				ensure_installed = servers,
-			})
-		end,
+		opts = {
+			automatic_installation = true,
+			ensure_installed = servers,
+		},
 	},
-
 	{
 		"neovim/nvim-lspconfig",
 		config = function()

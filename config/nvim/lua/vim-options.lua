@@ -1,7 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
-vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -28,12 +29,6 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 10000
 
--- Keybinds to make split navigation easier.
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-
 -- Function to check for floating windows and perform actions accordingly
 local function handle_esc()
 	for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
@@ -45,6 +40,10 @@ local function handle_esc()
 	vim.cmd.nohlsearch()
 end
 -- Custom keybinds
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 vim.keymap.set("n", "<Esc>", handle_esc)
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -69,7 +68,7 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<C-e>", vim.cmd.Oil, { desc = "toggle Oil" })
 
--- [[ Basic Autocommands ]]
+-- Basic Autocommands
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
