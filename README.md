@@ -6,10 +6,7 @@
 - [node](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions-deb)
 - xclip
 - [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (check for any kind errors in lazy or mason)
-  run this for clang-format and cpplint
-
-          apt install python3.10-venv
-
+- python3.10-venv
 - [polybar](https://github.com/polybar/polybar/wiki/Compiling) (i.e. all mentioned dependencies in instructions are needed to build)
 - rofi
 - [rofi-calc](https://github.com/svenstaro/rofi-calc) (use all build commands with sudo)
@@ -76,10 +73,6 @@ then run
           TTYPath=/dev/tty2
           TTYReset=yes
           TTYVHangup=yes
-
-  and can remove lightdm if needed
-
-      nala remove --purge lightdm
 
 ## bloat removal :
 
