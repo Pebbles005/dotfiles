@@ -6,14 +6,13 @@ local function git_branch()
 		return " [" .. branch .. "]"
 	end
 end
+
 local function filepath()
-	local full_path = vim.fn.expand("%:p")
-	if full_path == "" then
+	local fpath = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+	if fpath == "" then
 		return "[No Name]"
 	end
-	local cwd = vim.fn.getcwd()
-	local relative_path = full_path:gsub(cwd .. "/", "")
-	return relative_path
+	return string.format("%%<%s", fpath)
 end
 
 local function git_diff()
