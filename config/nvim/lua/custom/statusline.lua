@@ -8,16 +8,17 @@ local function git_branch()
 end
 
 local function filepath()
-	local fpath = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
-	if fpath == "" then
+	local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+	if path == "" then
 		return "[No Name]"
 	end
-	return string.format("%%<%s", fpath)
+	return path
 end
 
 local function git_diff()
 	local git_diff_output =
 		vim.fn.system(string.format("git diff --shortstat %s 2>/dev/null", filepath())):gsub("\n", "")
+	print(filepath())
 	if git_diff_output == "" then
 		return ""
 	end
@@ -58,7 +59,7 @@ end
 function Statusline()
 	return table.concat({
 		git_branch(),
-		filepath() .. (vim.bo.modified and " %m" or ""),
+		"%<" .. filepath() .. (vim.bo.modified and " %m" or ""),
 		git_diff(),
 		"%=" .. file_diagnostics(),
 		"%y",
