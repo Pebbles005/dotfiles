@@ -56,15 +56,12 @@ return {
 					map("gr", telescope_builtin.lsp_references, "[G]oto [R]eferences")
 					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-					vim.keymap.set(
-						"n",
-						"<leader>fd",
-						telescope_builtin.diagnostics,
-						{ desc = "[S]earch [D]iagnostics" }
-					)
-					vim.keymap.set("n", "<leader>d", function()
-						vim.diagnostic.open_float()
-					end, { desc = "show diagnostics" })
+					map("<leader>d", vim.diagnostic.open_float, "Show diagnostics")
+					map("<leader>fd", function()
+						telescope_builtin.diagnostics({
+							bufnr = 0,
+						})
+					end, "[S]earch [D]iagnostics")
 
 					vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 						border = "single",
