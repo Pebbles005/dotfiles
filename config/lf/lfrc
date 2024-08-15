@@ -14,6 +14,7 @@ set cursorpreviewfmt "\033[7;2m"
 set dircounts 
 set incsearch
 set ratios "2:3"
+set drawbox
 
 cmd open ${{
     needs_sudo=false
@@ -155,16 +156,27 @@ cmd bulk-rename ${{
     lf -remote "send $id unselect"
 }}
 
+
+cmd trash %{{
+    file_count=$(echo "$fx" | wc -l)
+
+    echo "trash $file_count items? [y/n] " 
+    read -r ans
+    if [[ "$ans" =~ ^[Yy]$ ]]; then
+        trash-put $fx
+    else
+        echo "could'nt move it to trash"
+    fi
+}}
+
 map a push :create<space>
-map D delete
+map D :trash
 map <backspace> set hidden!
 map E extract
 map p paste
 map R bulk-rename
-# execute current file (must be executable)
-map x $$f
-map X !$f
-# dedicated keys for file opener actions
+map e $$f
+map E !$f
 map o open
 map <enter> open
 map O $mimeopen --ask $f

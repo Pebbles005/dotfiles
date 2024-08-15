@@ -23,6 +23,7 @@ return {
 			},
 			pickers = {
 				find_files = {
+					disable_devicons = true,
 					hidden = true,
 				},
 				git_commits = {
@@ -30,6 +31,15 @@ return {
 				},
 				git_status = {
 					preview = true,
+				},
+				buffers = {
+					disable_devicons = true,
+				},
+				live_grep = {
+					disable_devicons = true,
+				},
+				grep_string = {
+					disable_devicons = true,
 				},
 			},
 			extensions = {

@@ -69,7 +69,7 @@ export FZF_DEFAULT_OPTS="-i --keep-right --filepath-word --height 50% --scroll-o
 # GENERAL ALIAS'S
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -i'
+alias rm='trash -v'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ping='ping -c 10'
@@ -296,16 +296,14 @@ open() {
 
 fd() {
     local dir="${1:-.}"
-    dir=$(
-        fdfind . "$dir" --type d -H -E .git -E node_modules | fzf --border-label="find directory"
-    ) && cd "${dir#./}"
+    dir=$(fdfind . "$dir" --type d -H -E .git -E node_modules | fzf --border-label="find directory")
+    cd "${dir#./}"
 }
 
 ff() {
     local file="${1:-.}"
-    file=$(
-        fdfind . "$file" --type f -H -E .git -E node_modules | fzf --border-label="find files"
-    ) && open "${file#./}"
+    file=$(fdfind . "$file" --type f -H -E .git -E node_modules | fzf --border-label="find files")
+    open "${file#./}"
 }
 
 gcom() {

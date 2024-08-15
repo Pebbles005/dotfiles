@@ -5,6 +5,7 @@ return {
 		borders = true,
 		styles = {
 			comments = "italic",
+			diagnostics = "underline",
 		},
 		disable = {
 			background = true,

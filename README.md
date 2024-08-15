@@ -39,6 +39,7 @@
 - lxappearance
 - xcursor-themes
 - htop
+- trash-cli
 
 # Note
 
