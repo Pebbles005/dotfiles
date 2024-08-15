@@ -266,6 +266,8 @@ user_pref("pdfjs.enabledCache.state", false);
 user_pref("pdfjs.migrationVersion", 2);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
+user_pref("permissions.default.microphone", 2);
+user_pref("permissions.default.camera", 2);
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("places.database.lastMaintenance", 1721150131);
 user_pref("pref.general.disable_button.default_browser", false);

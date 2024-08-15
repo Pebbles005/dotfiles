@@ -5,7 +5,7 @@
 - ripgrep
 - [node](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions-deb)
 - xclip
-- [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (check for any kind errors in lazy or mason)
+- [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (install eslint globally)
 - python3.10-venv
 - polybar
 - rofi
@@ -47,7 +47,7 @@
 - move xorg.conf file to `/etc/X11/` directory
 - to make brightnessctl work run this command and logout login.
 
-        usermod -a -G video ${USER}
+        sudo usermod -a -G video ${USER}
 
 - to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
   and to remove splash screen go to `/etc/default/grub` and replace with this
