@@ -7,13 +7,13 @@
 - xclip
 - [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (check for any kind errors in lazy or mason)
 - python3.10-venv
-- [polybar](https://github.com/polybar/polybar/wiki/Compiling) (i.e. all mentioned dependencies in instructions are needed to build)
+- polybar
 - rofi
 - [rofi-calc](https://github.com/svenstaro/rofi-calc) (use all build commands with sudo)
 - bspwm
 - sxhkd
 - feh
-- [lf](https://github.com/gokcehan/lf) (i.e. requires kitty to preview images)
+- lf (i.e. requires kitty to preview images)
 - bat
 - mediainfo
 - catdoc
