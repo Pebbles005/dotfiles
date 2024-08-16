@@ -40,6 +40,7 @@
 - xcursor-themes
 - htop
 - trash-cli
+- blueman
 
 # Note
 
