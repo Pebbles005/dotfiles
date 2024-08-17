@@ -42,6 +42,12 @@ else
     echo "directory does not exist."
 fi
 
+# copying alacritty config
+if [ -d "$HOME/.config/alacritty/" ]; then
+    rsync -av --delete-before "$HOME/.config/alacritty/" "$HOME/${main_dir}/config/alacritty/"
+else
+    echo "directory does not exist."
+fi
 # copying polybar config
 if [ -d "$HOME/.config/polybar/" ]; then
     rsync -av --delete-before "$HOME/.config/polybar/" "$HOME/${main_dir}/config/polybar/"

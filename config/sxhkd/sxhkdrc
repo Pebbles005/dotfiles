@@ -21,7 +21,7 @@ super + Left
     notify-send --hint=string:x-dunst-stack-tag:brightness-notification "Brightness is at $(($(brightnessctl g) * 100 / $(brightnessctl m)))%"
 
 alt + t
-    kitty
+    alacritty
 
 alt + s 
     rofi -show drun
@@ -45,7 +45,7 @@ alt + @Print
     maim -u "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
 
 alt + f
-    kitty ~/.config/lf/scripts/lflayer
+    alacritty -e ~/.config/lf/scripts/lflayer
 
 alt + shift + r
     bspc wm -r 

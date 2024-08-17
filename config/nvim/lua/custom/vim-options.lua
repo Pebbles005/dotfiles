@@ -50,7 +50,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "<Tab>", function()
-	vim.cmd("bnext")
+	vim.cmd("b#")
 	vim.diagnostic.show()
 end, { desc = "go to next opened file" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -66,6 +66,8 @@ vim.keymap.set(
 	{ desc = "replace the word under the cuursor with another word" }
 )
 vim.keymap.set("n", "<C-e>", vim.cmd.Oil, { desc = "toggle Oil" })
+vim.keymap.set("n", "<leader>j", vim.cmd.cnext)
+vim.keymap.set("n", "<leader>k", vim.cmd.cprev)
 
 -- Basic Autocommands
 vim.api.nvim_create_autocmd("TextYankPost", {
