@@ -1,3 +1,2 @@
-#!/usr/bin/env bash
-
-kitty +kitten icat --clear --stdin no --silent --transfer-mode file </dev/null >/dev/tty
+#!/bin/sh
+[ -n "$FIFO_UEBERZUG" ] && printf '{"action":"remove","identifier":"preview"}\n' >"$FIFO_UEBERZUG"

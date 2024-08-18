@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/bin/sh
+set -euf
 
-# making thumbnails folder if it doesnt exist
-if [ ! -d "$HOME/.cache/thumbnails" ]; then
-    mkdir -p "$HOME/.cache/thumbnails"
+if [ -n "${DISPLAY-}" ] && [ -z "${FIFO_UEBERZUG-}" ]; then
+    export FIFO_UEBERZUG="${TMPDIR:-/tmp}/lf-ueberzug-$$"
+    cleanup() {
+        exec 3>&-
+        rm -- "$FIFO_UEBERZUG"
+    }
+    mkfifo -- "$FIFO_UEBERZUG"
+    while ! ueberzug layer -s <"$FIFO_UEBERZUG"; do :; done &
+    exec 3>"$FIFO_UEBERZUG"
+    trap cleanup EXIT
+    lf "$@" 3>&-
 else
-    rm -rf "$HOME/.cache/thumbnails"/*
-fi
-
-# Run lf
-lf
-
-# Execute commands after lf exits
-if [ -d "$HOME/.cache/thumbnails" ] && [ -n "$(ls -A "$HOME/.cache/thumbnails")" ]; then
-    rm -rf "$HOME/.cache/thumbnails"/*
+    exec lf "$@"
 fi
