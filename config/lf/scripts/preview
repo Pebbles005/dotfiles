@@ -52,19 +52,35 @@ case "$(basename "$file" | tr '[A-Z]' '[a-z]')" in
     mediainfo "$file"
     ;;
 *.avi | *.mp4 | *.wmv | *.dat | *.3gp | *.ogv | *.mkv | *.mpg | *.mpeg | *.vob | *.fl[icv] | *.m2v | *.mov | *.webm | *.ts | *.mts | *.m4v | *.r[am] | *.qt | *.divx)
-    hash "$file"
-    cache ffmpegthumbnailer -i "$file" -o "$cache" -s 0
+    if [ -n "$FIFO_UEBERZUG" ]; then
+        hash "$file"
+        cache ffmpegthumbnailer -i "$file" -o "$cache" -s 0
+    fi
     ;;
 *.pdf)
-    hash "$file"
-    cache gs -o "$cache" -sDEVICE=pngalpha -dLastPage=1 "$file" >/dev/null
+    if [ -n "$FIFO_UEBERZUG" ]; then
+        hash "$file"
+        cache gs -o "$cache" -sDEVICE=pngalpha -dLastPage=1 "$file" >/dev/null
+    fi
     ;;
 *.bmp | *.jpg | *.jpeg | *.png | *.xpm | *.webp | *.gif | *.jfif)
-    draw "$file"
+    if [ -n "$FIFO_UEBERZUG" ]; then
+        orientation="$(magick identify -format '%[orientation]\n' -- "$file")"
+        if [ -n "$orientation" ] &&
+            [ "$orientation" != Undefined ] &&
+            [ "$orientation" != TopLeft ]; then
+            hash "$file"
+            cache magick -- "$file" -auto-orient "$cache"
+        else
+            draw "$file"
+        fi
+    fi
     ;;
 *.svg)
-    hash "$file"
-    cache convert "$file" "$cache"
+    if [ -n "$FIFO_UEBERZUG" ]; then
+        hash "$file"
+        cache convert "$file" "$cache"
+    fi
     ;;
 *)
     batcat --paging=never --terminal-width="$w" --color=always --theme=Nord "$file"

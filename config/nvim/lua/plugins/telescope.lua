@@ -6,6 +6,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
+			"debugloop/telescope-undo.nvim",
 		},
 		opts = {
 			defaults = {
@@ -42,38 +43,55 @@ return {
 					disable_devicons = true,
 				},
 			},
-			extensions = {
-				["ui-select"] = {},
-			},
 		},
 		config = function(_, opts)
 			local telescope = require("telescope")
 			local builtin = require("telescope.builtin")
-			telescope.setup(opts)
+			local telescope_undo = require("telescope-undo.actions")
+			telescope.setup(vim.tbl_deep_extend("force", opts, {
+				extensions = {
+					undo = {
+						mappings = {
+							i = {
+								["<C-a>"] = telescope_undo.yank_additions,
+								["<C-x>"] = telescope_undo.yank_deletions,
+								["<C-m>"] = telescope_undo.restore,
+							},
+							n = {
+								["<C-a>"] = telescope_undo.yank_additions,
+								["<C-x>"] = telescope_undo.yank_deletions,
+								["<C-m>"] = telescope_undo.restore,
+							},
+						},
+					},
+				},
+			}))
 			telescope.load_extension("ui-select")
+			telescope.load_extension("undo")
 
-			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles" })
-			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
 			vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "git commits" })
 			vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "git status" })
 			vim.keymap.set({ "n", "v" }, "<leader>fw", function()
 				builtin.grep_string({
 					word_match = "-w",
 				})
-			end, { desc = "[S]earch current [W]ord" })
-			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+			end, { desc = "Search current Word" })
+			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Search by Grep" })
 			vim.keymap.set(
 				"n",
 				"<leader>/",
 				builtin.current_buffer_fuzzy_find,
-				{ desc = "[/] Fuzzily search in current buffer" }
+				{ desc = "Fuzzily search in current buffer" }
 			)
 			vim.keymap.set("n", "<leader>f/", function()
 				builtin.live_grep({
 					grep_open_files = true,
 					prompt_title = "Live Grep in Open Files",
 				})
-			end, { desc = "[S]earch [/] in Open Files" })
+			end, { desc = "Search grep Open Files" })
+			vim.keymap.set("n", "<leader>u", ":Telescope undo<CR>", { desc = "Show undotree" })
 		end,
 	},
 }
