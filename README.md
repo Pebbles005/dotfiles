@@ -13,7 +13,7 @@
 - bspwm
 - sxhkd
 - feh
-- lf 
+- lf
 - bat
 - mediainfo
 - catdoc
@@ -40,6 +40,10 @@
 - htop
 - trash-cli
 - blueman
+
+# Install command for all the repo available pkg
+
+        nala install dunst alacritty ripgrep xclip python3.12-venv polybar rofi bspwm sxhkd feh lf bat mediainfo catdoc docx2txt odt2txt ffmpegthumbnailer imagemagick mpv sxiv evince file-roller redshift tmux maim brightnessctl zoxide fd-find lxappearance xcursor-themes htop trash-cli blueman
 
 # Note
 

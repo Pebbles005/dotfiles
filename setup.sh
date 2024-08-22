@@ -1,9 +1,7 @@
 # !/bin/sh
+# This is a copy of backup script to be changed into setup.
+
 main_dir="dotfiles"
-# making config folder if it doesnt exist
-if [ ! -d "$HOME/${main_dir}/config" ]; then
-    mkdir -p "$HOME/${main_dir}/config"
-fi
 
 # making font folder if it doesnt exist
 if [ ! -d "$HOME/${main_dir}/.fonts" ]; then
