@@ -1,7 +1,7 @@
 # prerequisites
 
 - dunst
-- kitty
+- alacritty
 - ripgrep
 - [node](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions-deb)
 - xclip
@@ -13,7 +13,7 @@
 - bspwm
 - sxhkd
 - feh
-- lf (i.e. requires kitty to preview images)
+- lf 
 - bat
 - mediainfo
 - catdoc
@@ -33,7 +33,6 @@
 - maim
 - brightnessctl
 - zoxide
-- bat
 - fd-find
 - [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
 - lxappearance

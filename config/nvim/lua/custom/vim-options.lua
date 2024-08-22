@@ -26,6 +26,7 @@ vim.o.scrolloff = 5
 vim.o.hlsearch = true
 vim.o.swapfile = false
 vim.o.termguicolors = true
+vim.o.guicursor = ""
 vim.o.timeoutlen = 10000
 vim.o.linebreak = true
 
