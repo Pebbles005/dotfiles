@@ -5,12 +5,12 @@ dim_foreground = "#E5E9F0"
 bright_foreground = "#E5E9F0"
 
 [colors.search.matches]
-foreground = "#908caa"
-background = "#393552"
+foreground = "CellBackground"
+background = "CellForeground"
 
 [colors.search.focused_match]
-foreground = "#232136"
-background = "#ea9a97"
+foreground = "CellBackground"
+background = "CellForeground"
 
 [colors.hints.start]
 foreground = "#908caa"
@@ -25,12 +25,8 @@ foreground = "None"
 background = "None"
 
 [colors.footer_bar]
-foreground = "#e0def4"
-background = "#2a273f"
-
-[colors.selection]
-text = "#e0def4"
-background = "#44415a"
+foreground = "#E5E9F0"
+background = "#3B4252"
 
 [colors.normal]
 black = "#61677a"

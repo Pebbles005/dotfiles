@@ -3,21 +3,23 @@
 
 main_dir="dotfiles"
 
-# making font folder if it doesnt exist
-if [ ! -d "$HOME/${main_dir}/.fonts" ]; then
-    mkdir -p "$HOME/${main_dir}/.fonts"
+# copying fonts config
+if [ -d "$HOME/${main_dir}/.fonts/" ]; then
+    rsync -av --delete-before "$HOME/${main_dir}/.fonts/" "$HOME/.fonts/"
+else
+    echo "directory does not exist."
 fi
 
 # copying tmux config
-if [ -f "$HOME/.config/tmux/tmux.conf" ]; then
-    rsync -av --delete-before "$HOME/.config/tmux/tmux.conf" "$HOME/${main_dir}/config/tmux/"
+if [ -f "$HOME/${main_dir}/config/tmux/tmux.conf" ]; then
+    cp "$HOME/${main_dir}/config/tmux/tmux.conf" "$HOME/.config/tmux/"
 else
     echo "file does not exist."
 fi
 
 # copying redshift config
-if [ -f "$HOME/.config/redshift.conf" ]; then
-    cp "$HOME/.config/redshift.conf" "$HOME/${main_dir}/config/"
+if [ -f "$HOME/${main_dir}/config/redshift.conf" ]; then
+    cp "$HOME/${main_dir}/config/redshift.conf" "$HOME/.config/"
 else
     echo "file does not exist."
 fi
@@ -115,13 +117,6 @@ fi
 # copying htop config
 if [ -d "$HOME/.config/htop/" ]; then
     rsync -av --delete-before "$HOME/.config/htop/" "$HOME/${main_dir}/config/htop/"
-else
-    echo "directory does not exist."
-fi
-
-# copying fonts config
-if [ -d "$HOME/.fonts/" ]; then
-    rsync -av --delete-before "$HOME/.fonts/" "$HOME/${main_dir}/.fonts/"
 else
     echo "directory does not exist."
 fi
