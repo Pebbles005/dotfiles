@@ -2,6 +2,7 @@ local servers = {
 	"bashls",
 	"lua_ls",
 	"tsserver",
+	"emmet_ls",
 	"svelte",
 	"cssls",
 	"tailwindcss",
