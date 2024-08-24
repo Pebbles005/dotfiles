@@ -65,15 +65,7 @@ case "$(basename "$file" | tr '[A-Z]' '[a-z]')" in
     ;;
 *.bmp | *.jpg | *.jpeg | *.png | *.xpm | *.webp | *.gif | *.jfif)
     if [ -n "$FIFO_UEBERZUG" ]; then
-        orientation="$(magick identify -format '%[orientation]\n' -- "$file")"
-        if [ -n "$orientation" ] &&
-            [ "$orientation" != Undefined ] &&
-            [ "$orientation" != TopLeft ]; then
-            hash "$file"
-            cache magick -- "$file" -auto-orient "$cache"
-        else
-            draw "$file"
-        fi
+        draw "$file"
     fi
     ;;
 *.svg)
