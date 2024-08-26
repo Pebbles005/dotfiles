@@ -126,3 +126,4 @@ then run
     nala remove --purge baobab
     nala remove --purge mintupdate
     nala remove --purge xviewer
+    nala remove --purge gnome-online-accounts
