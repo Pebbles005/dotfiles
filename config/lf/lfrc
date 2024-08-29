@@ -39,7 +39,7 @@ cmd open ${{
         run_cmd --normal nvim "$f"
         ;;
     image/*)
-        run_cmd sxiv -r -q "$f" *.*
+        run_cmd sxiv -r -p -a "$f" .
         ;;
     video/* | audio/*)
         run_cmd ~/.config/mpv/scripts/mpv-single-instance "$f"
@@ -58,9 +58,6 @@ cmd open ${{
         ;;
     application/vnd.ms-powerpoint | application/vnd.openxmlformats-officedocument.presentationml.presentation)
         run_cmd libreoffice --impress "$f"
-        ;;
-    application/octet-stream)
-        run_cmd xdg-open "$f"
         ;;
     *) 
         run_cmd xdg-open "$f"

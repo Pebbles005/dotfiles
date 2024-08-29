@@ -155,3 +155,10 @@ if [ -d "$HOME/.config/fastfetch/" ]; then
 else
     echo "directory does not exist."
 fi
+
+# copying .Xresources config
+if [ -f "$HOME/.Xresources" ]; then
+    cp "$HOME/.Xresources" "$HOME/${main_dir}/"
+else
+    echo "file does not exist."
+fi

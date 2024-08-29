@@ -267,10 +267,10 @@ open() {
         run_cmd nvim "$f"
         ;;
     image/*)
-        run_cmd sxiv "$f"
+        run_cmd sxiv -p -a "$f"
         ;;
     video/* | audio/*)
-        run_cmd mpv "$f"
+        run_cmd ~/.config/mpv/scripts/mpv-single-instance "$f"
         ;;
     application/pdf)
         run_cmd evince "$f"
