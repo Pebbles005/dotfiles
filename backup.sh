@@ -79,6 +79,13 @@ else
     echo "directory does not exist."
 fi
 
+# copying sxiv config
+if [ -d "$HOME/.config/sxiv/" ]; then
+    rsync -av --delete-before "$HOME/.config/sxiv/" "$HOME/${main_dir}/config/sxiv/"
+else
+    echo "directory does not exist."
+fi
+
 # copying rofi config
 if [ -d "$HOME/.config/rofi/" ]; then
     rsync -av --delete-before "$HOME/.config/rofi/" "$HOME/${main_dir}/config/rofi/"
