@@ -92,7 +92,7 @@ alias mxkillall='tmux kill-server'
 alias mxkill='tmux kill-session -t'
 alias lf='~/.config/lf/scripts/lflayer'
 alias mpv='~/.config/mpv/scripts/mpv-single-instance'
-alias sxiv='sxiv -p -a'
+alias sxiv='~/.config/sxiv/exec/sxiv-run'
 alias home='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -269,7 +269,7 @@ open() {
         run_cmd nvim "$f"
         ;;
     image/*)
-        run_cmd sxiv -p -a "$f"
+        run_cmd ~/.config/sxiv/exec/sxiv-run "$f"
         ;;
     video/* | audio/*)
         run_cmd ~/.config/mpv/scripts/mpv-single-instance "$f"
