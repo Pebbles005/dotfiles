@@ -6,7 +6,7 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-\n[└─](fg:black)\
+\n[└$character](fg:black)\
 """
 
 [directory]
@@ -25,3 +25,6 @@ deleted = "x"
 [git_branch]
 symbol = ""
 
+[character]
+success_symbol = '[\$](fg:black)'
+error_symbol = '[\$](fg:black)'

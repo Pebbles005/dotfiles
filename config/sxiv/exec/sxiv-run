@@ -6,6 +6,7 @@ if [ -z "$1" ]; then
     exit 1
 elif [ -d "$1" ]; then
     sxiv -p -a "$1"
+    exit 1
 fi
 
 # Extract the directory and filename
@@ -13,7 +14,7 @@ DIR=$(dirname $(realpath "$1"))
 
 # List all files in the directory and find the index of the specified file
 # LIST=$(find "$DIR" -maxdepth 1 -type f -exec file --mime-type {} + | grep 'image/' | sed 's/:.*//')
-LIST=$(ls $DIR/*.{jpg,jpeg,mjpg,mjpeg,gif,bmp,pbm,pgm,ppm,tga,xbm,xpm,tif,tiff,png,svg,svgz,mng,pcx,mov,mpg,mpeg,m2v,mkv,webm,webp,ogm,mp4,m4v,mp4v,vob,qt,nuv,wmv,asf,rm,rmvb,flc,avi,fli,flv,gl,dl,xcf,xwd,yuv,cgm,emf,ogv,ogx})
+LIST=$(ls 2>/dev/null $DIR/*.{jpg,jpeg,mjpg,mjpeg,gif,bmp,pbm,pgm,ppm,tga,xbm,xpm,tif,tiff,png,svg,svgz,mng,pcx,mov,mpg,mpeg,m2v,mkv,webm,webp,ogm,mp4,m4v,mp4v,vob,qt,nuv,wmv,asf,rm,rmvb,flc,avi,fli,flv,gl,dl,xcf,xwd,yuv,cgm,emf,ogv,ogx})
 INDEX=$(echo $LIST | tr ' ' '\n' | nl -n ln | grep "$1" | awk '{print $1}')
 
 # Check if the file exists in the directory
