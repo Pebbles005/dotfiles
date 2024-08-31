@@ -122,6 +122,7 @@ alias 755='chmod -R 755'
 alias 777='chmod -R 777'
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
+alias countsize="du -sh ."
 alias openports='netstat -nape --inet'
 alias rebootsafe='sudo shutdown -r now'
 alias rebootforce='sudo shutdown -r -n now'
