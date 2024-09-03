@@ -2,6 +2,7 @@ local servers = {
 	"bashls",
 	"lua_ls",
 	"tsserver",
+	"pyright",
 	"emmet_ls",
 	"svelte",
 	"cssls",
