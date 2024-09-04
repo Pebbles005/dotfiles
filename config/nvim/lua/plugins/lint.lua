@@ -48,7 +48,7 @@ return {
 			"BufNewFile",
 		},
 		opts = {
-			format_on_save = { lsp_format = "fallback" },
+			format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
 			formatters_by_ft = {
 				lua = { "stylua" },
 				svelte = { "prettier" },
@@ -64,7 +64,7 @@ return {
 				ruby = { "standardrb" },
 				markdown = { "prettier" },
 				erb = { "htmlbeautifier" },
-				html = { "htmlbeautifier" },
+				html = { "prettier" },
 				bash = { "shfmt" },
 				proto = { "buf" },
 				rust = { "rustfmt" },
@@ -74,5 +74,14 @@ return {
 				cpp = { "clang-format" },
 			},
 		},
+		config = function(_, opts)
+			require("conform").setup(opts)
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = { "*.svelte" },
+				callback = function()
+					vim.lsp.buf.format({ async = true })
+				end,
+			})
+		end,
 	},
 }
