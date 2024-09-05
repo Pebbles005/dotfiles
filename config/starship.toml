@@ -11,6 +11,9 @@ $git_status\
 
 [directory]
 format = '\[[$path]($style)\](fg:black) '
+truncation_length = 0
+truncate_to_repo = false
+
 
 [git_commit]
 tag_symbol = " tag "
