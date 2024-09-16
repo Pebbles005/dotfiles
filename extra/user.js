@@ -427,3 +427,4 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("trailhead.firstrun.didSeeAboutWelcome", true);
 user_pref("ui.key.menuAccessKeyFocuses", false);
 user_pref("browser.download.always_ask_before_handling_new_types", false);
+user_pref("accessibility.blockautorefresh", false);
