@@ -44,10 +44,11 @@ case "$(basename "$file" | tr '[A-Z]' '[a-z]')" in
 *.o) nm "$file" ;;
 *.odt | *.ods | *.odp | *.sxw) odt2txt "$file" ;;
 *.doc) catdoc "$file" ;;
-*.docx) docx2txt "$file" - ;;
+*.docx) docx2txt "$file" ;;
 *.xls | *.xlsx)
     ssconvert --export-type=Gnumeric_stf:stf_csv "$file" "fd://1" | batcat --paging=never --terminal-width="$w" --color=always --theme=Nord --language=csv
     ;;
+*.iso) isoinfo -d -i "$file" ;;
 *.wav | *.mp3 | *.flac | *.m4a | *.wma | *.ape | *.ac3 | *.og[agx] | *.spx | *.opus | *.as[fx] | *.mka)
     mediainfo "$file"
     ;;
