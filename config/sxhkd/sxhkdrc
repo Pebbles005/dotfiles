@@ -62,6 +62,12 @@ alt + {h,j,k,l}
 alt + {Left,Down,Up,Right}
     $HOME/.config/bspwm/scripts/window_edit --focus {west,south,north,east}
 
+alt + r + {h,j,k,l}
+    $HOME/.config/bspwm/scripts/window_edit --resize {west,south,north,east}
+
+alt + r + {Left,Down,Up,Right}
+    $HOME/.config/bspwm/scripts/window_edit --resize {west,south,north,east}
+
 alt + space
     [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && $HOME/.config/bspwm/scripts/window_edit --focus-state
 
@@ -77,9 +83,6 @@ alt + Tab
 alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
-alt + r
-    bspc query -N -n .window.local > /dev/null && $HOME/.config/bspwm/scripts/window_resize_state --toggle
-
 alt + Caps_Lock
     $HOME/.config/bspwm/scripts/window_resize_state --reset
 
@@ -90,3 +93,4 @@ alt + shift + f
     [ "$($HOME/.config/bspwm/scripts/window_resize_state --get)" != "resize" ] && bspc node -t ~fullscreen
 
 bspc config pointer_action1 move
+
