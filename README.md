@@ -7,7 +7,7 @@
 - xclip
 - [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (install eslint globally)
 - python3.10-venv
-- polybar
+- lemonbar (https://github.com/drscream/lemonbar-xft)
 - rofi
 - [rofi-calc](https://github.com/svenstaro/rofi-calc) (use all build commands with sudo)
 - bspwm
@@ -40,6 +40,7 @@
 - htop
 - trash-cli
 - blueman
+- xdotool
 
 # Install command for all the repo available pkg
 
@@ -64,6 +65,7 @@ then run
 
 ## optional prerequisites
 
+- polybar
 - [i3](https://i3wm.org/docs/repositories.html)
 - [autotiling](https://pypi.org/project/autotiling/)
 - [ly display manager](https://github.com/fairyglade/ly?tab=readme-ov-file#dependencies)
