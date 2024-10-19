@@ -1,21 +1,17 @@
 #! /bin/sh
-#
-# Example panel for lemonbar
-
 . $HOME/.config/lemonbar/panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 
 while read -r line; do
     case $line in
-    S*)
+    D*)
         # clock output
-        sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+        time="%{F$COLOR_DEFAULT_FG} ${line#?} %{F-}"
         ;;
-    T*)
-        # xtitle output
-        # title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
-        title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} titile %{B-}%{F-}"
+    B*)
+        # battery
+        battery="%{F$COLOR_DEFAULT_FG} ${line#?} %{F-}"
         ;;
     W*)
         # bspwm's state
@@ -93,5 +89,5 @@ while read -r line; do
         done
         ;;
     esac
-    printf "%s\n" "%{l}${wm}%{c}${title}%{r}${sys}"
+    printf "%s\n" "%{l}${wm}%{c}${time}%{r}${battery}"
 done

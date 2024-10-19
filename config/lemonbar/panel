@@ -16,8 +16,19 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-xdotool getwindowfocus getwindowname >"$PANEL_FIFO" &
-clock -sf 'S%a %H:%M' >"$PANEL_FIFO" &
+# Monitor battery status
+while
+    battery=$(cat /sys/class/power_supply/BAT1/capacity) # Adjust if necessary
+    status=$(cat /sys/class/power_supply/BAT1/status)    # Charging or Discharging
+    echo "B${battery}% (${status})"
+do
+    sleep 30 # Update every 30 seconds
+done >"$PANEL_FIFO" &
+
+# Monitor the date and time
+while date +"D%d %a, %H:%M"; do
+    sleep 30
+done >"$PANEL_FIFO" &
 bspc subscribe report >"$PANEL_FIFO" &
 
 . $HOME/.config/lemonbar/panel_colors

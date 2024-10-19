@@ -1,14 +1,14 @@
 #! /bin/sh
 
 xrandr --output $(xrandr | grep ' connected' | awk '{print $1}' | head -n 1) --scale 0.75x0.75
-redshift &
+pgrep -x redshift >/dev/null || redshift &
 setxkbmap -option "caps:swapescape" &
 pgrep -x sxhkd >/dev/null || sxhkd &
 nm-applet &
 pgrep -x $HOME/.config/lemonbar/panel >/dev/null || $HOME/.config/lemonbar/panel &
 feh --no-fehbg --bg-max '/home/pebbles/Pictures/blue-sky.jpg' &
-picom -b &
-$HOME/.config/bspwm/scripts/fullscreen_toggle &
+pgrep -x picom >/dev/null || picom &
+pgrep -x $HOME/.config/bspwm/scripts/fullscreen_toggle >/dev/null || $HOME/.config/bspwm/scripts/fullscreen_toggle &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
