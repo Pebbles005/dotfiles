@@ -7,7 +7,7 @@
 - xclip
 - [neovim](https://github.com/neovim/neovim/blob/master/BUILD.md) (install eslint globally)
 - python3.10-venv
-- lemonbar (https://github.com/drscream/lemonbar-xft)
+- lemonbar (https://gitlab.com/protesilaos/lemonbar-xft)
 - rofi
 - [rofi-calc](https://github.com/svenstaro/rofi-calc) (use all build commands with sudo)
 - bspwm
