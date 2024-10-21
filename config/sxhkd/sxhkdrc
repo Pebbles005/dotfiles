@@ -38,6 +38,9 @@ alt + c
     entry \{ placeholder : \"Type to Calculate\"; \} \
     listview \{ lines : 4; \}"
 
+alt + w
+    $HOME/.config/rofi/scripts/rofi-wifimenu
+
 @Print
     maim -b 2 -s -c 136,88,189,0.3 -u -l -B "$HOME/Pictures/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png" && notify-send "Screenshot Taken"
 

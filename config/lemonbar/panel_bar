@@ -7,11 +7,15 @@ while read -r line; do
     case $line in
     D*)
         # clock output
-        time="%{F$COLOR_DEFAULT_FG} ${line#?} %{F-}"
+        time=" ${line#?} "
         ;;
     B*)
         # battery
         battery="%{F$COLOR_DEFAULT_FG} ${line#?} %{F-}"
+        ;;
+    N*)
+        # battery
+        network="%{F$COLOR_DEFAULT_FG} ${line#?} %{F-}"
         ;;
     W*)
         # bspwm's state
@@ -89,5 +93,5 @@ while read -r line; do
         done
         ;;
     esac
-    printf "%s\n" "%{l}${wm}%{c}${time}%{r}${battery}"
+    printf "%s\n" "%{l}${wm}%{c}${time}%{r}${network}${battery}"
 done
