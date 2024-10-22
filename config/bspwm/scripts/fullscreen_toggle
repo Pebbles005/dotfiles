@@ -1,11 +1,11 @@
 #!/bin/sh
 
 HideBar() {
-    polybar-msg cmd hide
+    xdo hide -a "lemonbar"
 }
 
 ShowBar() {
-    polybar-msg cmd show
+    xdo show -a "lemonbar"
 }
 
 HideNodes() {

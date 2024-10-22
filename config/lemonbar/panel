@@ -3,7 +3,7 @@
 PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=35
 PANEL_FONT="CaskaydiaMono Nerd Font:bold:pixelsize=16"
-PANEL_WM_NAME=bspwm_panel
+PANEL_WM_NAME=lemonbar
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME
 
 # Check if the panel is already running
@@ -70,7 +70,7 @@ network_monitor() {
         ssid=$(iwgetid -r || echo "Disconnected")
 
         if [ "$eth_state" = "up" ]; then
-            echo "N [ETH]" | tee "$PANEL_FIFO"
+            echo "N ETH" | tee "$PANEL_FIFO"
         elif [ "$wifi_state" = "up" ]; then
             echo "N W:${ssid}" | tee "$PANEL_FIFO"
         else
