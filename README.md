@@ -21,6 +21,7 @@
 - odt2txt
 - ffmpegthumbnailer
 - imagemagick
+- librsvg2-bin
 - mpv
 - sxiv
 - evince
