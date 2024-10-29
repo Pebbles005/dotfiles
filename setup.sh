@@ -74,6 +74,29 @@ copy_user_js() {
     echo "user.js has been copied to all Firefox profiles."
 }
 
+update_grub() {
+    FONT_FILE="/etc/default/console-setup"
+    echo "Updating TTY font size to 16x32..."
+
+    if grep -q '^FONTSIZE=' "$FONT_FILE"; then
+        sudo sed -i 's/^FONTSIZE=.*/FONTSIZE="16x32"/' "$FONT_FILE"
+    else
+        echo 'FONTSIZE="16x32"' | sudo tee -a "$FONT_FILE"
+    fi
+
+    # Remove splash screen in /etc/default/grub
+    GRUB_FILE="/etc/default/grub"
+    echo "Removing splash screen settings from GRUB..."
+
+    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT=/' "$GRUB_FILE"
+
+    # Update GRUB configuration
+    echo "Updating GRUB configuration..."
+    sudo update-grub
+
+    echo "Done! Please reboot to apply the changes."
+}
+
 # Begin the restore process
 restore_file "$main_dir/.bashrc" "$HOME/.bashrc"
 restore_file "$main_dir/.Xresources" "$HOME/.Xresources"
@@ -107,6 +130,7 @@ sync_dir_content "$main_dir/Pictures" "$HOME/Pictures"
 sync_dir_content "$main_dir/extra" "$HOME/Documents"
 
 copy_user_js
+update_grub
 
 # Command to enable brightness control logout login to take effect
 sudo usermod -a -G video ${USER}

@@ -52,14 +52,6 @@
 ## Notes
 
 - Base font size for system is 12
-- to increase the font size of tty go to `/etc/default/console-setup` and change the FONTSIZE="16x32"
-  and to remove splash screen go to `/etc/default/grub` and replace with this
-
-        GRUB_CMDLINE_LINUX_DEFAULT=
-
-then run
-
-        sudo update-grub
 
 ## optional prerequisites
 
