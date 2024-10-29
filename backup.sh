@@ -150,13 +150,6 @@ else
     echo "file does not exist."
 fi
 
-# copying startpage config
-if [ -f "$HOME/Documents/startpage.html" ]; then
-    cp "$HOME/Documents/startpage.html" "$HOME/${main_dir}/extra/"
-else
-    echo "file does not exist."
-fi
-
 # copying vimium-options config
 if [ -f "$HOME/Documents/vimium-options.json" ]; then
     cp "$HOME/Documents/vimium-options.json" "$HOME/${main_dir}/extra/"

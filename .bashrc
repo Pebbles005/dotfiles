@@ -15,6 +15,7 @@ fi
 
 # EXPORTS
 if [[ $iatest -gt 0 ]]; then bind "set bell-style visible"; fi
+export ANDROID_HOME=$HOME/Android/sdk && export PATH=$PATH:$ANDROID_HOME/emulator && export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Expand the history size
 export HISTFILESIZE=10000
@@ -72,12 +73,10 @@ export _ZO_FZF_OPTS="$fzf_defaults"
 alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
-alias mkdir='mkdir -p'
+alias mkdir='mkdir -p -v'
 alias ps='ps auxf'
 alias ping='ping -c 10'
-alias less='less -R'
 alias cls='clear'
-alias apt-get='sudo apt-get'
 alias nala='sudo nala'
 alias docker='sudo docker'
 alias multitail='multitail --no-repeat -c'
@@ -93,13 +92,12 @@ alias mxkill='tmux kill-session -t'
 alias lf='~/.config/lf/scripts/lflayer'
 alias mpv='~/.config/mpv/scripts/mpv-single-instance'
 alias sxiv='~/.config/sxiv/exec/sxiv-run'
-alias home='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias bd='cd "$OLDPWD"'
-alias rmd='/bin/rm  -rf -v'
+alias rmd='rm -rf -v'
 alias la='ls -Alh'                # show hidden files
 alias ls='ls -aFh --color=always' # add colors and file type extensions
 alias lx='ls -lXBh'               # sort by extension

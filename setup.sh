@@ -1,150 +1,112 @@
-# !/bin/sh
-# This is a copy of backup script to be changed into setup.
+#!/bin/sh
+main_dir="$HOME/dotfiles"
 
-main_dir="dotfiles"
+# Helper function to create parent directories if missing
+ensure_dir() {
+    if [ ! -d "$1" ]; then
+        echo "Creating directory $1"
+        sudo mkdir -p "$1"
+    fi
+}
 
-# copying fonts config
-if [ -d "$HOME/${main_dir}/.fonts/" ]; then
-    rsync -av --delete-before "$HOME/${main_dir}/.fonts/" "$HOME/.fonts/"
-else
-    echo "directory does not exist."
-fi
+# Restore individual files
+restore_file() {
+    local src="$1"
+    local dest="$2"
+    if [ -f "$src" ]; then
+        echo "Restoring $dest"
+        sudo cp "$src" "$dest"
+    else
+        echo "Warning: $src does not exist, skipping."
+    fi
+}
 
-# copying tmux config
-if [ -f "$HOME/${main_dir}/config/tmux/tmux.conf" ]; then
-    cp "$HOME/${main_dir}/config/tmux/tmux.conf" "$HOME/.config/tmux/"
-else
-    echo "file does not exist."
-fi
+# Restore directories with rsync
+restore_dir() {
+    local src="$1"
+    local dest="$2"
+    ensure_dir "$dest"
+    if [ -d "$src" ]; then
+        echo "Restoring directory $dest"
+        sudo rsync -av --delete-before "$src" "$dest"
+    else
+        echo "Warning: $src does not exist, skipping."
+    fi
+}
 
-# copying redshift config
-if [ -f "$HOME/${main_dir}/config/redshift.conf" ]; then
-    cp "$HOME/${main_dir}/config/redshift.conf" "$HOME/.config/"
-else
-    echo "file does not exist."
-fi
+# Restore directories using rsync (replaces files but keeps extra files intact)
+sync_dir_content() {
+    local src="$1"
+    local dest="$2"
+    ensure_dir "$dest"
+    if [ -d "$src" ]; then
+        echo "Syncing contents from $src to $dest..."
+        rsync -avu "$src/" "$dest/"
+    else
+        echo "Warning: $src does not exist, skipping."
+    fi
+}
 
-# copying starship config
-if [ -f "$HOME/.config/starship.toml" ]; then
-    cp "$HOME/.config/starship.toml" "$HOME/${main_dir}/config/"
-else
-    echo "file does not exist."
-fi
+# For adding user.js to firefox profiles
+copy_user_js() {
+    firefox_profiles="$HOME/.mozilla/firefox"
+    user_js="$main_dir/extra/user.js"
+    # Check if the Firefox profiles directory exists
+    if [ ! -d "$firefox_profiles" ]; then
+        echo "Error: Firefox profiles directory not found at $firefox_profiles."
+        exit 1
+    fi
 
-# copying kitty config
-if [ -d "$HOME/.config/kitty/" ]; then
-    rsync -av --delete-before "$HOME/.config/kitty/" "$HOME/${main_dir}/config/kitty/"
-else
-    echo "directory does not exist."
-fi
+    # Ensure the user.js file exists
+    if [ ! -f "$user_js" ]; then
+        echo "Error: $user_js not found."
+        exit 1
+    fi
 
-# copying alacritty config
-if [ -d "$HOME/.config/alacritty/" ]; then
-    rsync -av --delete-before "$HOME/.config/alacritty/" "$HOME/${main_dir}/config/alacritty/"
-else
-    echo "directory does not exist."
-fi
-# copying polybar config
-if [ -d "$HOME/.config/polybar/" ]; then
-    rsync -av --delete-before "$HOME/.config/polybar/" "$HOME/${main_dir}/config/polybar/"
-else
-    echo "directory oes not exist."
-fi
+    # Iterate over all profile folders (only valid directories with a `prefs.js`)
+    for profile in "$firefox_profiles"/*; do
+        if [ -d "$profile" ] && [ -f "$profile/prefs.js" ]; then
+            echo "Copying user.js to $profile"
+            cp "$user_js" "$profile/user.js"
+        fi
+    done
 
-# copying lf config
-if [ -d "$HOME/.config/lf/" ]; then
-    rsync -av --delete-before "$HOME/.config/lf/" "$HOME/${main_dir}/config/lf/"
-else
-    echo "directory does not exist."
-fi
+    echo "user.js has been copied to all Firefox profiles."
+}
 
-# copying dunst config
-if [ -d "$HOME/.config/dunst/" ]; then
-    rsync -av --delete-before "$HOME/.config/dunst/" "$HOME/${main_dir}/config/dunst/"
-else
-    echo "directory does not exist."
-fi
+# Begin the restore process
+restore_file "$main_dir/.bashrc" "$HOME/.bashrc"
+restore_file "$main_dir/.Xresources" "$HOME/.Xresources"
+restore_file "$main_dir/extra/xorg.conf" "/etc/X11/"
 
-# copying nvim config
-if [ -d "$HOME/.config/nvim/" ]; then
-    rsync -av --delete-before "$HOME/.config/nvim/" "$HOME/${main_dir}/config/nvim/"
-else
-    echo "directory does not exist."
-fi
+# restore_dir "$main_dir/config/i3/" "$HOME/.config/i3/"
+# restore_dir "$main_dir/config/kitty/" "$HOME/.config/kitty/"
+restore_dir "$main_dir/config/tmux/" "$HOME/.config/tmux/"
+restore_dir "$main_dir/config/alacritty/" "$HOME/.config/alacritty/"
+restore_dir "$main_dir/config/polybar/" "$HOME/.config/polybar/"
+restore_dir "$main_dir/config/lemonbar/" "$HOME/.config/lemonbar/"
+restore_dir "$main_dir/config/lf/" "$HOME/.config/lf/"
+restore_dir "$main_dir/config/dunst/" "$HOME/.config/dunst/"
+restore_dir "$main_dir/config/nvim/" "$HOME/.config/nvim/"
+restore_dir "$main_dir/config/mpv/" "$HOME/.config/mpv/"
+restore_dir "$main_dir/config/sxiv/" "$HOME/.config/sxiv/"
+restore_dir "$main_dir/config/rofi/" "$HOME/.config/rofi/"
+restore_dir "$main_dir/config/bspwm/" "$HOME/.config/bspwm/"
+restore_dir "$main_dir/config/picom/" "$HOME/.config/picom/"
+restore_dir "$main_dir/config/sxhkd/" "$HOME/.config/sxhkd/"
+restore_dir "$main_dir/config/htop/" "$HOME/.config/htop/"
+restore_dir "$main_dir/config/fastfetch/" "$HOME/.config/fastfetch/"
 
-# copying mpv config
-if [ -d "$HOME/.config/mpv/" ]; then
-    rsync -av --delete-before "$HOME/.config/mpv/" "$HOME/${main_dir}/config/mpv/"
-else
-    echo "directory does not exist."
-fi
+restore_file "$main_dir/config/redshift.conf" "$HOME/.config/redshift.conf"
+restore_file "$main_dir/config/starship.toml" "$HOME/.config/starship.toml"
 
-# copying rofi config
-if [ -d "$HOME/.config/rofi/" ]; then
-    rsync -av --delete-before "$HOME/.config/rofi/" "$HOME/${main_dir}/config/rofi/"
-else
-    echo "directory does not exist."
-fi
+restore_dir "$main_dir/.fonts/" "$HOME/.fonts/"
 
-# copying i3 config
-if [ -d "$HOME/.config/i3/" ]; then
-    rsync -av --delete-before "$HOME/.config/i3/" "$HOME/${main_dir}/config/i3/"
-else
-    echo "directory does not exist."
-fi
+# Sync Pictures and extra directories without deleting other files
+sync_dir_content "$main_dir/Pictures" "$HOME/Pictures"
+sync_dir_content "$main_dir/extra" "$HOME/Documents"
 
-# copying i3 config
-if [ -d "$HOME/.config/bspwm/" ]; then
-    rsync -av --delete-before "$HOME/.config/bspwm/" "$HOME/${main_dir}/config/bspwm/"
-else
-    echo "directory does not exist."
-fi
+copy_user_js
 
-# copying picom config
-if [ -d "$HOME/.config/picom/" ]; then
-    rsync -av --delete-before "$HOME/.config/picom/" "$HOME/${main_dir}/config/picom/"
-else
-    echo "directory does not exist."
-fi
-
-# copying sxhkd config
-if [ -d "$HOME/.config/sxhkd/" ]; then
-    rsync -av --delete-before "$HOME/.config/sxhkd/" "$HOME/${main_dir}/config/sxhkd/"
-else
-    echo "directory does not exist."
-fi
-
-# copying htop config
-if [ -d "$HOME/.config/htop/" ]; then
-    rsync -av --delete-before "$HOME/.config/htop/" "$HOME/${main_dir}/config/htop/"
-else
-    echo "directory does not exist."
-fi
-
-# copying .bashrc config
-if [ -f "$HOME/.bashrc" ]; then
-    cp "$HOME/.bashrc" "$HOME/${main_dir}/"
-else
-    echo "file does not exist."
-fi
-
-# copying startpage config
-if [ -f "$HOME/Documents/startpage.html" ]; then
-    cp "$HOME/Documents/startpage.html" "$HOME/${main_dir}/extra/"
-else
-    echo "file does not exist."
-fi
-
-# copying vimium-options config
-if [ -f "$HOME/Documents/vimium-options.json" ]; then
-    cp "$HOME/Documents/vimium-options.json" "$HOME/${main_dir}/extra/"
-else
-    echo "file does not exist."
-fi
-
-# copying fastfetch config
-if [ -d "$HOME/.config/fastfetch/" ]; then
-    rsync -av --delete-before "$HOME/.config/fastfetch/" "$HOME/${main_dir}/config/fastfetch/"
-else
-    echo "directory does not exist."
-fi
+# Command to enable brightness control logout login to take effect
+sudo usermod -a -G video ${USER}

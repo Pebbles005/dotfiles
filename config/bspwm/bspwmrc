@@ -6,7 +6,7 @@ setxkbmap -option "caps:swapescape" &
 pgrep -x sxhkd >/dev/null || sxhkd &
 nm-applet &
 pgrep -x $HOME/.config/lemonbar/panel >/dev/null || $HOME/.config/lemonbar/panel &
-feh --no-fehbg --bg-max '/home/pebbles/Pictures/blue-sky.jpg' &
+feh --no-fehbg --bg-fill '/home/pebbles/Pictures/eva-wall.jpg' &
 pgrep -x picom >/dev/null || picom &
 pgrep -x $HOME/.config/bspwm/scripts/fullscreen_toggle >/dev/null || $HOME/.config/bspwm/scripts/fullscreen_toggle &
 
