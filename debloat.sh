@@ -8,6 +8,8 @@ sudo nala remove --purge rhythmbox -y
 sudo nala remove --purge webapp-manager -y
 sudo nala remove --purge xfce4-terminal -y
 sudo nala remove --purge thunderbird -y
+sudo nala remove thunderbird-locale-en -y
+sudo nala remove thunderbird-locale-en-us -y
 sudo nala remove --purge transmission-gtk -y
 sudo nala remove --purge xserver-xorg-video-intel -y
 sudo nala remove --purge geoclue-2.0 -y
