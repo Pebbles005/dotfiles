@@ -52,6 +52,13 @@ else
     echo "directory does not exist."
 fi
 
+# copying gtk-3.0 config
+if [ -d "$HOME/.config/gtk-3.0/" ]; then
+    rsync -av --delete-before "$HOME/.config/gtk-3.0/" "$HOME/${main_dir}/config/gtk-3.0/"
+else
+    echo "directory does not exist."
+fi
+
 # copying lemonbar config
 if [ -d "$HOME/.config/lemonbar/" ]; then
     rsync -av --delete-before "$HOME/.config/lemonbar/" "$HOME/${main_dir}/config/lemonbar/"

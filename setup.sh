@@ -100,10 +100,12 @@ update_grub() {
 # Begin the restore process
 restore_file "$main_dir/.bashrc" "$HOME/.bashrc"
 restore_file "$main_dir/.Xresources" "$HOME/.Xresources"
+restore_file "$main_dir/.fonts.conf" "$HOME/.fonts.conf"
 restore_file "$main_dir/extra/xorg.conf" "/etc/X11/"
 
 # restore_dir "$main_dir/config/i3/" "$HOME/.config/i3/"
 # restore_dir "$main_dir/config/kitty/" "$HOME/.config/kitty/"
+restore_dir "$main_dir/config/gtk-3.0/" "$HOME/.config/gtk-3.0/"
 restore_dir "$main_dir/config/tmux/" "$HOME/.config/tmux/"
 restore_dir "$main_dir/config/alacritty/" "$HOME/.config/alacritty/"
 restore_dir "$main_dir/config/polybar/" "$HOME/.config/polybar/"
