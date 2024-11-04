@@ -6,8 +6,8 @@ if [ ! -d "$HOME/${main_dir}/config" ]; then
 fi
 
 # making font folder if it doesnt exist
-if [ ! -d "$HOME/${main_dir}/.fonts" ]; then
-    mkdir -p "$HOME/${main_dir}/.fonts"
+if [ ! -d "$HOME/${main_dir}/fonts" ]; then
+    mkdir -p "$HOME/${main_dir}/fonts"
 fi
 
 # copying tmux config
@@ -137,10 +137,17 @@ else
 fi
 
 # copying fonts config
-if [ -d "$HOME/.fonts/" ]; then
-    rsync -av --delete-before "$HOME/.fonts/" "$HOME/${main_dir}/.fonts/"
+if [ -d "$HOME/.local/share/fonts/" ]; then
+    rsync -av --delete-before "$HOME/.local/share/fonts/" "$HOME/${main_dir}/fonts/"
 else
     echo "directory does not exist."
+fi
+
+# copying .fonts.conf config
+if [ -f "$HOME/.fonts.conf" ]; then
+    cp "$HOME/.fonts.conf" "$HOME/${main_dir}/"
+else
+    echo "file does not exist."
 fi
 
 # copying .bashrc config

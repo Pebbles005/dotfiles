@@ -123,7 +123,7 @@ restore_dir "$main_dir/config/fastfetch/" "$HOME/.config/fastfetch/"
 restore_file "$main_dir/config/redshift.conf" "$HOME/.config/redshift.conf"
 restore_file "$main_dir/config/starship.toml" "$HOME/.config/starship.toml"
 
-restore_dir "$main_dir/.fonts/" "$HOME/.fonts/"
+restore_dir "$main_dir/fonts/" "$HOME/.local/share/fonts/"
 
 # Sync Pictures and extra directories without deleting other files
 sync_dir_content "$main_dir/Pictures" "$HOME/Pictures"
