@@ -15,7 +15,7 @@ element {
     cursor: pointer;
 }
 element-text {
-    font: "nerd 40";
+    font: "nerd 50";
     vertical-align: 0.5;
     horizontal-align: 0.5;
 }
