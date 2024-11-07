@@ -29,5 +29,5 @@ deleted = "x"
 symbol = ""
 
 [character]
-success_symbol = '[\$](fg:black)'
-error_symbol = '[\$](fg:black)'
+success_symbol = '[\$](fg:green)'
+error_symbol = '[\$](fg:red)'

@@ -39,7 +39,7 @@ cyan = "#88C0D0"
 white = "#E5E9F0"
 
 [colors.bright]
-black = "#3B4252"
+black = "#191919"
 red = "#E06C75"
 green = "#9EC183"
 yellow = "#EBCB8B"
@@ -48,12 +48,3 @@ magenta = "#B988B0"
 cyan = "#88C0D0"
 white = "#E5E9F0"
 
-[colors.dim]
-black = "#3B4252"
-red = "#E06C75"
-green = "#9EC183"
-yellow = "#EBCB8B"
-blue = "#81A1C1"
-magenta = "#B988B0"
-cyan = "#88C0D0"
-white = "#E5E9F0"
