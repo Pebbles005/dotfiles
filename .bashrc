@@ -15,7 +15,6 @@ fi
 
 # EXPORTS
 if [[ $iatest -gt 0 ]]; then bind "set bell-style visible"; fi
-export ANDROID_HOME=$HOME/Android/sdk && export PATH=$PATH:$ANDROID_HOME/emulator && export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Expand the history size
 export HISTFILESIZE=10000
