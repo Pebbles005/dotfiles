@@ -46,7 +46,7 @@
 
 ## Install command for all the repo available pkg
 
-        nala install dunst alacritty ripgrep xclip python3.12-venv polybar rofi bspwm sxhkd feh lf bat mediainfo catdoc docx2txt odt2txt ffmpegthumbnailer imagemagick mpv sxiv evince file-roller redshift tmux maim brightnessctl zoxide fd-find lxappearance htop trash-cli blueman upower iw
+        nala install dunst alacritty ripgrep xclip python3.12-venv polybar rofi bspwm sxhkd feh lf bat mediainfo catdoc docx2txt odt2txt ffmpegthumbnailer imagemagick mpv sxiv evince file-roller redshift tmux maim brightnessctl zoxide fd-find lxappearance htop trash-cli blueman upower iw ffmpeg
 
 ## optional prerequisites
 

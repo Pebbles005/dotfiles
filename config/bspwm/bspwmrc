@@ -22,6 +22,6 @@ bspc config active_border_color "#88C0D0"
 bspc config focused_border_color "#88C0D0"
 
 bspc rule -a "*:Toolkit:Picture-in-Picture" state=floating sticky=on focus=on rectangle=400x200+1015+60
-bspc rule -a Pavucontrol state=floating
+bspc rule -a Pavucontrol state=floating rectangle=700x400+0+0 center=true
 bspc rule -a Sxiv state=floating rectangle=800x500+0+0 center=true
 bspc rule -a mpv state=floating rectangle=400x400+1015+60

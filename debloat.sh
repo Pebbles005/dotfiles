@@ -46,3 +46,4 @@ sudo nala remove --purge baobab -y
 sudo nala remove --purge mintupdate -y
 sudo nala remove --purge xviewer -y
 sudo nala remove --purge gnome-online-accounts -y
+sudo nala remove --purge xreader -y
