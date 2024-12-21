@@ -7,6 +7,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 			"debugloop/telescope-undo.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		opts = {
 			defaults = {
@@ -64,10 +65,16 @@ return {
 							},
 						},
 					},
+					fzf = {
+						fuzzy = true, -- false will only do exact matching
+						override_generic_sorter = true, -- override the generic sorter
+						override_file_sorter = true, -- override the file sorter
+					},
 				},
 			}))
 			telescope.load_extension("ui-select")
 			telescope.load_extension("undo")
+			telescope.load_extension("fzf")
 
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
