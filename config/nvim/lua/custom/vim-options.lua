@@ -76,3 +76,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "javascriptreact", "typescriptreact" },
+	callback = function()
+		vim.bo.commentstring = "{/* %s */}"
+	end,
+})
+
+vim.keymap.set("n", "<leader>r", function()
+	print(vim.api.nvim_get_mode().mode ~= "n" and vim.bo.buftype ~= "prompt" and vim.b.completion ~= false)
+end)

@@ -1,0 +1,11 @@
+{
+  "arrowFunction": {
+    "prefix": "afn",
+    "body": [
+      "const ${1:funcName} = (${2:params}) => {",
+      "\t${3:// logic here}",
+      "};"
+    ],
+    "description": "Creates an arrow function"
+  }
+}
